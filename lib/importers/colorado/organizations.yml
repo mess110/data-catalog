@@ -1,0 +1,6 @@
+- uid: 'colorado'
+  name: 'Colorado'
+  url: 'http://colorado.gov'
+  location:
+    :location:
+      uid: 'colorado'

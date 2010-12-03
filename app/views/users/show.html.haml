@@ -1,0 +1,15 @@
+- @page_title = @user.name
+%section#users_show
+  %h1.page_title= @page_title
+  %section.details
+    %dl
+      %dt Avatar
+      %dd= gravatar_image_tag(@user)
+      %dt Bio
+      %dd= @user.bio
+      %dt Email
+      %dd= @user.email
+      %dt Owned Catalogs
+      %dd= user_owned_catalogs(@user)
+      %dt Curated Catalogs
+      %dd= user_curated_catalogs(@user)

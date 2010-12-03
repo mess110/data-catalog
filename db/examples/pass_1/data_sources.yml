@@ -1,0 +1,151 @@
+- uid: "job-openings-and-labor-turnover-survey"
+  title: "Job Openings and Labor Turnover Survey"
+  url: "http://www.data.gov/raw/329"
+  description: "The Job Openings and Labor Turnover Survey (JOLTS) program produces data on job openings hires and separations."
+  released:
+    year: 2000
+  organization:
+    :organization:
+      uid: "us-bureau-of-labor-statistics"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "economy"
+  data_representations:
+  - url: "http://www.data.gov/download/329/csv"
+    kind: "Document"
+    format: "CSV"
+  - url: "http://www.data.gov/semantic/data/alpha/329/dataset-329.rdf.gz"
+    kind: "Document"
+    format: "RDF"
+- uid: "toxics-release-inventory"
+  title: "Toxics Release Inventory data"
+  url: null
+  description: "The Toxics Release Inventory (TRI is a publicly available EPA database that contains information on toxic chemical releases and waste management activities reported annually by facilities in certain industries as well as federal facilities."
+  organization:
+    :organization:
+      uid: "us-environmental-protection-agency"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "environment"
+- uid: "toxics-release-inventory-1990-california"
+  title: "1990 Toxics Release Inventory data for the state of California"
+  url: "http://www.data.gov/raw/2965"
+  description: "The Toxics Release Inventory (TRI is a publicly available EPA database that contains information on toxic chemical releases and waste management activities reported annually by facilities in certain industries as well as federal facilities."
+  organization:
+    :organization:
+      uid: "us-environmental-protection-agency"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  parent:
+    :data_source:
+      uid: "toxics-release-inventory"
+  facets:
+    year: "1990"
+    state: "California"
+  data_representations:
+  - url: "http://www.data.gov/download/2965/csv"
+    kind: "Document"
+    format: "CSV"
+- uid: "toxics-release-inventory-1990-colorado"
+  title: "1990 Toxics Release Inventory data for the state of Colorado"
+  url: "http://www.data.gov/raw/2966"
+  description: "The Toxics Release Inventory (TRI is a publicly available EPA database that contains information on toxic chemical releases and waste management activities reported annually by facilities in certain industries as well as federal facilities."
+  organization:
+    :organization:
+      uid: "us-environmental-protection-agency"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  parent:
+    :data_source:
+      uid: "toxics-release-inventory"
+  facets:
+    year: "1990"
+    state: "Colorado"
+  data_representations:
+  - url: "http://www.data.gov/download/2966/csv"
+    kind: "Document"
+    format: "CSV"
+- uid: "toxics-release-inventory-1991-california"
+  title: "1991 Toxics Release Inventory data for the state of California"
+  url: "http://www.data.gov/raw/2907"
+  description: "The Toxics Release Inventory (TRI is a publicly available EPA database that contains information on toxic chemical releases and waste management activities reported annually by facilities in certain industries as well as federal facilities."
+  organization:
+    :organization:
+      uid: "us-environmental-protection-agency"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  parent:
+    :data_source:
+      uid: "toxics-release-inventory"
+  facets:
+    year: "1991"
+    state: "California"
+  data_representations:
+  - url: "http://www.data.gov/download/2907/csv"
+    kind: "Document"
+    format: "CSV"
+- uid: "toxics-release-inventory-1991-colorado"
+  title: "1991 Toxics Release Inventory data for the state of Colorado"
+  url: "http://www.data.gov/raw/2908"
+  description: "The Toxics Release Inventory (TRI is a publicly available EPA database that contains information on toxic chemical releases and waste management activities reported annually by facilities in certain industries as well as federal facilities."
+  organization:
+    :organization:
+      uid: "us-environmental-protection-agency"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  parent:
+    :data_source:
+      uid: "toxics-release-inventory"
+  facets:
+    year: "1991"
+    state: "Colorado"
+  data_representations:
+  - url: "http://www.data.gov/download/2908/csv"
+    kind: "Document"
+    format: "CSV"
+- uid: "airs-widget"
+  title: "Aerometric Information Retrieval System (AIRS) Widget"
+  url: "http://www.data.gov/tools/841"
+  description: "The Aerometric Information Retrieval System (AIRS) widget allows users to enter a specific location and retrieve facilities in the area of interest that produce air emissions as reported by the Aerometric Information Retrieval System (AIRS."
+  organization:
+    :organization:
+      uid: "us-environmental-protection-agency"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  data_representations:
+  - url: "http://www.epa.gov/enviro/widgets/airs.html"
+    kind: "Tool"
+    format: null
+- uid: "transparency-data"
+  title: "Transparency Data"
+  url: "http://transparencydata.com"
+  description: "Transparency Data is a central source for federal lobbyist registrations federal grants and federal and state campaign contributions."
+  organization:
+    :organization:
+      uid: "sunlight-foundation"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  - :catalog:
+      uid: "sunlight-foundation-data-catalog"
+  categories:
+  - :category:
+      uid: "campaigns"
+  data_representations:
+  - url: "http://transparencydata.com"
+    kind: "Tool"
+    format: null
+  - url: "http://transparencydata.com/api"
+    kind: "API"
+    format: null

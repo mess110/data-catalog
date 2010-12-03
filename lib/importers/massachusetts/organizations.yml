@@ -1,0 +1,7 @@
+- uid: 'massachusetts'
+  name: 'Massachusetts'
+  acronym: 'MA'
+  url: 'http://mass.gov'
+  location:
+    :location:
+      uid: 'massachusetts'

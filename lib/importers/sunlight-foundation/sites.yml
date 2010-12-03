@@ -1,0 +1,20 @@
+- uid: 'sunlight-foundation-data'
+  name: 'Sunlight Foundation Data'
+  url: 'http://data.sunlightlabs.com'
+  org_type: 'not-for-profit'
+  description: 'The Sunlight Foundation makes available data sources pertaining to transparency and accountability.'
+  launched_on: null
+  launch_urls: null
+  platform_name: 'Socrata'
+  platform_url: 'http://socrata.com'
+  platform_source: 'closed'
+  index_page: true
+  detail_pages: true
+  rss_url: null
+  api_url: null
+  organization:
+    :organization:
+      uid: 'sunlight-foundation'
+  location:
+    :location:
+      uid: 'united-states'

@@ -1,0 +1,21 @@
+- uid: 'data-sf-org'
+  name: 'DataSF'
+  url: 'http://datasf.org'
+  org_type: 'government'
+  description: 'DataSF is a central clearinghouse for datasets published by the City & County of San Francisco.'
+  launched_on: '2009-08-19'
+  launch_urls:
+  - 'http://techcrunch.com/2009/08/19/san-francisco-opens-the-city%E2%80%99s-data/'
+  platform_name: '?'
+  platform_url: '?'
+  platform_source: '?'
+  index_page: true
+  detail_pages: true
+  rss_url: 'http://datasf.org/rss.php'
+  api_url: null
+  organization:
+    :organization:
+      uid: 'san-francisco'
+  location:
+    :location:
+      uid: 'san-francisco'

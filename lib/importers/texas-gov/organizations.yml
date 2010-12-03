@@ -1,0 +1,12 @@
+- uid: 'texas'
+  name: 'Texas'
+  url: 'http://texas.gov'
+- uid: 'texas-comptroller'
+  name: 'Texas Comptroller of Public Accounts'
+  url: 'http://www.window.state.tx.us/'
+  parent:
+    :organization:
+      uid: 'texas'
+  location:
+    :location:
+      uid: 'texas'

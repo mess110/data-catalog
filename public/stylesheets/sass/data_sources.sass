@@ -1,0 +1,63 @@
+// ===== data_sources#index ======
+
+section#data_sources_index
+  table.data_sources
+    thead
+      tr
+        th.title
+          width: 40%
+          text-align: center
+        th.organization
+          width: 22%
+          text-align: center
+        th.interestingness
+          width: 12%
+          text-align: center
+        th.documentation_quality
+          width: 12%
+          text-align: center
+        th.data_quality
+          width: 12%
+          text-align: center
+        th.representations
+          width: 12%
+          text-align: center
+    tbody
+      tr
+        td.title
+        td.organization
+        td.interestingness
+          text-align: center
+        td.documentation_quality
+          text-align: center
+        td.data_quality
+          text-align: center
+        td.representations
+          text-align: center
+
+// ===== data_sources#show ======
+
+section#data_sources_show
+
+// ===== data_sources#new ======
+
+section#data_sources_new
+  section.metadata
+    +box(4)
+    margin-right: $h_space
+    dl
+      dd.description
+        height: $baseline * 3
+        textarea
+          height: $baseline * 3
+    textarea,
+    input
+      +multicolumn_width(2, 0px)
+      background-color: $coconut_cream
+    input#data_source_period_start,
+    input#data_source_period_end
+      width: inherit
+  input#data_source_submit
+    padding: 0 2em
+    margin-left: $inside_column_width + $h_space
+    margin-top: $baseline

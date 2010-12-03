@@ -1,0 +1,17 @@
+---
+- uid: 'california'
+  name: 'California'
+  url: 'http://ca.gov'
+  location:
+    :location:
+      uid: 'california'
+---
+- uid: 'san-francisco'
+  name: 'San Francisco, CA'
+  url: 'http://www.sfgov.org'
+  parent:
+    :organization:
+      uid: 'california'
+  location:
+    :location:
+      uid: 'california'

@@ -1,0 +1,19 @@
+- @page_title = "Users"
+%section#users_index
+  %h1.page_title= @page_title
+  %table.users
+    %thead
+      %tr
+        %th.avatar Avatar
+        %th.name Name
+        %th.bio Bio
+        %th.owned_catalogs Owned Catalogs
+        %th.curated_catalogs Curated Catalogs
+    %tbody
+    - @users.each do |user|
+      %tr
+        %td.avatar= gravatar_image_tag(user)
+        %td.name= link_to(user.name, user_path(user))
+        %td.bio= user.bio
+        %td.owned_catalogs= user_owned_catalogs(user)
+        %td.curated_catalogs= user_curated_catalogs(user)

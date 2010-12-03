@@ -1,0 +1,7 @@
+- uid: 'maine'
+  name: 'Maine'
+  acronym: 'ME'
+  url: 'http://maine.gov'
+  location:
+    :location:
+      uid: 'maine'

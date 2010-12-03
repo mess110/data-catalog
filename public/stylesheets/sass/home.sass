@@ -1,0 +1,53 @@
+// ===== home#index =====
+
+#home_index
+  margin-top: $baseline
+  div.group
+    section
+      height: $baseline * 10
+      overflow: hidden
+    section.sites
+      +box(1)
+      margin-right: $h_space
+      ul
+        li
+          list-style: none
+          span.count
+            float: right
+    section.about_app
+      +box(2)
+      +font_2
+      margin-right: $h_space
+      text-align: center
+    section.categories
+      +box(1)
+      ul
+        li
+          list-style: none
+          span.count
+            float: right
+  section.aggregates
+    margin: 0 auto $baseline
+    +multicolumn_width(2, 0px)
+    text-align: center
+    p.summary
+      +font_2
+      margin: 0
+    p.detail
+      +font_1
+      margin: 0
+    ul
+      li
+        +font_1
+  div.highlights
+    section
+      +box(1)
+      text-align: center
+      margin-right: $h_space
+      h1
+        +font_1
+        font-weight: bold
+      p
+        margin: 0
+    section.find_people
+      margin-right: 0

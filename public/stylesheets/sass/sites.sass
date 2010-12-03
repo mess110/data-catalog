@@ -1,0 +1,59 @@
+// ===== sites#index ======
+
+section#sites_index
+  table.overview
+    tr
+      th.name, td.name
+        width: 20%
+      th.description, td.description
+        width: 65%
+      th.launched, td.launched
+        width: 15%
+  table.feature_comparison
+    tr
+      th.name, td.name
+        width: 25%
+      th.platform, td.platform
+        width: 25%
+      th.platform_source, td.platform_source
+        width: 10%
+        text-align: center
+      th.api, td.api
+        width: 10%
+        text-align: center
+      th.rss, td.rss
+        width: 10%
+        text-align: center
+      th.index, td.index
+        width: 10%
+        text-align: center
+      th.details, td.details
+        width: 10%
+        text-align: center
+      img.api
+        margin-top: 5px
+      img.rss
+        margin-top: 3px
+      span.yes
+        +font_2
+        color: green
+      span.no
+        color: red
+      span.open
+        +font_2
+        color: green
+      span.closed
+        color: red
+      span.unsure
+        color: gray
+  dl.terms
+    margin-bottom: $baseline
+    dt
+      +multicolumn_width(1, 0px)
+      clear: left
+      float: left
+      font-weight: bold
+      margin-right: $h_space
+      text-align: right
+    dd
+      float: left

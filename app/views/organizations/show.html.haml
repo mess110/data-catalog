@@ -1,0 +1,11 @@
+- @page_title = @organization.name
+%section#organizations_show
+  %h1.page_title= @page_title
+  %section.details
+    %dl
+      %dt Acronym
+      %dd= @organization.acronym
+      %dt Other Names
+      %dd= @organization.other_names
+      %dt Description
+      %dd= @organization.description

@@ -1,0 +1,52 @@
+# A DataRepresentation is embedded in a DataSource.
+#
+# It may be one of these kinds:
+#   * Document
+#   * API
+#   * Interactive Tool
+#
+# Documents may be one of the following formats:
+#   * CSV
+#   * JSON
+#   * XLS
+#   * XML
+#
+# Note, the "API" and "Tool" kinds must not supply the format.
+class DataRepresentation
+  include Mongoid::Document
+  
+  # === Fields ===
+  field :url,    :type => String
+  field :kind,   :type => String
+  field :format, :type => String
+  
+  # === Associations ===
+  embedded_in :data_source, :inverse_of => :data_source
+
+  # === Indexes ===
+  
+  # === Validations ===
+  validates_presence_of :url
+  validates_presence_of :kind
+  validates_inclusion_of :kind, :in => %w(API Document Tool)
+  validates_inclusion_of :format, :in => %w(CSV JSON RDF XLS XML),
+    :if => Proc.new { |dr| dr.format == "Document" }
+    
+  # validates_each :format do |record, attr, value|
+  #   if record.kind != "Document" && !value.nil?
+  #     record.errors.add attr, 'is not nil.'
+  #   end
+  # end
+  
+  validate :format_for_apis_and_tools
+  def format_for_apis_and_tools
+    if kind != "Document" && !format.nil?
+      errors.add :format, "must be nil for kind #{kind}."
+    end
+  end
+
+  # === Class Methods ===
+
+  # === Instance Methods ===
+
+end

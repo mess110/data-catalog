@@ -1,0 +1,20 @@
+- uid: 'massachusetts-data-catalog'
+  name: 'Massachusetts Data Catalog'
+  url: 'https://wiki.state.ma.us/confluence/display/data/Data+Catalog'
+  org_type: 'government'
+  description: 'The Massachusetts Open Data Initiative is working to make public data available and accessible to the citizens of the Commonwealth. Our Data Catalog is an inventory of public data...'
+  launched_on: null
+  launch_urls: null
+  platform_name: '?'
+  platform_url: null
+  platform_source: '?'
+  index_page: false
+  detail_pages: false
+  rss_url: null
+  api_url: null
+  organization:
+    :organization:
+      uid: 'massachusetts'
+  location:
+    :location:
+      uid: 'massachusetts'

@@ -1,0 +1,13 @@
+- @page_title = "Locations"
+%section#locations_index
+  %h1.page_title= @page_title
+  %table.locations
+    %thead
+      %tr
+        %th.name Name
+        %th.abbreviation Abbreviation
+    %tbody
+    - @locations.each do |location|
+      %tr
+        %td.name= location.name
+        %td.description= location.abbreviation

@@ -1,0 +1,60 @@
+// ===== header =====
+
+#header_wrapper
+  background: $main_background_color url('/images/header-background.png')
+  header
+    height: $baseline * 5
+    margin: 0 auto
+    position: relative
+    width: $page_width
+    hgroup
+      position: absolute
+      left: 0
+      top: 25px
+      width: 278px
+      h1
+        +font_3
+      h2
+        +font_1
+        text-align: center
+        margin-top: 3px - $baseline
+    #search_and_session
+      position: absolute
+      right: 0
+      top: 16px
+      form.search
+        float: right
+        input.search
+          width: 12em
+        input.submit
+      nav.session
+        float: right
+        ul
+          li
+            display: inline
+            margin-right: 2em
+    nav.main
+      +font_1
+      position: absolute
+      right: 0
+      top: 75px
+      text-align: right
+      ul
+        padding-left: 5em
+        padding-right: 1em
+        li
+          +round_top_corners(10px, 10px)
+          display: inline
+          padding: 0.25em 1em 0px
+          background-color: $tab_background_color
+          margin-left: 1em
+          border-width: $tab_border_width
+          border-style: solid solid none
+          border-color: $tab_border_color
+          a
+            text-decoration: none
+            color: $tab_text_color
+        li.active
+          background-color: $active_tab_background_color
+          a
+            color: $active_tab_text_color

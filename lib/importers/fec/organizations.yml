@@ -1,0 +1,10 @@
+- uid: 'us-federal-election-commission'
+  name: 'Federal Election Commission'
+  acronym: 'FEC'
+  url: 'http://fec.gov'
+  parent:
+    :organization:
+      uid: 'us-independent-agencies-and-government-corporations'
+  location:
+    :location:
+      uid: 'united-states'

@@ -1,0 +1,26 @@
+%header
+  %hgroup
+    %h1= link_to(image_tag('national-data-catalog-logo.png', :size => '278x47', :alt => 'National Data Catalog'), root_path)
+    %h2 Open Government Data
+  #search_and_session
+    %form.search{ :action => data_sources_path, :method => 'get' }
+      = search_field_tag(:query, @query, :placeholder => 'keywords', :id => nil, :class => :search)
+      = submit_tag('Search', :class => :submit)
+    %nav.session
+      %ul
+        - if user_signed_in?
+          - if current_user.admin?
+            %li.admin= link_to 'Admin', 'admin_sources_path'
+          %li.dashboard= link_to 'Dashboard', dashboard_path
+          %li.user_profile= link_to 'Profile', edit_user_registration_path
+          %li.sign_out= link_to 'Sign Out', destroy_user_session_path
+        - else
+          %li.sign_up= link_to 'Sign Up', new_user_registration_path
+          %li.sign_in= link_to 'Sign In', user_session_path
+    .clear_left
+  %nav.main
+    %ul
+      = tab('home', 'Home', root_path)
+      = tab('browse', 'Browse', data_sources_path)
+      = tab('add_data', 'Add Data', new_data_source_path)
+      = tab('users', 'Users', users_path)

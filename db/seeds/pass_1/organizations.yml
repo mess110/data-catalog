@@ -1,0 +1,96 @@
+- uid: 'us-federal'
+  name: 'U.S. Federal Government'
+  abstract: true
+  url: 'http://www.usa.gov'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-executive-branch'
+  name: 'U.S. Executive Branch'
+  parent:
+    :organization:
+      uid: 'us-federal'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-judicial-branch'
+  name: 'U.S. Judicial Branch'
+  parent:
+    :organization:
+      uid: 'us-federal'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-legislative-branch'
+  name: 'U.S. Legislative Branch'
+  parent:
+    :organization:
+      uid: 'us-federal'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-executive-office-of-the-president'
+  name: 'U.S. Executive Office of the President'
+  parent:
+    :organization:
+      uid: 'us-executive-branch'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-executive-departments'
+  name: 'U.S. Executive Departments'
+  abstract: true
+  parent:
+    :organization:
+      uid: 'us-executive-branch'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-independent-agencies-and-government-corporations'
+  name: 'Independent Agencies and Government Corporations'
+  abstract: true
+  parent:
+    :organization:
+      uid: 'us-executive-branch'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-supreme-court'
+  name: 'U.S. Supreme Court'
+  url: 'http://www.supremecourt.gov'
+  parent:
+    :organization:
+      uid: 'us-judicial-branch'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-lower-courts'
+  name: 'U.S. Lower Courts'
+  url: null
+  abstract: true
+  parent:
+    :organization:
+      uid: 'us-judicial-branch'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-district-courts'
+  name: 'U.S. District Courts'
+  url: 'http://www.uscourts.gov/FederalCourts/UnderstandingtheFederalCourts/DistrictCourts.aspx'
+  abstract: true
+  parent:
+    :organization:
+      uid: 'us-lower-courts'
+  location:
+    :location:
+      uid: 'united-states'
+- uid: 'us-bankruptcy-courts'
+  name: 'U.S. Bankruptcy Courts'
+  url: 'http://www.uscourts.gov/FederalCourts/Bankruptcy.aspx'
+  abstract: true
+  parent:
+    :organization:
+      uid: 'us-lower-courts'
+  location:
+    :location:
+      uid: 'united-states'

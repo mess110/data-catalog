@@ -1,0 +1,72 @@
+# https://wiki.state.ma.us/confluence/display/data/Open+Data+Initiative+Home
+---
+- name: "Economic Data"
+  url : "/confluence/display/data/Economic+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Education Data"
+  url : "/confluence/display/data/Education+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Energy Data"
+  url : "/confluence/display/data/Energy+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Environmental Data"
+  url : "/confluence/display/data/Environmental+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Financial Data"
+  url : "/confluence/display/data/Financial+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Geographic Data"
+  url : "/confluence/display/data/Geographic+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Health Data"
+  url : "/confluence/display/data/Health+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Housing Data"
+  url : "/confluence/display/data/Housing+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Licensing Data"
+  url : "/confluence/display/data/Licensing+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Municipal Data"
+  url : "/confluence/display/data/Municipal+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Population Data"
+  url : "/confluence/display/data/Population+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Public Safety Data"
+  url : "/confluence/display/data/Public+Safety+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Technology Data"
+  url : "/confluence/display/data/Technology+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'
+- name: "Transportation Data"
+  url : "/confluence/display/data/Transportation+Data"
+  site:
+    :site:
+      uid: 'massachusetts-data-catalog'

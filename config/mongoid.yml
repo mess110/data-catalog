@@ -1,0 +1,26 @@
+defaults: &defaults
+  host: localhost
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
+  allow_dynamic_fields: false
+
+development:
+  <<: *defaults
+  database: ahern_development
+  # autocreate_indexes: true
+
+test:
+  <<: *defaults
+  database: ahern_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>

@@ -1,0 +1,21 @@
+- uid: 'data-ca-gov'
+  name: 'Data.CA.Gov'
+  url: 'http://data.ca.gov'
+  org_type: 'government'
+  description: 'Whether you are a citizen looking for how tax dollars are spent or a researcher who wants the latest climate data, Data.CA.Gov is the place to find it.'
+  launched_on: '2009-08-14'
+  launch_urls:
+  - 'http://groups.google.co.nz/group/nzopengovtbarcamp/browse_thread/thread/3f18e32c2240a1e7'
+  platform_name: '?'
+  platform_url: null
+  platform_source: '?'
+  index_page: true
+  detail_pages: true
+  rss_url: null
+  api_url: null
+  organization:
+    :organization:
+      uid: 'california'
+  location:
+    :location:
+      uid: 'california'

@@ -1,0 +1,21 @@
+- @page_title = "Data Sources"
+%section#data_sources_index
+  %h1.page_title= @page_title
+  %table.data_sources
+    %thead
+      %tr
+        %th.title Title
+        %th.organization Organization
+        %th.interestingness Interestingness
+        %th.documentation_quality Documentation Quality
+        %th.data_quality Data Quality
+        %th.representations Representations
+    %tbody
+      - @data_sources.each do |ds|
+        %tr
+          %td.title= link_to(ds.title, data_source_path(ds))
+          %td.organization= data_source_organization(ds)
+          %td.interestingness= data_source_passive_rating(ds.interestingness)
+          %td.documentation_quality= data_source_passive_rating(ds.documentation_quality)
+          %td.data_quality= data_source_passive_rating(ds.data_quality)
+          %td.representations= data_source_representations(ds)

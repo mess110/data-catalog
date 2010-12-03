@@ -1,0 +1,17 @@
+- @page_title = "Catalogs"
+%section#catalogs_index
+  %h1.page_title= @page_title
+  %table.catalogs
+    %thead
+      %tr
+        %th.name Name
+        %th.description Description
+        %th.owners Owners
+        %th.curators Curators
+    %tbody
+    - @catalogs.each do |catalog|
+      %tr
+        %td.name= link_to(catalog.name, catalog_path(catalog))
+        %td.description= catalog.description
+        %td.owners= catalog_owners(catalog)
+        %td.curators= catalog_curators(catalog)

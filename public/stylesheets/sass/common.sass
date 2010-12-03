@@ -1,0 +1,110 @@
+// ===== basic elements =====
+
+a
+  color: $link_color
+
+body
+  +font_0
+  background-color: $footer_background_color
+  color: $text_color
+  font-family: 'Helvetica', 'Arial', 'sans-serif'
+  margin-top: 2px
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+
+fieldset
+  margin-bottom: $baseline
+
+input
+  border: 1px solid #C0C0C0
+
+p
+  margin-bottom: $baseline
+
+strong
+  font-weight: bold
+
+sub
+  vertical-align: sub
+
+sup
+  vertical-align: super
+
+textarea
+  border: 1px solid #D0D0D0
+  +font_0
+
+section
+  h1.page_title
+    +font_2
+
+table
+  background-color: $table_background_color
+  border-collapse: collapse
+  margin-bottom: $baseline
+  width: 100%
+  img
+    display: block
+  tr
+    th, td
+      border: $table_border_width solid $table_border_color
+      padding: 0 ($h_space / 2)
+    th
+      font-weight: bold
+      height: $baseline * 3 - $table_border_width * 2
+    td
+      height: $baseline * 3 - $table_border_width * 1
+  th
+    background-color: $table_header_row_background_color
+  tr:nth-child(even)
+    background-color: $table_even_row_background_color
+  tr:nth-child(odd)
+    background-color: $table_odd_row_background_color
+
+// ===== floating =====
+
+.clear
+  clear: both
+
+.clear_right
+  clear: right
+
+// ===== firefox support =====
+
+article, aside, footer, header, nav, section
+  display: block
+
+// ===== shared styles =====
+
+#page_wrapper_1
+  background: $main_background_color url('/images/baseline-grid-20.gif')
+
+#content_wrapper
+  margin: 0 auto 0
+  width: $page_width
+  h1
+    +font_3
+  h2
+    +font_2
+  h3
+    +font_1
+
+// Often used to hide only initially. For example:
+// * prevent flicker when converting radio buttons to rating stars
+div.hidden
+  visibility: hidden
+
+section.details
+  +box(3)
+  dl
+    dt
+      +multicolumn_width(1, 0px)
+      float: left
+      clear: left
+      font-weight: bold
+      margin-right: $h_space
+      text-align: right
+    dd
+  dl + dl
+    margin-top: $baseline

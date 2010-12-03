@@ -1,0 +1,13 @@
+- @page_title = @catalog[:name]
+%section#catalogs_show
+  %h1.page_title= @page_title
+  %section.details
+    %dl
+      %dt Description
+      %dd= @catalog[:description]
+      %dt Owners
+      %dd= catalog_owners(@catalog)
+      %dt Curators
+      %dd= catalog_curators(@catalog)
+      %dt Data Sources
+      %dd= catalog_data_sources(@catalog)

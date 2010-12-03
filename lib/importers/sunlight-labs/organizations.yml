@@ -1,0 +1,6 @@
+- uid: 'sunlight-foundation'
+  name: 'Sunlight Foundation'
+  url: 'http://www.sunlightfoundation.com'
+  location:
+    :location:
+      uid: 'united-states'

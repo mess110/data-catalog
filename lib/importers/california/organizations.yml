@@ -1,0 +1,6 @@
+- uid: 'california'
+  name: 'California'
+  url: 'http://ca.gov'
+  location:
+    :location:
+      uid: 'california'

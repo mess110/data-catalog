@@ -1,0 +1,6 @@
+- uid: 'michigan'
+  name: 'Michigan'
+  url: 'http://michigan.gov'
+  location:
+    :location:
+      uid: 'michigan'

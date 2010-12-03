@@ -1,0 +1,36 @@
+- ds = @data_source
+- @page_title = ds.title
+%section#data_sources_show
+  %h1.page_title= @page_title
+  %section.details
+    %p= ds.description
+    %dl
+      %dt Organization
+      %dd= data_source_organization(ds)
+      %dt Time Period
+      %dd= kronos_range_to_s(ds.period_start, ds.period_end)
+      %dt Released
+      %dd= kronos_to_s(ds.released)
+      %dt Source URL
+      %dd= url_only(ds.url)
+      %dt Documentation URL
+      %dd= url_only(ds.documentation_url)
+      %dt License
+      %dd= try_link_to(ds.license, ds.license_url)
+    %dl
+      %dt Categories
+      %dd= data_source_categories(ds)
+      %dt Tags
+      %dd= data_source_tags(ds)
+      %dt Catalogs
+      %dd= data_source_catalogs(ds)
+    - if ds.parent
+      %dl
+        %dt Parent
+        %dd= data_source_parent(ds)
+        %dt Facets
+        %dd= data_source_facets(ds)
+    - unless ds.children.empty?
+      %dl
+        %dt Children
+        %dd= data_source_children(ds)

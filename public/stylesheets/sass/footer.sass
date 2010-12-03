@@ -1,0 +1,30 @@
+// ===== footer ======
+
+#footer_wrapper
+  background: $footer_background_color url('/images/footer-background.png')
+  color: $footer_text_color
+  footer
+    height: $baseline * 8
+    margin: 0 auto
+    width: $page_width
+    nav
+      +font_1
+      margin-bottom: $baseline
+      padding: ($baseline / 2) 0
+      text-align: center
+      a
+        color: $footer_link_color
+      ul
+        li
+          display: inline
+          margin: auto 1em
+    #about_main_org
+      +multicolumn_width(2, 0px)
+      $logo_width: 138px
+      $logo_height: 62px
+      margin: 0 auto
+      height: $logo_height
+      img.logo
+        float: left
+        margin-right: 1em
+        margin-top: -8px

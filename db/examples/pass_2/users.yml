@@ -1,0 +1,4 @@
+- uid: "david-james"
+  watched_data_sources:
+  - :data_source:
+      uid: "toxics-release-inventory"

@@ -1,0 +1,20 @@
+- uid: 'texas-transparency-org'
+  name: 'Texas Transparency'
+  url: 'http://www.texastransparency.org/opendata'
+  org_type: 'government'
+  description: "The Open Data Center, part of the Comptroller's transparency initiative, provides machine-readable, platform-independent raw datasets and other data tools."
+  launched_on: '2009-06-08'
+  launch_urls: null
+  platform_name: '?'
+  platform_url: null
+  platform_source: '?'
+  index_page: null
+  detail_pages: null
+  rss_url: '?'
+  api_url: null
+  organization:
+    :organization:
+      uid: 'texas'
+  location:
+    :location:
+      uid: 'texas'

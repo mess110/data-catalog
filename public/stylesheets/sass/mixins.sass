@@ -1,0 +1,57 @@
+$baseline: 20px
+
+// ===== fonts =====
+
+=font_0
+  font-size: 13px
+  line-height: $baseline
+
+=font_1
+  font-size: 16px
+  line-height: $baseline
+
+=font_2
+  font-size: 18px
+  line-height: $baseline * 2
+
+=font_3
+  font-size: 22px
+  line-height: $baseline * 2
+
+// ===== gradients =====
+
+=gradient_background($top_color, $bottom_color)
+  background-color: $top_color
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($top_color), to($bottom_color))
+  background-image: -moz-linear-gradient(100% 100% 90deg, $bottom_color, $top_color)
+
+// ===== rounded corners =====
+
+=round_top_corners($x_r, $y_r)
+  border-top-left-radius: $x_r $y_r
+  border-top-right-radius: $x_r $y_r
+  -moz-border-radius-topleft: $x_r $y_r
+  -moz-border-radius-topright: $x_r $y_r
+
+=round_bottom_corners($x_r, $y_r)
+  border-bottom-left-radius: $x_r $y_r
+  border-bottom-right-radius: $x_r $y_r
+  -moz-border-radius-bottomleft: $x_r $y_r
+  -moz-border-radius-bottomright: $x_r $y_r
+
+// ===== column formulae =====
+
+$empty_space: ($column_count - 1) * $h_space
+$inside_column_width: ($page_width - $empty_space) / $column_count
+
+=multicolumn_width($n, $extra)
+  width: $inside_column_width * $n + $h_space * ($n - 1) - $extra
+
+=box($n)
+  +multicolumn_width($n, $h_space * 2)
+  +round_top_corners(10px, 10px)
+  +round_bottom_corners(10px, 10px)
+  background-color: $pampas
+  float: left
+  margin: 0 0 $baseline
+  padding: ($baseline / 2) $h_space

@@ -1,0 +1,41 @@
+- @page_title = 'Home'
+#home_index
+  .group
+    %section.sites
+      = render :partial => 'sites'
+    %section.about_app
+      :markdown
+        Looking for government **data sets**, **APIs**, and **tools**? We have
+        data from various **levels** (federal, state, and local) and
+        **branches** (executive, legislative, and judicial) of government.
+    %section.categories
+      = render :partial => 'categories'
+    .clear
+  %section.aggregates
+    %p.summary
+      We have
+      = link_to(pluralize(@counts[:data_source], 'data sources'), data_sources_path)
+      from
+      = link_to(pluralize(@counts[:site], 'site'), sites_path) + '.'
+    %p.detail
+      = '('.html_safe + link_to(pluralize(@counts[:api], 'API'), '') + ', '
+      = link_to(pluralize(@counts[:document], 'document'), '') + ', and'
+      = link_to(pluralize(@counts[:tool], 'tool'), '') + ')'
+  .highlights
+    %section.find_data
+      :markdown
+        # Find Data
+        Find data sources (data sets, APIs, and tools)
+    %section.discuss_data
+      :markdown
+        # Discuss Data
+        Discuss, question, document data sources
+    %section.share_data
+      :markdown
+        # Share Data
+        Share your derivative work based on the data here
+    %section.find_people
+      :markdown
+        # Find People
+        Find interesting people in the data community
+    .clear

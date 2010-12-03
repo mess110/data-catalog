@@ -1,0 +1,20 @@
+- uid: 'sunlight-labs-services'
+  name: 'Sunlight Labs Services'
+  url: 'http://services.sunlightlabs.com/'
+  org_type: 'not-for-profit'
+  description: 'The Sunlight Foundation makes available data sources pertaining to transparency and accountability.'
+  launched_on: null
+  launch_urls: null
+  platform_name: '?'
+  platform_url: null
+  platform_source: '?'
+  index_page: true
+  detail_pages: false
+  rss_url: null
+  api_url: 'http://services.sunlightlabs.com'
+  organization:
+    :organization:
+      uid: 'sunlight-foundation'
+  location:
+    :location:
+      uid: 'united-states'

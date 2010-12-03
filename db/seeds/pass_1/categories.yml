@@ -1,0 +1,69 @@
+- uid: 'agriculture'
+  name: 'Agriculture'
+- uid: 'banking'
+  name: 'Banking'
+- uid: 'budget'
+  name: 'Budget'
+- uid: 'business'
+  name: 'Business'
+- uid: 'campaigns'
+  name: 'Campaigns'
+- uid: 'civil-rights'
+  name: 'Civil Rights'
+- uid: 'education'
+  name: 'Education'
+- uid: 'economy'
+  name: 'Economy'
+- uid: 'energy'
+  name: 'Energy'
+- uid: 'environment'
+  name: 'Environment'
+- uid: 'health'
+  name: 'Health'
+- uid: 'philanthropy'
+  name: 'Philanthropy'
+- uid: 'poverty'
+  name: 'Poverty'
+- uid: 'public-safety'
+  name: 'Public Safety'
+- uid: 'technology'
+  name: 'Technology'
+- uid: 'trade'
+  name: 'Trade'
+- uid: 'transportation'
+  name: 'Transportation'
+# - name: Agriculture
+# - name: Arts
+# - name: Banking / Insurance / Finance
+# - name: Budget / Fiscal Policy / Taxes
+# - name: Business
+# - name: Campaign Finance / Elections / Politics
+# - name: Children / Families / Human Services
+# - name: Civil Rights & Liberties
+# - name: Climate / Environment
+# - name: Communications / Information / Internet
+# - name: Crime / Law Enforcement / Public Safety
+# - name: Demographics
+# - name: Economics / Monetary Policy
+# - name: Education
+# - name: Employment / Labor
+# - name: Energy / Natural Resources
+# - name: Foreign Commerce / Foreign Policy
+# - name: Geography / Geospatial
+# - name: Governance
+# - name: Health / Nutrition
+# - name: Housing / Urban
+# - name: Immigration
+# - name: Foreign Aid / International Development
+# - name: Law / Courts
+# - name: Metropolitan / Municipal
+# - name: National Security
+# - name: Philanthropy
+# - name: Poverty / Welfare
+# - name: Science & Technology / Innovation
+# - name: Stimulus / Economic Development
+# - name: Trade
+# - name: Transportation
+# - name: Travel / Recreation
+# - name: Utilities
+# - name: Veterans Affairs

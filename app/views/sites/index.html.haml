@@ -1,0 +1,57 @@
+- @page_title = "External Sites"
+%section#sites_index
+  %h1.page_title= @page_title
+  %p
+    We collect data source information (title, description, and other
+    metadata) from these sites:
+  %table.overview
+    %thead
+      %tr
+        %th.name Name
+        %th.description Description
+        %th.launched Launch Date
+    %tbody
+    - @sites.each do |site|
+      %tr
+        %td.name= link_to(site.name, site.url)
+        %td.description= site.description
+        %td.launched= site.launched_on
+  %h2 Feature Comparison
+  %p
+    Some sites are just web sites that get updated by hand from time to time;
+    others are full-featured data catalogs. Here is a detailed comparison:
+  %table.feature_comparison
+    %thead
+      %tr
+        %th.name Name
+        %th.platform Platform
+        %th.platform_source Platform Source
+        %th.api API
+        %th.rss RSS
+        %th.index Index Page?
+        %th.details Detail Pages?
+    %tbody
+    - @sites.each do |site|
+      %tr
+        %td.name= link_to(site.name, site.url)
+        %td.platform= site_platform_link(site)
+        %td.platform_source= site_platform_source(site)
+        %td.api= site_api_tag(site)
+        %td.rss= site_rss_tag(site)
+        %td.index= site_boolean(site.index_page)
+        %td.details= site_boolean(site.detail_pages)
+  %p
+    Explanation of columns:
+  %dl.terms
+    %dt Platform
+    %dd The name of the software platform that the site is based on.
+    %dt Platform Source
+    %dd Is the platform open- or closed-source?
+    %dt API
+    %dd Does the site have an API?
+    %dt RSS
+    %dd Does the site have one or more RSS feeds?
+    %dt Index Page?
+    %dd Does the site have an index page? (i.e. a listing of data sets)
+    %dt Detail Pages?
+    %dd Is each data source listed on its own page with details?
