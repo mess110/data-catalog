@@ -13,6 +13,8 @@
   categories:
   - :category:
       uid: "economy"
+  - :category:
+      uid: "business"
   data_representations:
   - url: "http://www.data.gov/download/329/csv"
     kind: "Document"
@@ -33,6 +35,8 @@
   categories:
   - :category:
       uid: "environment"
+  - :category:
+      uid: "health"
 - uid: "toxics-release-inventory-1990-california"
   title: "1990 Toxics Release Inventory data for the state of California"
   url: "http://www.data.gov/raw/2965"
@@ -43,6 +47,11 @@
   catalogs:
   - :catalog:
       uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "environment"
+  - :category:
+      uid: "health"
   parent:
     :data_source:
       uid: "toxics-release-inventory"
@@ -63,6 +72,11 @@
   catalogs:
   - :catalog:
       uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "environment"
+  - :category:
+      uid: "health"
   parent:
     :data_source:
       uid: "toxics-release-inventory"
@@ -83,6 +97,11 @@
   catalogs:
   - :catalog:
       uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "environment"
+  - :category:
+      uid: "health"
   parent:
     :data_source:
       uid: "toxics-release-inventory"
@@ -100,6 +119,11 @@
   organization:
     :organization:
       uid: "us-environmental-protection-agency"
+  categories:
+  - :category:
+      uid: "environment"
+  - :category:
+      uid: "health"
   catalogs:
   - :catalog:
       uid: "national-data-catalog"
@@ -123,6 +147,9 @@
   catalogs:
   - :catalog:
       uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "environment"
   data_representations:
   - url: "http://www.epa.gov/enviro/widgets/airs.html"
     kind: "Tool"
