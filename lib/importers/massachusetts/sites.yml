@@ -2,7 +2,7 @@
   name: 'Massachusetts Data Catalog'
   url: 'https://wiki.state.ma.us/confluence/display/data/Data+Catalog'
   org_type: 'government'
-  description: 'The Massachusetts Open Data Initiative is working to make public data available and accessible to the citizens of the Commonwealth. Our Data Catalog is an inventory of public data...'
+  description: "The Massachusetts Open Data Initiative's Data Catalog is an inventory of public data in the Commonwealth of Massachusetts."
   launched_on: null
   launch_urls: null
   platform_name: '?'
