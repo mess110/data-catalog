@@ -1,7 +1,9 @@
 .bundle
 db/*.sqlite3
 log/*.log
+tmp/*
 tmp/**/*
+coverage/*
 
 # ignore cache gravatars
 public/images/gravatars/**
