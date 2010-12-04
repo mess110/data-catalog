@@ -5,6 +5,7 @@ class SitesController < ApplicationController
   end
 
   def show
+    @site = Site.where(:uid => params[:id]).first
   end
 
   def new

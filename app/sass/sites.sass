@@ -8,8 +8,10 @@ section#sites_index
     tr
       th.name, td.name
         width: 20%
+      th.url, td.url
+        width: 15%
       th.description, td.description
-        width: 65%
+        width: 50%
       th.launched, td.launched
         width: 15%
   table.feature_comparison
@@ -57,3 +59,15 @@ section#sites_index
       margin-right: $h_space
       text-align: right
     dd
+
+// ===== sites#show ======
+
+section#sites_show
+  dd.api
+    img
+      display: block
+      padding-bottom: 2 * $baseline - 28px
+  dd.rss
+    img
+      display: block
+      padding-bottom: 2 * $baseline - 28px

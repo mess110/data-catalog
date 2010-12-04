@@ -1,6 +1,11 @@
 module ApplicationHelper
   include GravatarHelper
 
+  def shorter_url(url)
+    s = url.gsub(%r(http[s]?://(www\.)?), '')
+    truncate(s, :length => 20)
+  end
+
   def kronos_to_s(kronos_hash)
     return '?' if kronos_hash.blank?
     k = Kronos.from_hash(kronos_hash)

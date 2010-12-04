@@ -59,5 +59,6 @@ class Site
   end
 
   # === Instance Methods ===
+  def to_param; uid end
 
 end

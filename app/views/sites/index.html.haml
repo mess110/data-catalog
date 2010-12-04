@@ -8,12 +8,14 @@
     %thead
       %tr
         %th.name Name
+        %th.url URL
         %th.description Description
         %th.launched Launch Date
     %tbody
     - @sites.each do |site|
       %tr
-        %td.name= link_to(site.name, site.url)
+        %td.name= link_to(site.name, site_path(site))
+        %td.url= link_to(shorter_url(site.url), site.url)
         %td.description= site.description
         %td.launched= site.launched_on
   %h2 Feature Comparison
@@ -33,7 +35,7 @@
     %tbody
     - @sites.each do |site|
       %tr
-        %td.name= link_to(site.name, site.url)
+        %td.name= link_to(site.name, site_path(site))
         %td.platform= site_platform_link(site)
         %td.platform_source= site_platform_source(site)
         %td.api= site_api_tag(site)

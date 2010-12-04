@@ -1,0 +1,25 @@
+- @page_title = @site.name
+%section#sites_show
+  %h1.page_title= @page_title
+  %section.details
+    %dl
+      %dt Name
+      %dd= @site.name
+      %dt URL
+      %dd= link_to(@site.url)
+      %dt Description
+      %dd= @site.description
+      %dt Launched
+      %dd= @site.launched_on
+      %dt Platform
+      %dd= site_platform_link(@site)
+      %dt Platform Source
+      %dd= site_platform_source(@site)
+      %dt.api API
+      %dd.api= site_api_tag(@site)
+      %dt.rss RSS
+      %dd.rss= site_rss_tag(@site)
+      %dt Index Page?
+      %dd= site_boolean(@site.index_page)
+      %dt Detail Pages?
+      %dd= site_boolean(@site.detail_pages)
