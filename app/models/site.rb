@@ -45,7 +45,8 @@ class Site
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_presence_of :type
-  validates_inclusion_of :org_type, :in => %w(? government not-for-profit other)
+  validates_inclusion_of :org_type,
+    :in => %w(? government not-for-profit other)
   validates_inclusion_of :platform_source, :in => %w(? open closed other)
 
   # === Class Methods ===

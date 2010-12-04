@@ -2,7 +2,7 @@ module SitesHelper
 
   def site_platform_link(site)
     name, url = site.platform_name, site.platform_url
-    if name == "?"
+    if name == '?'
       content_tag(:span, '?', :class => :unsure)
     else
       url ? link_to(name, url) : name
@@ -11,11 +11,11 @@ module SitesHelper
 
   def site_platform_source(site)
     case site.platform_source
-    when "closed"
+    when 'closed'
       content_tag(:span, 'closed', :class => :closed)
-    when "open"
+    when 'open'
       content_tag(:span, 'open', :class => :open)
-    when "?"
+    when '?'
       content_tag(:span, '?', :class => :unsure)
     end
   end
@@ -24,11 +24,11 @@ module SitesHelper
     url = site.api_url
     if !url
       site_boolean(false)
-    elsif url == "?"
+    elsif url == '?'
       content_tag(:span, '?', :class => :unsure)
     else
       link_to(image_tag('api-icon-28x28.png', :size => '28x28',
-        :alt => "API", :class => :api), url)
+        :alt => 'API', :class => :api), url)
     end
   end
 
@@ -36,11 +36,11 @@ module SitesHelper
     url = site.rss_url
     if !url
       site_boolean(false)
-    elsif url == "?"
+    elsif url == '?'
       content_tag(:span, '?', :class => :unsure)
     else
       link_to(image_tag('feed-icon-28x28.png', :size => '28x28',
-        :alt => "RSS", :class => :rss), url)
+        :alt => 'RSS', :class => :rss), url)
     end
   end
 

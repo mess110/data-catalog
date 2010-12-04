@@ -1,5 +1,7 @@
-# Notes:
+# An organization, such as a government agency or court.
 # 
+# Notes:
+#
 # === abstract ===
 #
 # An abstract organization is one is not a 'true' organization; instead, it
@@ -27,7 +29,7 @@ class Organization
   field :description, :type => String
   field :abstract,    :type => Boolean, :default => false
   slug :name, :scoped => true
-  
+
   # === Associations ===
   referenced_in :location, :index => true
   references_many :data_sources

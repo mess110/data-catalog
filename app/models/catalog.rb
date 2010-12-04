@@ -1,8 +1,8 @@
-# A Catalog is a catalog within this app. This app allows more 1 or more
-# Catalogs.
+# A Catalog is a catalog within this application. This application allows 1 or
+# more Catalogs.
 #
-# Do not confuse this model (Catalog) with Site (which is used to point to
-# external web sites, including data catalogs such as data.gov).
+# Please Do not confuse this model (Catalog) with Site (which is used to point
+# to external web sites, including data catalogs such as data.gov).
 class Catalog
   include Mongoid::Document
   include Mongoid::Timestamps

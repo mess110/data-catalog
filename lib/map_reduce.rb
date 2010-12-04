@@ -1,8 +1,8 @@
 class MapReduce
 
   def self.load_files(model, method)
-    directory = Rails.root.join('app', 'models', model.to_s.underscore, method)
-    %w(map reduce).map { |n| File.join(directory, "#{n}.js") }.
+    dir = Rails.root.join('app', 'models', model.to_s.underscore, method)
+    %w(map reduce).map { |n| File.join(dir, "#{n}.js") }.
       map { |filename| File.read(filename) }
   end
 

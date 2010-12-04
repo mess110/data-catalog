@@ -3,7 +3,7 @@
 # It may be one of these kinds:
 #   * Document
 #   * API
-#   * Interactive Tool
+#   * Tool (an interactive tool)
 #
 # Documents may be one of the following formats:
 #   * CSV
@@ -11,7 +11,7 @@
 #   * XLS
 #   * XML
 #
-# Note, the "API" and "Tool" kinds must not supply the format.
+# Note: the "API" and "Tool" kinds must not supply the format.
 class DataRepresentation
   include Mongoid::Document
   
@@ -30,17 +30,11 @@ class DataRepresentation
   validates_presence_of :kind
   validates_inclusion_of :kind, :in => %w(API Document Tool)
   validates_inclusion_of :format, :in => %w(CSV JSON RDF XLS XML),
-    :if => Proc.new { |dr| dr.format == "Document" }
-    
-  # validates_each :format do |record, attr, value|
-  #   if record.kind != "Document" && !value.nil?
-  #     record.errors.add attr, 'is not nil.'
-  #   end
-  # end
+    :if => Proc.new { |dr| dr.format == 'Document' }
   
   validate :format_for_apis_and_tools
   def format_for_apis_and_tools
-    if kind != "Document" && !format.nil?
+    if kind != 'Document' && !format.nil?
       errors.add :format, "must be nil for kind #{kind}."
     end
   end

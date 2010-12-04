@@ -1,5 +1,5 @@
 class DataLoader
-  
+
   # Models have associations, so construct models in an order that makes
   # sense for building up the associations.
   MODELS = [
@@ -100,7 +100,7 @@ class DataLoader
       object.send("#{field}=", value)
     end
   end
-  
+
   EMBEDDED_CLASSES = [
     Mongoid::Associations::EmbedsMany,
     Mongoid::Associations::EmbedsOne,
@@ -110,7 +110,7 @@ class DataLoader
     return unless metadata && metadata.association
     EMBEDDED_CLASSES.include?(metadata.association.class)
   end
-  
+
   # Recursively search for symbols and convert them to the objects that
   # they reference.
   def transform(value_or_reference)
@@ -127,10 +127,11 @@ class DataLoader
     elsif value_or_reference.is_a?(Hash)
       transform_hash(value_or_reference)
     else
-      raise "Unsupported value: #{value_or_reference.inspect}. Class: #{value_or_reference.class}"
+      raise "Unsupported value: #{value_or_reference.inspect}. " +
+        "Class: #{value_or_reference.class}"
     end
   end
-  
+
   def transform_hash(hash)
     case hash.keys.count { |x| x.is_a?(Symbol) }
     when 0
@@ -151,7 +152,8 @@ class DataLoader
     model = key.to_s.camelize.constantize
     documents = model.where(value)
     unless documents.length == 1
-      raise "#{model}.where(#{value.inspect}) returned #{documents.length} documents."
+      raise "#{model}.where(#{value.inspect}) returned " +
+        "#{documents.length} documents."
     end
     documents.first
   end
