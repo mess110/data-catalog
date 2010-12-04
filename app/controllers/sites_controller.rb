@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
 
   def index
-    @sites = Site.all
+    @sites = Site.ascending(:name)
   end
 
   def show

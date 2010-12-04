@@ -36,6 +36,7 @@ class Site
 
   # === Indexes ===
   index :uid, :unique => true
+  index :name, :unique => true
 
   # === Validations ===
   validates_presence_of :uid
