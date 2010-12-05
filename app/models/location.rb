@@ -2,7 +2,7 @@
 class Location
   include Mongoid::Document
   include Mongoid::Timestamps
-  
+
   # === Fields ===
   field :uid,           :type => String  #
   field :name,          :type => String  #

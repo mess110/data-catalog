@@ -18,7 +18,7 @@ class DataSource
   include Mongoid::Timestamps
   include Mongoid::Versioning
   include Mongoid::Slug
-  
+
   # === Fields ===
   field :uid,                   :type => String
   field :title,                 :type => String
@@ -64,14 +64,14 @@ class DataSource
   validates_uniqueness_of :uid
   validates_presence_of :title
   validates_associated :data_representations
-  
+
   # === Scopes ===
   # These return DataSources that have one or more DataRepresentations:
   scope :apis,      :where => { 'data_representations.kind' => 'api' }
   scope :documents, :where => { 'data_representations.kind' => 'document' }
   scope :tools,     :where => { 'data_representations.kind' => 'tool' }
   scope :top_level, :where => { :parent_id => nil }
-  
+
   # === Map/Reduce ===
   MR = MapReduce.load_files(self, 'data_representation_counts')
   def self.data_representation_counts

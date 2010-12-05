@@ -14,17 +14,17 @@
 # Note: the "API" and "Tool" kinds must not supply the format.
 class DataRepresentation
   include Mongoid::Document
-  
+
   # === Fields ===
   field :url,    :type => String
   field :kind,   :type => String
   field :format, :type => String
-  
+
   # === Associations ===
   embedded_in :data_source, :inverse_of => :data_source
 
   # === Indexes ===
-  
+
   # === Validations ===
   validates_presence_of :url
   validates_presence_of :kind

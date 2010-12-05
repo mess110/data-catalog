@@ -5,13 +5,13 @@ class User
 
   devise :database_authenticatable, :confirmable, :recoverable,
     :registerable, :rememberable, :trackable, :validatable
-  
+
   # === Fields ===
   field :uid,  :type => String
   field :name, :type => String
   field :bio,  :type => String
   # field :email, :type => String (created by devise)
-  
+
   # === Associations ===
   references_many :data_source_notes
   references_many :tags
