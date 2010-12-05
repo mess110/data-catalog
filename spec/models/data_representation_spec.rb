@@ -17,7 +17,37 @@ describe DataRepresentation do
     }).should_not be_valid
   end
   
-  describe "should be invalid when non-Document kind / any non-nil format" do
+  describe "should be invalid with unexpected formats" do
+    it "JPG" do
+      Factory.build(:data_representation, {
+        :format => "JPG"
+      }).should_not be_valid
+    end
+
+    it "TIFF" do
+      Factory.build(:data_representation, {
+        :format => "TIFF"
+      }).should_not be_valid
+    end
+  end
+
+  describe "should be valid with non-document kind / nil format" do
+    it "API / nil" do
+      Factory.build(:data_representation, {
+        :kind   => "API",
+        :format => nil
+      }).should be_valid
+    end
+
+    it "tool / nil" do
+      Factory.build(:data_representation, {
+        :kind   => "tool",
+        :format => nil
+      }).should be_valid
+    end
+  end
+
+  describe "should be invalid with non-document kind / any non-nil format" do
     it "API / CSV" do
       Factory.build(:data_representation, {
         :kind   => "API",
@@ -25,9 +55,9 @@ describe DataRepresentation do
       }).should_not be_valid
     end
 
-    it "Tool / Unexpected" do
+    it "tool / unexpected" do
       Factory.build(:data_representation, {
-        :kind   => "API",
+        :kind   => "tool",
         :format => "Crazy Town"
       }).should_not be_valid
     end

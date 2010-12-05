@@ -17,10 +17,10 @@
       uid: "business"
   data_representations:
   - url: "http://www.data.gov/download/329/csv"
-    kind: "Document"
+    kind: "document"
     format: "CSV"
   - url: "http://www.data.gov/semantic/data/alpha/329/dataset-329.rdf.gz"
-    kind: "Document"
+    kind: "document"
     format: "RDF"
 - uid: "toxics-release-inventory"
   title: "Toxics Release Inventory data"
@@ -60,7 +60,7 @@
     state: "California"
   data_representations:
   - url: "http://www.data.gov/download/2965/csv"
-    kind: "Document"
+    kind: "document"
     format: "CSV"
 - uid: "toxics-release-inventory-1990-colorado"
   title: "1990 Toxics Release Inventory data for the state of Colorado"
@@ -85,7 +85,7 @@
     state: "Colorado"
   data_representations:
   - url: "http://www.data.gov/download/2966/csv"
-    kind: "Document"
+    kind: "document"
     format: "CSV"
 - uid: "toxics-release-inventory-1991-california"
   title: "1991 Toxics Release Inventory data for the state of California"
@@ -110,7 +110,7 @@
     state: "California"
   data_representations:
   - url: "http://www.data.gov/download/2907/csv"
-    kind: "Document"
+    kind: "document"
     format: "CSV"
 - uid: "toxics-release-inventory-1991-colorado"
   title: "1991 Toxics Release Inventory data for the state of Colorado"
@@ -135,7 +135,7 @@
     state: "Colorado"
   data_representations:
   - url: "http://www.data.gov/download/2908/csv"
-    kind: "Document"
+    kind: "document"
     format: "CSV"
 - uid: "airs-widget"
   title: "Aerometric Information Retrieval System (AIRS) Widget"
@@ -152,7 +152,7 @@
       uid: "environment"
   data_representations:
   - url: "http://www.epa.gov/enviro/widgets/airs.html"
-    kind: "Tool"
+    kind: "tool"
     format: null
 - uid: "transparency-data"
   title: "Transparency Data"
@@ -171,7 +171,7 @@
       uid: "campaigns"
   data_representations:
   - url: "http://transparencydata.com"
-    kind: "Tool"
+    kind: "tool"
     format: null
   - url: "http://transparencydata.com/api"
     kind: "API"

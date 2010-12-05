@@ -75,10 +75,8 @@ class DataSource
   # === Map/Reduce ===
   MR = MapReduce.load_files(self, 'data_representation_counts')
   def self.data_representation_counts
-    result = self.collection.map_reduce(*MR)
-    h = {}
-    result.find.each { |x| h[x['_id'].intern] = x['value'].to_i }
-    h
+    result = self.collection.map_reduce(*MR).find
+    result.reduce({}) { |h, x| h.merge({ x['_id'] => x['value'].to_i }) }
   end
 
   # === Class Methods ===

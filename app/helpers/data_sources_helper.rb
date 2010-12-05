@@ -69,7 +69,7 @@ module DataSourcesHelper
     return nil unless representations
     out = content_tag(:ul)
     representations.each do |rep|
-      text = if rep.kind == 'Document'
+      text = if rep.kind == 'document'
         "#{rep.format}"
       else
         rep.kind

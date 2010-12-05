@@ -28,13 +28,13 @@ class DataRepresentation
   # === Validations ===
   validates_presence_of :url
   validates_presence_of :kind
-  validates_inclusion_of :kind, :in => %w(API Document Tool)
+  validates_inclusion_of :kind, :in => %w(API document tool)
   validates_inclusion_of :format, :in => %w(CSV JSON RDF XLS XML),
-    :if => Proc.new { |dr| dr.format == 'Document' }
-  
+    :if => Proc.new { |dr| dr.kind == 'document' }
+
   validate :format_for_apis_and_tools
   def format_for_apis_and_tools
-    if kind != 'Document' && !format.nil?
+    if kind != 'document' && !format.nil?
       errors.add :format, "must be nil for kind #{kind}."
     end
   end

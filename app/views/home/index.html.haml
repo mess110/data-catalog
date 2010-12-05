@@ -18,9 +18,9 @@
       from
       = link_to(pluralize(@counts[:site], 'site'), sites_path) + '.'
     %p.detail
-      = '('.html_safe + link_to(pluralize(@counts[:api], 'API'), '') + ', '
-      = link_to(pluralize(@counts[:document], 'document'), '') + ', and'
-      = link_to(pluralize(@counts[:tool], 'tool'), '') + ')'
+      = '('.html_safe + link_to(pluralize(@counts['API'], 'API'), '') + ', '
+      = link_to(pluralize(@counts['document'], 'document'), '') + ', and'
+      = link_to(pluralize(@counts['tool'], 'tool'), '') + ')'
   .highlights
     %section.find_data
       :markdown
