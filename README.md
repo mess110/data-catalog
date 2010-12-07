@@ -45,7 +45,7 @@ This version (v2) is instead one combined Rails 3 application. This will make it
 
 * Locations, geographical locations, are top-level resources.
 * Locations are hierarchical.
-* Locations are a better convey the ideas of:
+* Locations are a better way to convey the ideas of:
     * jurisdiction of an Organization
     * geographic coverage of a DataSource
 
