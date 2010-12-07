@@ -9,12 +9,12 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: ahern_development
+  database: data_catalog_development
   # autocreate_indexes: true
 
 test:
   <<: *defaults
-  database: ahern_test
+  database: data_catalog_test
 
 # set these environment variables on your prod server
 production:
