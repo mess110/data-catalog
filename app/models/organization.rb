@@ -41,6 +41,7 @@ class Organization
 
   # === Indexes ===
   index :uid, :unique => true
+  index :name, :unique => true
 
   # === Validations ===
   validates_uniqueness_of :uid
