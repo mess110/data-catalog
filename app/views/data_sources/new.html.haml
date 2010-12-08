@@ -8,6 +8,7 @@
         %dd.title= text_field(:data_source, :title)
         %dt Description
         %dd.description= text_area(:data_source, :description, :rows => 3, :cols => 50)
+        .clear
       %dl
         %dt Organization
         %dd= text_field(:data_source, :organization, :size => 50)
@@ -23,6 +24,7 @@
         %dd= text_field(:data_source, :license, :size => 50)
         %dt License URL
         %dd= url_field(:data_source, :license_url, :size => 50)
+        .clear
       %dl
         %dt Categories
         %dd= text_field(:data_source, :categories, :size => 50)
@@ -30,12 +32,15 @@
         %dd= text_field(:data_source, :tags, :size => 50)
         %dt Catalogs
         %dd= text_field(:data_source, :catalogs, :size => 50)
+        .clear
       %dl
         %dt Parent
         %dd= text_field(:data_source, :parent, :size => 50)
         %dt Facets
         %dd= text_field(:data_source, :facets, :size => 50)
+        .clear
       %dl
         %dt Children
         %dd= text_field(:data_source, :children, :size => 50)
+        .clear
       = f.submit "Submit"

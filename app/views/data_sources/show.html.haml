@@ -17,6 +17,7 @@
       %dd= url_only(ds.documentation_url)
       %dt License
       %dd= try_link_to(ds.license, ds.license_url)
+      .clear
     %dl
       %dt Categories
       %dd= data_source_categories(ds)
@@ -24,13 +25,16 @@
       %dd= data_source_tags(ds)
       %dt Catalogs
       %dd= data_source_catalogs(ds)
+      .clear
     - if ds.parent
       %dl
         %dt Parent
         %dd= data_source_parent(ds)
         %dt Facets
         %dd= data_source_facets(ds)
+        .clear
     - unless ds.children.empty?
       %dl
         %dt Children
         %dd= data_source_children(ds)
+        .clear
