@@ -29,7 +29,8 @@ class CountDataSourcesByLocation
         :name  => location.name,
         :count => count
       }
-    end.select { |h| h[:count] > 0 }.sort_by { |h| -h[:count] }.take(limit)
+    end.select { |h| h[:count] > 0 }.sort_by { |h| [-h[:count], h[:name]] }.
+      take(limit)
   end
 
   def self.fresh?(threshold = 1.minute)

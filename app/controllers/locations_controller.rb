@@ -1,10 +1,11 @@
 class LocationsController < ApplicationController
 
   def index
-    @locations = Location.all
+    @locations = Location.ascending(:name)
   end
 
   def show
+    @location = Location.where(:uid => params[:id]).first
   end
 
   def new

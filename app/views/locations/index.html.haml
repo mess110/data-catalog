@@ -9,5 +9,5 @@
     %tbody
     - @locations.each do |location|
       %tr
-        %td.name= location.name
-        %td.description= location.abbreviation
+        %td.name= link_to(location.name, location_path(location))
+        %td.abbreviation= location.abbreviation

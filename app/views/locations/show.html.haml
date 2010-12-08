@@ -1,0 +1,7 @@
+- @page_title = @location[:name]
+%section#locations_show
+  %h1.page_title= @page_title
+  %section.details
+    %dl
+      %dt Abbreviation
+      %dd= @location.abbreviation

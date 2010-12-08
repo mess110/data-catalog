@@ -17,13 +17,14 @@ class CountDataSourcesByCategory
   end
 
   def self.calculate_counts(limit)
-    Category.ascending(:name).map do |category|
+    Category.all.map do |category|
       {
         :path  => URL_HELPERS.category_path(category),
         :name  => category.name,
         :count => category.data_sources.count
       }
-    end.select { |h| h[:count] > 0 }.sort_by { |h| -h[:count] }.take(limit)
+    end.select { |h| h[:count] > 0 }.sort_by { |h| [-h[:count], h[:name]] }.
+      take(limit)
   end
 
   def self.fresh?(threshold = 1.minute)

@@ -1,5 +1,5 @@
 %ul
   - @location_counts.each do |hash|
     %li
-      = hash[:name]
+      = link_to(hash[:name], hash[:path])
       %span.count= hash[:count]

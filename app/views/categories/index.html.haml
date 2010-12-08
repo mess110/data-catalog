@@ -1,0 +1,13 @@
+- @page_title = "Categories"
+%section#categories_index
+  %h1.page_title= @page_title
+  %table.categories
+    %thead
+      %tr
+        %th.name Name
+        %th.description Description
+    %tbody
+    - @categories.each do |category|
+      %tr
+        %td.name= link_to(category.name, category_path(category))
+        %td.description= category.description

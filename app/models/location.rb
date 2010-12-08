@@ -18,6 +18,7 @@ class Location
 
   # === Indexes ===
   index :uid, :unique => true
+  index :name, :unique => true
 
   # === Validations ===
   validates_presence_of :uid
@@ -36,5 +37,6 @@ class Location
   end
 
   # === Instance Methods ===
+  def to_param; uid end
 
 end

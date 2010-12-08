@@ -9,8 +9,9 @@ class Category
   include Mongoid::Slug
 
   # === Fields ===
-  field :uid,  :type => String
-  field :name, :type => String
+  field :uid,         :type => String
+  field :name,        :type => String
+  field :description, :type => String
   slug :name, :scoped => true
 
   # === Associations ===
