@@ -22,6 +22,7 @@ module DataCatalog
     config.autoload_paths += %W(
       #{config.root}/lib
       #{config.root}/lib/data
+      #{config.root}/lib/resque
     )
 
     # Only load the plugins named here, in the order given (default is alphabetical).

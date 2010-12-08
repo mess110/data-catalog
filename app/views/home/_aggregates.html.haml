@@ -1,0 +1,11 @@
+- counts = @counts
+- dr_counts = @data_representation_counts
+%p.summary
+  We have
+  = link_to(pluralize(counts[:data_source], 'data sources'), data_sources_path)
+  from
+  = link_to(pluralize(counts[:site], 'site'), sites_path) + '.'
+%p.detail
+  = '('.html_safe + link_to(pluralize(dr_counts['API'], 'API'), '') + ', '
+  = link_to(pluralize(dr_counts['document'], 'document'), '') + ', and'
+  = link_to(pluralize(dr_counts['tool'], 'tool'), '') + ')'

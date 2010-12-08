@@ -1,0 +1,6 @@
+count_categories:
+  cron: "*/1 * * * *"
+  class: CountCategories
+  args:
+  - 10
+  description: Calculate the number of data sources by categories

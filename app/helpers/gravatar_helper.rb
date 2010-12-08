@@ -5,10 +5,11 @@ module GravatarHelper
 
   def gravatar_image_tag(user)
     email = user.email
-    path = if File.exist?(gravatar_cached_filename(email))
+    filename = gravatar_cached_filename(email)
+    path = if File.exist?(filename) && CacheGravatar.fresh?(filename)
       gravatar_cached_path(email)
     else
-      Resque.enqueue(GravatarCache, email)
+      Resque.enqueue(CacheGravatar, email)
       gravatar_url(email)
     end
     image_tag(path, :alt => user.name, :size => "#{SIZE}x#{SIZE}")

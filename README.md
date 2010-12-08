@@ -64,13 +64,18 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
         * `rake db:setup db:seed_examples`
     * Production:
         * `rake db:setup rake import:*`
-5. Start the server
-    `rails s`
+5. Start the background processing system
+    * `QUEUE=* rake resque:work`
+    * `rake resque:scheduler`
+    * Optionally: `resque-web`
+6. Start the Rails server:
+    * `rails s`
 
 ## Notable Directories
 
 Our directory structure follows the Rails conventions; however, we have a few differences that are worth highlighting:
 
-1. Importers are kept in `/lib/importers`.
-2. Cached gravatars live in `/public/images/gravatars`.
-3. Some Mongoid models use map-reduce. The map and reduce functions live in separate javascript files. This allows text editors to get the syntax highlighting right.
+1. Importers are kept in `lib/importers`.
+2. Cached gravatars live in `public/images/gravatars`.
+3. Delayed processing logic (for Resque) lives in `lib/resque`.
+4. Some Mongoid models use map-reduce. The map and reduce functions live in javascript files located in `app/models/{model}/{method}`. Separating the javascript functions out of the ruby models is helpful to your text editor -- it allow for accurate syntax highlighting and [JSLint](http://www.jslint.com/) checking.

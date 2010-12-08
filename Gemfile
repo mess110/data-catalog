@@ -13,6 +13,7 @@ gem 'mongrel', '~> 1.1.5'
 gem 'rails', '~> 3.0.3'
 gem 'rdiscount', '~> 1.6.5'
 gem 'resque', '~> 1.10.0'
+gem 'resque-scheduler', '~> 1.9.7'
 gem 'SystemTimer', '~> 1.2.1'
 
 group :test, :development do

@@ -12,15 +12,7 @@
       = render :partial => 'categories'
     .clear
   %section.aggregates
-    %p.summary
-      We have
-      = link_to(pluralize(@counts[:data_source], 'data sources'), data_sources_path)
-      from
-      = link_to(pluralize(@counts[:site], 'site'), sites_path) + '.'
-    %p.detail
-      = '('.html_safe + link_to(pluralize(@counts['API'], 'API'), '') + ', '
-      = link_to(pluralize(@counts['document'], 'document'), '') + ', and'
-      = link_to(pluralize(@counts['tool'], 'tool'), '') + ')'
+    = render :partial => 'aggregates'
   .highlights
     %section.find_data
       :markdown
