@@ -1,7 +1,7 @@
 class CatalogsController < ApplicationController
 
   def index
-    @catalogs = Catalog.all
+    @catalogs = Catalog.ascending(:name)
   end
 
   def show
