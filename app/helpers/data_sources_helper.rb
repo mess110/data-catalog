@@ -22,7 +22,7 @@ module DataSourcesHelper
     children = data_source.children
     return 'none' if children.empty?
     out = content_tag(:ul)
-    children.each do |ds|
+    children.sort_by { |ds| ds.title }.each do |ds|
       out << content_tag(:li, link_to(ds.title, data_source_path(ds)))
     end
     out
