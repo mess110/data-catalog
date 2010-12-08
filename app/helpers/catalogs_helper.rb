@@ -9,8 +9,9 @@ module CatalogsHelper
   end
 
   def catalog_data_sources(catalog)
-    text = pluralize(catalog.data_sources.count, 'data sources')
-    link_to(text, data_sources_path)
+    count = catalog.data_sources.count
+    text = pluralize(count, 'data source')
+    count > 0 ? link_to(text, data_sources_path) : text
   end
 
   protected
