@@ -1,6 +1,13 @@
-count_categories:
+count_data_sources_by_category:
   cron: "*/1 * * * *"
-  class: CountCategories
+  class: CountDataSourcesByCategory
+  args:
+  - 10
+  description: Calculate the number of data sources by categories
+
+count_data_sources_by_location:
+  cron: "*/1 * * * *"
+  class: CountDataSourcesByLocation
   args:
   - 10
   description: Calculate the number of data sources by categories

@@ -1,0 +1,5 @@
+%ul
+  - @location_counts.each do |hash|
+    %li
+      = hash[:name]
+      %span.count= hash[:count]
