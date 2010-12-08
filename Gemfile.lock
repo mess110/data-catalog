@@ -78,9 +78,9 @@ GEM
     json (1.4.6)
     json_pure (1.4.6)
     kronos (0.1.8)
-    mail (2.2.11)
+    mail (2.2.12)
       activesupport (>= 2.3.6)
-      i18n (~> 0.5.0)
+      i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     main (4.4.0)
@@ -127,9 +127,10 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
-    rails_best_practices (0.5.2)
+    rails_best_practices (0.5.3)
       activesupport
       colored (~> 1.2)
+      erubis (~> 2.6.6)
       i18n
       progressbar (~> 0.9.0)
       ruby_parser (~> 2.0.4)
