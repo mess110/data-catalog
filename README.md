@@ -60,10 +60,10 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
     * On Mac OS X, we recommend [homebrew](http://http://mxcl.github.com/homebrew/):
         * `brew install redis`
 4. Load data into the database
-    * Development:
-        * `rake db:setup db:seed_examples`
-    * Production:
-        * `rake db:setup import:*`
+    * For quicker testing:
+        * `rake db:reset db:seed db:seed_examples`
+    * For a full setup:
+        * `rake db:reset db:seed db:seed_examples import:*`
 5. Start the background processing system
     * `QUEUE=* rake resque:work`
     * `rake resque:scheduler`
