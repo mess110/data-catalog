@@ -1,69 +1,416 @@
-- uid: 'agriculture'
-  name: 'Agriculture'
+---
 - uid: 'banking'
   name: 'Banking'
 - uid: 'budget'
   name: 'Budget'
 - uid: 'business'
   name: 'Business'
-- uid: 'campaigns'
-  name: 'Campaigns'
 - uid: 'civil-rights'
   name: 'Civil Rights'
+- uid: 'laws'
+  name: 'Laws'
+- uid: 'culture'
+  name: 'Culture'
+- uid: 'demographics'
+  name: 'Demographics'
 - uid: 'education'
   name: 'Education'
 - uid: 'economy'
   name: 'Economy'
+- uid: 'elections'
+  name: 'Elections'
 - uid: 'energy'
   name: 'Energy'
 - uid: 'environment'
   name: 'Environment'
+- uid: 'foreign-policy'
+  name: 'Foreign Policy'
 - uid: 'health'
   name: 'Health'
+- uid: 'national-security'
+  name: 'National Security'
 - uid: 'philanthropy'
   name: 'Philanthropy'
 - uid: 'poverty'
   name: 'Poverty'
 - uid: 'public-safety'
   name: 'Public Safety'
+- uid: 'rural'
+  name: 'Rural'
+- uid: 'social-policy'
+  name: 'Social Policy'
 - uid: 'technology'
   name: 'Technology'
-- uid: 'trade'
-  name: 'Trade'
+- uid: 'transparency'
+  name: 'Transparency'
 - uid: 'transportation'
   name: 'Transportation'
-# - name: Agriculture
-# - name: Arts
-# - name: Banking / Insurance / Finance
-# - name: Budget / Fiscal Policy / Taxes
-# - name: Business
-# - name: Campaign Finance / Elections / Politics
-# - name: Children / Families / Human Services
-# - name: Civil Rights & Liberties
-# - name: Climate / Environment
-# - name: Communications / Information / Internet
-# - name: Crime / Law Enforcement / Public Safety
-# - name: Demographics
-# - name: Economics / Monetary Policy
-# - name: Education
-# - name: Employment / Labor
-# - name: Energy / Natural Resources
-# - name: Foreign Commerce / Foreign Policy
-# - name: Geography / Geospatial
-# - name: Governance
-# - name: Health / Nutrition
-# - name: Housing / Urban
-# - name: Immigration
-# - name: Foreign Aid / International Development
-# - name: Law / Courts
-# - name: Metropolitan / Municipal
-# - name: National Security
-# - name: Philanthropy
-# - name: Poverty / Welfare
-# - name: Science & Technology / Innovation
-# - name: Stimulus / Economic Development
-# - name: Trade
-# - name: Transportation
-# - name: Travel / Recreation
-# - name: Utilities
-# - name: Veterans Affairs
+- uid: 'urban'
+  name: 'Urban'
+---
+- uid: 'accountability'
+  name: 'Accountability'
+  parent:
+    :category:
+      uid: 'transparency'
+- uid: 'agriculture'
+  name: 'Agriculture'
+  parent:
+    :category:
+      uid: 'rural'
+- uid: 'arts'
+  name: 'Arts'
+  parent:
+    :category:
+      uid: 'culture'
+- uid: 'campaign-finance'
+  name: 'Campaign Finance'
+  parent:
+    :category:
+      uid: 'elections'
+- uid: 'campaigns'
+  name: 'Campaigns'
+  parent:
+    :category:
+      uid: 'elections'
+- uid: 'charity'
+  name: 'Charity'
+  parent:
+    :category:
+      uid: 'philanthropy'
+- uid: 'children'
+  name: 'Children'
+  parent:
+    :category:
+      uid: 'social-policy'
+- uid: 'civil-liberties'
+  name: 'Civil Liberties'
+  parent:
+    :category:
+      uid: 'civil-rights'
+- uid: 'climate'
+  name: 'Climate'
+  parent:
+    :category:
+      uid: 'environment'
+- uid: 'commerce'
+  name: 'Commerce'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'communications'
+  name: 'Communications'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'community-development'
+  name: 'Community Development'
+  parent:
+    :category:
+      uid: 'urban'
+- uid: 'construction'
+  name: 'Construction'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'corrections'
+  name: 'Corrections'
+  parent:
+    :category:
+      uid: 'public-safety'
+- uid: 'courts'
+  name: 'Courts'
+  parent:
+    :category:
+      uid: 'laws'
+- uid: 'crime'
+  name: 'Crime'
+  parent:
+    :category:
+      uid: 'public-safety'
+- uid: 'defense'
+  name: 'Defense'
+  parent:
+    :category:
+      uid: 'national-security'
+- uid: 'diplomacy'
+  name: 'Diplomacy'
+  parent:
+    :category:
+      uid: 'foreign-policy'
+- uid: 'disease'
+  name: 'Disease'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'economics'
+  name: 'Economics'
+  parent:
+    :category:
+      uid: 'economy'
+- uid: 'employment'
+  name: 'Employment'
+  parent:
+    :category:
+      uid: 'economy'
+- uid: 'expenditure'
+  name: 'Expenditure'
+  parent:
+    :category:
+      uid: 'budget'
+- uid: 'families'
+  name: 'Families'
+  parent:
+    :category:
+      uid: 'social-policy'
+- uid: 'farming'
+  name: 'Farming'
+  parent:
+    :category:
+      uid: 'rural'
+- uid: 'finance'
+  name: 'Finance'
+  parent:
+    :category:
+      uid: 'banking'
+- uid: 'fiscal-policy'
+  name: 'Fiscal Policy'
+  parent:
+    :category:
+      uid: 'banking'
+- uid: 'foreign-aid'
+  name: 'Foreign Aid'
+  parent:
+    :category:
+      uid: 'foreign-policy'
+- uid: 'food'
+  name: 'Food'
+  parent:
+    :category:
+      uid: 'rural'
+- uid: 'governance'
+  name: 'Governance'
+  parent:
+    :category:
+      uid: 'transparency'
+- uid: 'healthcare'
+  name: 'Healthcare'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'health-insurance'
+  name: 'Health'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'history'
+  name: 'History'
+  parent:
+    :category:
+      uid: 'culture'
+- uid: 'homeland-security'
+  name: 'Homeland Security'
+  parent:
+    :category:
+      uid: 'national-security'
+- uid: 'homelessness'
+  name: 'Homelessness'
+  parent:
+    :category:
+      uid: 'poverty'
+- uid: 'housing'
+  name: 'Housing'
+  parent:
+    :category:
+      uid: 'urban'
+- uid: 'human-services'
+  name: 'Human Services'
+  parent:
+    :category:
+      uid: 'social-policy'
+- uid: 'immigration'
+  name: 'Immigration'
+  parent:
+    :category:
+      uid: 'demographics'
+- uid: 'internet'
+  name: 'Internet'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'international-development'
+  name: 'International Development'
+  parent:
+    :category:
+      uid: 'foreign-policy'
+- uid: 'industry'
+  name: 'Industry'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'information'
+  name: 'Information'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'labor'
+  name: 'Labor'
+  parent:
+    :category:
+      uid: 'economy'
+- uid: 'law-enforcement'
+  name: 'Law Enforcement'
+  parent:
+    :category:
+      uid: 'public-safety'
+- uid: 'legal-services'
+  name: 'Legal Services'
+  parent:
+    :category:
+      uid: 'laws'
+- uid: 'leisure'
+  name: 'Leisure'
+  parent:
+    :category:
+      uid: 'culture'
+- uid: 'metropolitan'
+  name: 'Metropolitan'
+  parent:
+    :category:
+      uid: 'urban'
+- uid: 'military'
+  name: 'Military'
+  parent:
+    :category:
+      uid: 'national-security'
+- uid: 'monetary-policy'
+  name: 'Monetary Policy'
+  parent:
+    :category:
+      uid: 'economy'
+- uid: 'motor-vehicles'
+  name: 'Motor Vehicles'
+  parent:
+    :category:
+      uid: 'transportation'
+- uid: 'municipal'
+  name: 'Municipal'
+  parent:
+    :category:
+      uid: 'urban'
+- uid: 'natural-resources'
+  name: 'Natural Resources'
+  parent:
+    :category:
+      uid: 'energy'
+- uid: 'nutrition'
+  name: 'Nutrition'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'politics'
+  name: 'Politics'
+  parent:
+    :category:
+      uid: 'elections'
+- uid: 'pollution'
+  name: 'Pollution'
+  parent:
+    :category:
+      uid: 'environment'
+- uid: 'recreation'
+  name: 'Recreation'
+  parent:
+    :category:
+      uid: 'culture'
+- uid: 'regulations'
+  name: 'Regulations'
+  parent:
+    :category:
+      uid: 'laws'
+- uid: 'revenue'
+  name: 'Revenue'
+  parent:
+    :category:
+      uid: 'budget'
+- uid: 'social-insurance'
+  name: 'Social Insurance'
+  parent:
+    :category:
+      uid: 'social-policy'
+  description: "Social insurance is any government-sponsored program with the following three characteristics: (1) the benefits, eligibility requirements and other aspects of the program are defined by statute; (2) it is funded by taxes or premiums paid by (or on behalf of) participants (although additional sources of funding may be provided as well); and (3) the program serves a defined population, and participation is either compulsory or the program is heavily enough subsidized that most eligible individuals choose to participate. ... In the U.S., programs that meet these definitions include Social Security, Medicare, the PBGC program, the railroad retirement program and state-sponsored unemployment insurance programs. (http://en.wikipedia.org/wiki/Social_insurance)"
+- uid: 'social-programs'
+  name: 'Social Programs'
+  parent:
+    :category:
+      uid: 'social-policy'
+- uid: 'science'
+  name: 'Science'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'schools'
+  name: 'Schools'
+  parent:
+    :category:
+      uid: 'education'
+- uid: 'stimulus'
+  name: 'Stimulus'
+  parent:
+    :category:
+      uid: 'economy'
+- uid: 'spending'
+  name: 'Spending'
+  parent:
+    :category:
+      uid: 'budget'
+- uid: 'taxes'
+  name: 'Taxes'
+  parent:
+    :category:
+      uid: 'budget'
+- uid: 'telecom'
+  name: 'Telecom'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'tourism'
+  name: 'Tourism'
+  parent:
+    :category:
+      uid: 'culture'
+- uid: 'trade'
+  name: 'Trade'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'travel'
+  name: 'Travel'
+  parent:
+    :category:
+      uid: 'transportation'
+- uid: 'utilities'
+  name: 'Utilities'
+  parent:
+    :category:
+      uid: 'energy'
+- uid: 'veterans-affairs'
+  name: 'Veterans Affairs'
+  parent:
+    :category:
+      uid: 'national-security'
+- uid: 'voting'
+  name: 'Voting'
+  parent:
+    :category:
+      uid: 'elections'
+- uid: 'wealth'
+  name: 'Wealth'
+  parent:
+    :category:
+      uid: 'economy'
+- uid: 'welfare'
+  name: 'Welfare'
+  parent:
+    :category:
+      uid: 'poverty'

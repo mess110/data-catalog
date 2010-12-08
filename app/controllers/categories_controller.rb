@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Category.ascending(:name)
+    @categories = Category.primary.ascending(:name)
   end
 
   def show

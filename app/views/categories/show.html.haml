@@ -1,7 +1,24 @@
 - @page_title = @category[:name]
+- category = @category
 %section#categories_show
   %h1.page_title= @page_title
   %section.details
     %dl
       %dt Description
       %dd= @category.description
+      - if category.children.present?
+        %dt Similar Categories
+        %dd= category_children(category)
+      %dt Data Sources
+      %dd= category_data_sources(category)
+      .clear
+    - if category.parent
+      - parent = category.parent
+      %dl
+        %dt Main Category
+        %dd= category_parent(category)
+        %dt Similar Categories
+        %dd= category_children(parent)
+        %dt Similar Data Sources
+        %dd= category_data_sources(parent)
+        .clear

@@ -5,9 +5,11 @@
     %thead
       %tr
         %th.name Name
-        %th.description Description
+        %th.similar Similar Categories
+        %th.data_sources Data Sources
     %tbody
     - @categories.each do |category|
       %tr
         %td.name= link_to(category.name, category_path(category))
-        %td.description= category.description
+        %td.similar= category_children(category)
+        %td.data_sources= category_data_sources(category)
