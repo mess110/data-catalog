@@ -63,7 +63,7 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
     * Development:
         * `rake db:setup db:seed_examples`
     * Production:
-        * `rake db:setup rake import:*`
+        * `rake db:setup import:*`
 5. Start the background processing system
     * `QUEUE=* rake resque:work`
     * `rake resque:scheduler`
