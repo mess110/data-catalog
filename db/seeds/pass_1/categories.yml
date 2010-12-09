@@ -153,8 +153,8 @@
   parent:
     :category:
       uid: 'economy'
-- uid: 'expenditure'
-  name: 'Expenditure'
+- uid: 'expenditures'
+  name: 'Expenditures'
   parent:
     :category:
       uid: 'budget'
