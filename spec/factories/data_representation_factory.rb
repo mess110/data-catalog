@@ -1,6 +1,6 @@
-Factory.define :data_representation do |u|
+Factory.define :data_representation do |dr|
   # Africa: Conflicts Without Borders 2009
-  u.url 'http://www.data.gov/raw/1200'
-  u.kind 'document'
-  u.format 'CSV'
+  dr.url 'http://www.data.gov/raw/1200'
+  dr.kind 'document'
+  dr.format 'CSV'
 end
