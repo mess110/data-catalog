@@ -4,7 +4,7 @@
   %section.details
     %dl
       %dt Avatar
-      %dd= gravatar_image_tag(@user)
+      %dd= gravatar_image_tag(@user.email, @user.name)
       %dt Bio
       %dd= @user.bio
       %dt Email
