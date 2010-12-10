@@ -7,6 +7,18 @@
 #
 # Notes:
 #
+# === data_quality ===
+#
+# An integer rating between 1 (low) and 5 (high), or nil.
+#
+# === documentation_quality ===
+#
+# An integer rating between 1 (low) and 5 (high), or nil.
+#
+# === interestingness ===
+#
+# An integer rating between 1 (low) and 5 (high), or nil.
+#
 # === url ===
 #
 # May be left blank: it often makes sense for a DataSource with children to
@@ -18,6 +30,7 @@ class DataSource
   include Mongoid::Timestamps
   include Mongoid::Versioning
   include Mongoid::Slug
+  include Validators
 
   # === Fields ===
   field :uid,                   :type => String
@@ -28,6 +41,7 @@ class DataSource
   field :license,               :type => String
   field :license_url,           :type => String
   field :released,              :type => Hash
+  field :updated,               :type => Hash
   field :period_start,          :type => Hash
   field :period_end,            :type => Hash
   field :frequency,             :type => String
@@ -35,9 +49,9 @@ class DataSource
   field :facets,                :type => Hash
   field :granularity,           :type => String
   field :geographic_coverage,   :type => String
-  field :interestingness,       :type => Integer, :default => nil
-  field :documentation_quality, :type => Integer, :default => nil
   field :data_quality,          :type => Integer, :default => nil
+  field :documentation_quality, :type => Integer, :default => nil
+  field :interestingness,       :type => Integer, :default => nil
   slug :title, :scoped => true
 
   # === Associations ===
@@ -64,6 +78,13 @@ class DataSource
   validates_uniqueness_of :uid
   validates_presence_of :title
   validates_associated :data_representations
+
+  validate :validate_kronos_hashes
+  def validate_kronos_hashes
+    expect_kronos_hash(released,     :released)
+    expect_kronos_hash(period_start, :period_start)
+    expect_kronos_hash(period_end,   :period_end)
+  end
 
   # === Scopes ===
   # These return DataSources that have one or more DataRepresentations:
