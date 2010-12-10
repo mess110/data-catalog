@@ -1,8 +1,15 @@
 require 'spec_helper'
 
 describe User do
-  # describe "Fields" do
-  # end
+  describe "Fields" do
+    it "should be invalid when missing name" do
+      Factory.build(:user, { :name => nil }).should_not be_valid
+    end
+
+    it "should be invalid when missing uid" do
+      Factory.build(:user, { :uid => nil }).should_not be_valid
+    end
+  end
   
   describe "Associations" do
     before do

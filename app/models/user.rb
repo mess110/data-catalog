@@ -26,6 +26,7 @@ class User
   index :uid, :unique => true
 
   # === Validations ===
+  validates_presence_of :uid
   validates_uniqueness_of :uid
   validates_presence_of :name
   validates_uniqueness_of :email, :case_sensitive => false
