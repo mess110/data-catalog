@@ -3,8 +3,8 @@
   %h1.page_title= @page_title
   %section.details
     %dl
-      %dt Avatar
-      %dd= gravatar_image_tag(@user.email, @user.name)
+      %dt.avatar Avatar
+      %dd.avatar= gravatar_image_tag(@user.email, @user.name)
       %dt Bio
       %dd= @user.bio
       %dt Email
