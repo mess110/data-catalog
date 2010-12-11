@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.where(:uid => params[:id]).first
-    @activities = @user.activities_as_subject
+    @activities = @user.activities_as_subject.descending(:created_at)
   end
 
   def new
