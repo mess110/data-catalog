@@ -48,7 +48,7 @@ class Activity
   referenced_in :object_data_source, :class_name => 'DataSource',
     :index => true
   references_many :object_catalogs, :class_name => 'Catalog',
-    :inverse_of => :activities, :stored_as => :array, :index => true
+    :inverse_of => :activities_as_object, :stored_as => :array, :index => true
 
   # === Indexes ===
 
