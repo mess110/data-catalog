@@ -47,8 +47,6 @@ class Activity
   referenced_in :object_user, :class_name => 'User', :index => true
   referenced_in :object_data_source, :class_name => 'DataSource',
     :index => true
-  references_many :object_catalogs, :class_name => 'Catalog',
-    :inverse_of => :activities_as_object, :stored_as => :array, :index => true
 
   # === Indexes ===
 
@@ -68,30 +66,20 @@ class Activity
       expect(:object_path,        :nil)
       expect(:object_user,        :nil)
       expect(:object_data_source, :nil)
-      expect(:object_catalogs,    :empty)
     when 'follow'
       expect(:object_label,       :truthy)
       expect(:object_path,        :truthy)
       expect(:object_user,        :truthy)
       expect(:object_data_source, :nil)
-      expect(:object_catalogs,    :empty)
     when 'comment', 'suggest', 'watch'
       expect(:object_label,       :truthy)
       expect(:object_path,        :truthy)
       expect(:object_user,        :nil)
       expect(:object_data_source, :truthy)
-      expect(:object_catalogs,    :truthy)
     end
   end
 
   # === Callbacks ===
-
-  before_validation :set_object_catalogs
-  def set_object_catalogs
-    if object_data_source
-      self.object_catalogs = object_data_source.catalogs
-    end
-  end
 
   # === Scopes ===
 
