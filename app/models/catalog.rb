@@ -30,6 +30,7 @@ class Catalog
   # === Validations ===
   validates_uniqueness_of :uid
   validates_presence_of :name
+  validates_uniqueness_of :name
   validates_presence_of :path
   validates_uniqueness_of :path
 
