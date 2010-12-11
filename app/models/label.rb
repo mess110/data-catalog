@@ -17,7 +17,17 @@ class Label
 
   # === Class Methods ===
   def self.find_duplicate(params)
-    # Note: may not work quite right, since :site is an association
+    raise "Probably implemented wrong"
+    # Note: I have very little confidence that this is correct, because :site
+    # is an association, not a 'regular' field.
+    #
+    # The params that get passed in typically come from .yml files that are
+    # processed by the DataLoader class.
+    #
+    # One possible change is to modify the DataLoader to call its `transform`
+    # method earlier in its process so that association lookups happen and
+    # are converted to, for example, :site_id before this `find_duplicate`
+    # is called.
     ModelHelper.find_duplicate(self, params, [:name, :site])
   end
 
