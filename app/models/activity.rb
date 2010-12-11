@@ -79,6 +79,7 @@ class Activity
   # === Callbacks ===
 
   # === Scopes ===
+  scope :recent, lambda { |count| descending(:created_at).limit(count) }
 
   # === Map/Reduce ===
 

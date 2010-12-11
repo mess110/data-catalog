@@ -5,7 +5,7 @@
 
 #home_index
   margin-top: $baseline
-  div.group
+  div.group_1
     section
       height: $baseline * 10
       overflow: hidden
@@ -54,3 +54,18 @@
         margin: 0
     section.find_people
       margin-right: 0
+  div.group_2
+    section
+      height: $baseline * 10
+      overflow: hidden
+      h1
+        +font_1
+        font-weight: bold
+        text-align: center
+      p
+        margin: 0
+    section.featured_data_source
+      +box(2)
+      margin-right: $h_space
+    section.activity_stream
+      +box(2)

@@ -8,6 +8,7 @@ class HomeController < ApplicationController
       :site        => Site.all.length
     }
     @data_representation_counts = DataSource.data_representation_counts
+    @activities = Activity.recent(9)
   end
 
 end

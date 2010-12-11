@@ -1,6 +1,6 @@
 - @page_title = 'Home'
 #home_index
-  .group
+  .group_1
     %section.locations
       = render :partial => 'locations'
     %section.about_app
@@ -30,4 +30,10 @@
       :markdown
         # Find People
         Find interesting people in the data community
+    .clear
+  .group_2
+    %section.featured_data_source
+      = render :partial => 'featured_data_source'
+    %section.activity_stream
+      = render :partial => 'activity_stream'
     .clear

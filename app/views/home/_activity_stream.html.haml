@@ -1,0 +1,4 @@
+%h1 Activity Stream
+%ol
+  - @activities.each do |activity|
+    %li= activity_string(activity)
