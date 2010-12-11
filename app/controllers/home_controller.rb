@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     }
     @data_representation_counts = DataSource.data_representation_counts
     @featured_data_source = FeaturedDataSource.current
-    @activities = Activity.recent(14)
+    @activities = Activity.recent(15)
   end
 
 end
