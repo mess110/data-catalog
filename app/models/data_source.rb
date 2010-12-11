@@ -70,6 +70,8 @@ class DataSource
   references_many :watchers, :class_name => 'User',
     :inverse_of => :watched_data_sources, :stored_as => :array,
     :index => true
+  references_many :activities_as_object, :class_name => 'Activity',
+    :foreign_key => :object_data_source_id, :inverse_of => :object_data_source
 
   # === Indexes ===
   index :uid, :unique => true

@@ -12,6 +12,7 @@ class DataLoader
     { :constant => Category,     :name => :categories },
     { :constant => DataSource,   :name => :data_sources },
     { :constant => Tag,          :name => :tags },
+    { :constant => Activity,     :name => :activities },
   ]
 
   def initialize(options)

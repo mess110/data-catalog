@@ -21,6 +21,10 @@ class User
     :inverse_of => :owners, :stored_as => :array, :index => true
   references_many :watched_data_sources, :class_name => 'DataSource',
     :inverse_of => :watchers, :stored_as => :array, :index => true
+  references_many :activities_as_subject, :class_name => 'Activity',
+    :foreign_key => :subject_user_id, :inverse_of => :subject_user
+  references_many :activities_as_object, :class_name => 'Activity',
+    :foreign_key => :object_user_id, :inverse_of => :object_user
 
   # === Indexes ===
   index :uid, :unique => true

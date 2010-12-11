@@ -20,6 +20,8 @@ class Catalog
     :inverse_of => :curated_catalogs, :stored_as => :array, :index => true
   references_many :owners, :class_name => 'User',
     :inverse_of => :owned_catalogs, :stored_as => :array, :index => true
+  references_many :activities_as_object, :class_name => 'Activity',
+    :inverse_of => :object_catalogs
 
   # === Indexes ===
   index :uid, :unique => true
