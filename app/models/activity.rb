@@ -86,6 +86,14 @@ class Activity
   # === Map/Reduce ===
 
   # === Class Methods ===
+  def self.find_duplicate(params)
+    ModelHelper.find_duplicate(self, params,
+      [:subject_path, :verb, :object_path])
+  end
+
+  def self.ensure(params)
+    ModelHelper.ensure(self, params)
+  end
 
   # === Instance Methods ===
 

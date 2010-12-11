@@ -1,0 +1,24 @@
+- subject_user:
+    :user:
+      uid: "david-james"
+  subject_label: "David James"
+  subject_path: "/users/david-james"
+  verb: "watch"
+  object_data_source:
+    :data_source:
+      uid: "toxics-release-inventory"
+  object_label: "Toxics Release Inventory data"
+  object_path: "/data_sources/toxics-release-inventory"
+  created_at: "2010-12-11 15:12 Z"
+- subject_user:
+    :user:
+      uid: "david-james"
+  subject_label: "David James"
+  subject_path: "/users/david-james"
+  verb: "follow"
+  object_user:
+    :user:
+      uid: "bill-allison"
+  object_label: "Bill Allison"
+  object_path: "/users/bill-allison"
+  created_at: "2010-12-11 15:24 Z"
