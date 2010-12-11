@@ -67,5 +67,20 @@
     section.featured_data_source
       +box(2)
       margin-right: $h_space
+      dl
+        dt
+          +multicolumn_width(0.4, 0px)
+          clear: left
+          display: block
+          float: left
+          font-weight: bold
+          margin-right: $h_space
+          text-align: right
+        dd
+          +multicolumn_width(1.6, 2 * $h_space)
+          display: block
+          float: left
+      dl + dl
+        margin-top: $baseline
     section.activity_stream
       +box(2)

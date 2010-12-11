@@ -19,6 +19,8 @@ class FeaturedDataSource
   referenced_in :data_source, :index => true
 
   # === Indexes ===
+  index :start_at
+  index :stop_at
 
   # === Validations ===
   validates_presence_of :start_at
@@ -30,7 +32,7 @@ class FeaturedDataSource
       errors.add(:start_at, "can't be blank")
       return
     end
-    if stop_at && start_at > stop_at
+    if stop_at && start_at > stop_at 
       errors.add(:stop_at, "must be later than start_at")
     end
   end
@@ -49,5 +51,18 @@ class FeaturedDataSource
   end
 
   # === Instance Methods ===
+
+  # Returns the currently featured data source or nil.
+  def self.current(t = Time.now)
+    matches = self.where(:start_at.lt => t).where(:stop_at.gt => t)
+    case matches.count
+    when 1
+      matches.first
+    when 0
+      self.where(:start_at.lt => t).descending(:start_at).first
+    else
+      raise "Expected to find 0 or 1 matches for FeaturedDataSource"
+    end
+  end
 
 end
