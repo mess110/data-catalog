@@ -3,16 +3,17 @@ class DataLoader
   # Models have associations, so construct models in an order that makes
   # sense for building up the associations.
   MODELS = [
-    { :constant => Location,     :name => :locations },
-    { :constant => Organization, :name => :organizations },
-    { :constant => Catalog,      :name => :catalogs },
-    { :constant => Site,         :name => :sites },
-    { :constant => Label,        :name => :labels },
-    { :constant => User,         :name => :users },
-    { :constant => Category,     :name => :categories },
-    { :constant => DataSource,   :name => :data_sources },
-    { :constant => Tag,          :name => :tags },
-    { :constant => Activity,     :name => :activities },
+    { :constant => Location,           :name => :locations },
+    { :constant => Organization,       :name => :organizations },
+    { :constant => Catalog,            :name => :catalogs },
+    { :constant => Site,               :name => :sites },
+    { :constant => Label,              :name => :labels },
+    { :constant => User,               :name => :users },
+    { :constant => Category,           :name => :categories },
+    { :constant => DataSource,         :name => :data_sources },
+    { :constant => FeaturedDataSource, :name => :featured_data_sources },
+    { :constant => Tag,                :name => :tags },
+    { :constant => Activity,           :name => :activities },
   ]
 
   def initialize(options)
