@@ -14,3 +14,7 @@
       %dt Curated Catalogs
       %dd= user_curated_catalogs(@user)
       .clear
+  %section.activities
+    %ol
+      - @activities.each do |activity|
+        %li= activity_string(activity)
