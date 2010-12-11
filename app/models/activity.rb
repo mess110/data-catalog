@@ -27,10 +27,7 @@
 #    * There is an application-wide activity stream
 #    * Each User has an activity stream
 #    * Each DataSource has an activity stream
-#    * Each Catalog has an activity stream
 #
-# Note that if object_data_source is set, then object_catalogs will be set
-# automatically. Why? If you specify a DataSource as an object, then we
 class Activity
   include Mongoid::Document
   include Mongoid::Timestamps
