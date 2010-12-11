@@ -6,6 +6,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.where(:uid => params[:id]).first
+    render_404 && return unless @site
   end
 
   def new

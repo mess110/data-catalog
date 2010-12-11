@@ -6,6 +6,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.where(:slug => params[:id]).first
+    render_404 && return unless @organization
   end
 
   def new

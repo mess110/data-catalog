@@ -3,6 +3,7 @@ class AccountController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    render_404 && return unless @user
   end
 
   # To verify if a user is signed in, use the following helper:

@@ -6,6 +6,7 @@ class CatalogsController < ApplicationController
 
   def show
     @catalog = Catalog.where(:uid => params[:id]).first
+    render_404 && return unless @catalog
   end
 
   def new

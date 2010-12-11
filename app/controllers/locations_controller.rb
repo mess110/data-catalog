@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.where(:uid => params[:id]).first
+    render_404 && return unless @location
   end
 
   def new

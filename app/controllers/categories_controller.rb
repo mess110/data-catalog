@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.where(:uid => params[:id]).first
+    render_404 && return unless @category
   end
 
   def new
