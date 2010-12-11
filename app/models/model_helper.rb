@@ -7,7 +7,7 @@ class ModelHelper
         raise "Attribute #{attribute.inspect} must be a symbol"
       end
       value = params[attribute] || params[attribute.to_s]
-      raise "Cannot lookup value for attribute: #{attribute}" unless value
+      # There are valid cases where value can be nil
       query_attributes[attribute] = value
     end
     matches = model.where(query_attributes)
