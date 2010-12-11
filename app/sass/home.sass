@@ -56,17 +56,19 @@
       margin-right: 0
   div.group_2
     section
-      height: $baseline * 10
-      overflow: hidden
       h1
         +font_1
         font-weight: bold
         text-align: center
       p
         margin: 0
+    section.activity_stream
+      +box(2)
+      height: $baseline * 15
+      margin-right: $h_space
+      overflow: hidden
     section.featured_data_source
       +box(2)
-      margin-right: $h_space
       dl
         dt
           +multicolumn_width(0.4, 0px)
@@ -82,5 +84,3 @@
           float: left
       dl + dl
         margin-top: $baseline
-    section.activity_stream
-      +box(2)
