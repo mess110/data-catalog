@@ -176,3 +176,23 @@
   - url: "http://transparencydata.com/api"
     kind: "API"
     format: null
+- uid: "beaches-and-bay-pollution-monitoring"
+  title: "Beaches and Bay Pollution Monitoring"
+  url: "http://www.datasf.org/story.php?title=beaches-and-bay-polution-monitoring"
+  documentation_url: "http://www.sfwater.org/custom/lims/beachmain1.cfm/mc_id/20/MC_ID/20/MSC_ID/198"
+  description: "Shoreline bacteria are routinely monitored at 14 stations around the perimeter of San Francisco where water contact recreation may occur. These include three stations within the Candlestick Point State Recreation Area, two stations at Aquatic Park, two stations along Crissy Field Beach, three stations at Baker Beach, one at China Beach, and three stations along Ocean Beach. The beach monitoring program is a cooperative effort between the San Francisco Public Utilities Commission and the San Francisco Department of Public Health. Samples are collected weekly year round. Additional monitoring is conducted whenever a treated discharge from the City’s combined sewer system occurs that affects a monitored beach. READ MORE about the combined sewer system and a detailed explanation of the Beach Monitoring Program. See http://sfwater.org//custom/lims/beachmain1.cfm/mc_id/20/MC_ID/20/MSC_ID/198. "
+  organization:
+    :organization:
+      uid: "san-francisco-public-utilities-commission"
+  catalogs:
+  - :catalog:
+      uid: "national-data-catalog"
+  categories:
+  - :category:
+      uid: "environment"
+  - :category:
+      uid: "pollution"
+  data_representations:
+  - url: "http://sfwater.org/tasks/beaches.csv"
+    kind: "document"
+    format: "CSV"
