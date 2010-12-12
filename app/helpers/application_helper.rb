@@ -29,8 +29,9 @@ module ApplicationHelper
     end
   end
   
-  def url_only(url)
-    url.present? ? link_to(url, url) : '?'
+  def url_only(url, length)
+    shorter_url = truncate(url, :length => length)
+    url.present? ? link_to(shorter_url, url) : '?'
   end
 
   def tab(css_class, text, path)

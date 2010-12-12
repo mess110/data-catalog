@@ -14,7 +14,7 @@
     %dt Released
     %dd= kronos_to_s(ds.released)
     %dt Source URL
-    %dd= url_only(ds.url)
+    %dd= url_only(ds.url, 40)
 - else
   :markdown
     We are not currently featuring a data source. If you have a recommendation

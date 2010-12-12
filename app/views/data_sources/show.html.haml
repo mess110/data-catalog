@@ -12,9 +12,9 @@
       %dt Released
       %dd= kronos_to_s(ds.released)
       %dt Source URL
-      %dd= url_only(ds.url)
+      %dd= url_only(ds.url, 60)
       %dt Documentation URL
-      %dd= url_only(ds.documentation_url)
+      %dd= url_only(ds.documentation_url, 60)
       %dt License
       %dd= try_link_to(ds.license, ds.license_url)
       .clear
