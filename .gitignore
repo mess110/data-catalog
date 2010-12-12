@@ -5,6 +5,9 @@ tmp/*
 tmp/**/*
 coverage/*
 
+# ignore (private) config files
+config/*.yml
+
 # ignore cache gravatars
 public/images/gravatars/**
 
