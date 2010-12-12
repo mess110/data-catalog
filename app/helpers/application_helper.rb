@@ -1,9 +1,9 @@
 module ApplicationHelper
   include GravatarHelper
 
-  def shorter_url(url)
+  def shorter_url(url, length)
     s = url.gsub(%r(http[s]?://(www\.)?), '')
-    truncate(s, :length => 20)
+    truncate(s, :length => length)
   end
 
   def kronos_to_s(kronos_hash)
@@ -30,8 +30,7 @@ module ApplicationHelper
   end
   
   def url_only(url, length)
-    shorter_url = truncate(url, :length => length)
-    url.present? ? link_to(shorter_url, url) : '?'
+    url.present? ? link_to(shorter_url(url, length), url) : '?'
   end
 
   def tab(css_class, text, path)

@@ -15,7 +15,7 @@
     - @sites.each do |site|
       %tr
         %td.name= link_to(site.name, site_path(site))
-        %td.url= link_to(shorter_url(site.url), site.url)
+        %td.url= link_to(shorter_url(site.url, 20), site.url)
         %td.description= site.description
         %td.launched= site.launched_on
   %h2 Feature Comparison
