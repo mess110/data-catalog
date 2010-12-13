@@ -40,10 +40,10 @@ class DataSource
   field :documentation_url,     :type => String
   field :license,               :type => String
   field :license_url,           :type => String
-  field :released,              :type => Hash
-  field :updated,               :type => Hash
   field :period_start,          :type => Hash
   field :period_end,            :type => Hash
+  field :released,              :type => Hash
+  field :updated,               :type => Hash
   field :frequency,             :type => String
   field :missing,               :type => Boolean, :default => false
   field :facets,                :type => Hash
