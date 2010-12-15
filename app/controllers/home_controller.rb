@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    @location_counts = CountDataSourcesByLocation.perform(10)
-    @category_counts = CountDataSourcesByCategory.perform(10)
+    @location_counts = CountDataSourcesByLocation.perform(9)
+    @category_counts = CountDataSourcesByCategory.perform(9)
     @counts = {
       :data_source => DataSource.all.length,
       :site        => Site.all.length
