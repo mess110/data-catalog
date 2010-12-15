@@ -44,18 +44,16 @@ section
 
 table
   background-color: $table_background_color
-  border-collapse: collapse
   margin-bottom: $baseline
   width: 100%
   tr
     th, td
-      border: $table_border_width solid $table_border_color
       padding: 0 ($h_space / 2)
     th
       font-weight: bold
-      height: $baseline * 3 - $table_border_width * 2
+      height: $baseline * 3
     td
-      height: $baseline * 3 - $table_border_width * 1
+      height: $baseline * 3
   th
     background-color: $table_header_row_background_color
   tr:nth-child(even)
