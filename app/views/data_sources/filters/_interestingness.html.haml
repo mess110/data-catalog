@@ -1,0 +1,5 @@
+%p average interestingness rating
+= label_tag  :i0, 'min:', :class => 'rating'
+= select_tag :i0, options_for_select(@ratings, params[:i0] || 1), :class => 'rating'
+= label_tag  :i1, 'max:', :class => 'rating'
+= select_tag :i1, options_for_select(@ratings, params[:i1] || 5), :class => 'rating'

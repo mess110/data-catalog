@@ -1,0 +1,5 @@
+%p average data quality rating
+= label_tag  :da0, 'min:', :class => 'rating'
+= select_tag :da0, options_for_select(@ratings, params[:da0] || 1), :class => 'rating'
+= label_tag  :da1, 'max:', :class => 'rating'
+= select_tag :da1, options_for_select(@ratings, params[:da1] || 5), :class => 'rating'

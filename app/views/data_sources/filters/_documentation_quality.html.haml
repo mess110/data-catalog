@@ -1,0 +1,4 @@
+= label_tag  :do0, 'min:', :class => 'rating'
+= select_tag :do0, options_for_select(@ratings, params[:d0] || 1), :class => 'rating'
+= label_tag  :do1, 'max:', :class => 'rating'
+= select_tag :do1, options_for_select(@ratings, params[:d1] || 5), :class => 'rating'

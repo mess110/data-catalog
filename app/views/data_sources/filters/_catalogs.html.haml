@@ -1,0 +1,2 @@
+%p select one or more catalogs
+= select_tag :cl, options_for_select(@catalogs, params[:cl]), :multiple => true, :size => @catalogs.length

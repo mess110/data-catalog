@@ -40,7 +40,7 @@ module DataSourcesHelper
     return '?' unless organization
     link_to(organization.name, organization_path(organization))
   end
-  
+
   def data_source_parent(data_source)
     parent = data_source.parent
     return 'N/A' unless parent
@@ -78,7 +78,7 @@ module DataSourcesHelper
     end
     out
   end
-  
+
   def data_source_tags(data_source)
     tags = data_source.tags
     return 'none' if tags.empty?
@@ -86,6 +86,10 @@ module DataSourcesHelper
     tag_names.map do |name|
       link_to(name, tag_path(name))
     end.join(', ').html_safe
+  end
+
+  def data_source_column_visible?(columns, label)
+    columns.select { |c| c[:label] == label }.first[:visible]
   end
 
 end

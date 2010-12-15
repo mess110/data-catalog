@@ -57,3 +57,11 @@ $inside_column_width: ($page_width - $empty_space) / $column_count
   float: left
   margin: 0 0 $baseline
   padding: ($baseline / 2) $h_space
+
+=sub_box($n)
+  +multicolumn_width($n, $h_space * 2)
+  +round_top_corners(10px, 10px)
+  +round_bottom_corners(10px, 10px)
+  background-color: $pampas
+  margin: 0 0 $baseline
+  padding: ($baseline / 2) $h_space

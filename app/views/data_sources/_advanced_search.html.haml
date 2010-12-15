@@ -1,0 +1,26 @@
+%section.advanced_search
+  = form_tag custom_search_data_sources_path, :class => 'filter' do
+    %section.filters
+      %h1 Search for
+      %p Add additional fields to refine your search.
+      = hidden_field_tag :filters, params[:filters]
+      = select_tag :filter, options_for_select(@filter_options), :id => :filter_select
+      = submit_tag('Add', :class => :submit)
+      - @active_filters.each do |f|
+        .filter
+          %h1
+            = image_submit_tag('disc-minus-20x20.png', :name => :remove_filter, :value => f[:code], :alt => "-")
+            = f[:text]
+          = render :partial => "data_sources/filters/#{f[:label]}"
+          .clear
+      - unless @active_filters.empty?
+        = submit_tag('Search', :name => nil, :value => nil, :class => :search, :id => nil)
+    %section.columns
+      %h1 Visible Columns
+      %ul
+        - @columns.each do |c|
+          %li
+            - label_id = "column_#{c[:code]}"
+            = check_box_tag 'columns[]', c[:code], c[:visible], :id => label_id
+            = label_tag label_id, c[:text]
+      = submit_tag('Update', :name => nil, :value => nil, :class => :update, :id => nil)
