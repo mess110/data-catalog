@@ -92,4 +92,12 @@ module DataSourcesHelper
     columns.select { |c| c[:label] == label }.first[:visible]
   end
 
+  # Hyperlink URLs in a data source description. Also inserts soft hyphens
+  # (&shy;) to help break long URLs.
+  def data_source_description(data_source)
+    auto_link_urls(data_source.description) do |url|
+      url.gsub(/[&\/-]/, '\0&shy;')
+    end
+  end
+
 end

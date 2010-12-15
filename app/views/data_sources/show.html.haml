@@ -3,7 +3,7 @@
 %section#data_sources_show
   %h1.page_title= @page_title
   %section.details
-    %p= ds.description
+    %p= data_source_description(ds)
     %dl
       %dt Organization
       %dd= data_source_organization(ds)
