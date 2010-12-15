@@ -1,6 +1,11 @@
 module ApplicationHelper
   include GravatarHelper
 
+  # 'shy;' is the HTML entity for a soft hyphen
+  def hypenate(string)
+    string.gsub('-', '&shy;').html_safe
+  end
+
   def shorter_url(url, length)
     s = url.gsub(%r(http[s]?://(www\.)?), '')
     truncate(s, :length => length)
@@ -28,7 +33,7 @@ module ApplicationHelper
       '?'
     end
   end
-  
+
   def url_only(url, length)
     url.present? ? link_to(shorter_url(url, length), url) : '?'
   end
