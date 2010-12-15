@@ -1,7 +1,8 @@
 module GravatarHelper
 
   BASE_URL = 'http://www.gravatar.com/avatar/'
-  SIZE = 59
+  SIZE = 60
+  DIMENSIONS = "#{SIZE}x#{SIZE}"
 
   def gravatar_image_tag(email, name)
     filename = gravatar_cached_filename(email)
@@ -11,7 +12,7 @@ module GravatarHelper
       Resque.enqueue(CacheGravatar, email)
       gravatar_url(email)
     end
-    image_tag(path, :alt => name, :size => "#{SIZE}x#{SIZE}")
+    image_tag(path, :alt => name, :size => DIMENSIONS)
   end
 
   def gravatar_url(email)
@@ -19,11 +20,11 @@ module GravatarHelper
   end
 
   def gravatar_cached_path(email)
-    "/images/gravatars/#{gravatar_id(email)}.png"
+    "/images/gravatars/#{gravatar_id(email)}-#{DIMENSIONS}.png"
   end
 
   def gravatar_cached_filename(email)
-    Rails.root.join "public/images/gravatars/#{gravatar_id(email)}.png"
+    Rails.root.join "public/images/gravatars/#{gravatar_id(email)}-#{DIMENSIONS}.png"
   end
 
   def gravatar_id(email)
