@@ -46,4 +46,15 @@ module ApplicationHelper
     end
   end
 
+  def data_sources_search_path(label)
+    case label
+    when :apis
+      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(API))
+    when :documents
+      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(document))
+    when :tools
+      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(tool))
+    end
+  end
+
 end
