@@ -53,13 +53,13 @@ class DataSource
   field :documentation_url,     :type => String
   field :license,               :type => String
   field :license_url,           :type => String
-  field :period_start,          :type => Hash
-  field :period_end,            :type => Hash
-  field :released,              :type => Hash
-  field :updated,               :type => Hash
+  field :period_start,          :type => Hash,    :default => {}
+  field :period_end,            :type => Hash,    :default => {}
+  field :released,              :type => Hash,    :default => {}
+  field :updated,               :type => Hash,    :default => {}
   field :frequency,             :type => String
   field :missing,               :type => Boolean, :default => false
-  field :facets,                :type => Hash
+  field :facets,                :type => Hash,    :default => {}
   field :granularity,           :type => String
   field :geographic_coverage,   :type => String
   field :data_quality,          :type => Hash,    :default => {}
