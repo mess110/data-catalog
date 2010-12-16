@@ -40,3 +40,10 @@
         %dt Children
         %dd= data_source_children(ds)
         .clear
+    %dl
+      %dt Data Quality Ratings
+      %dd= data_source_rating_histogram(ds, :data_quality)
+      %dt Documentation Quality Ratings
+      %dd= data_source_rating_histogram(ds, :documentation_quality)
+      %dt Interestingness Ratings
+      %dd= data_source_rating_histogram(ds, :interestingness)

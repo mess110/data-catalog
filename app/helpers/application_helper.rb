@@ -1,5 +1,6 @@
 module ApplicationHelper
   include GravatarHelper
+  include HistogramHelper
 
   # 'shy;' is the HTML entity for a soft hyphen
   def hypenate(string)

@@ -93,12 +93,23 @@ module DataSourcesHelper
     columns.select { |c| c[:label] == label }.first[:visible]
   end
 
+  def data_source_description(data_source)
+    auto_link_urls(data_source.description) do |url|
+      url.gsub('/', '/&shy;').html_safe
+    end
+  end
+
   # Hyperlink URLs in a data source description. Also inserts soft hyphens
   # (&shy;) to help break long URLs.
   def data_source_description(data_source)
     auto_link_urls(data_source.description) do |url|
       url.gsub(/[&\/-]/, '\0&shy;')
     end
+  end
+
+  # field should be a symbol
+  def data_source_rating_histogram(data_source, field_name)
+    histogram_image_tag(data_source.id, field_name, :class => :rating)
   end
 
 end
