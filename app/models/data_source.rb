@@ -8,16 +8,29 @@
 # Notes:
 #
 # === data_quality ===
-#
-# An integer rating between 1 (low) and 5 (high), or nil.
-#
 # === documentation_quality ===
-#
-# An integer rating between 1 (low) and 5 (high), or nil.
-#
 # === interestingness ===
 #
-# An integer rating between 1 (low) and 5 (high), or nil.
+# {
+#   'avg'  => 3.5,
+#   'min'  => 2,
+#   'max'  => 5
+#   'bins' => [0, 3, 12, 11, 5],
+# }
+#
+# Rating explanation:
+#   1 : poor
+#   2 : fair
+#   3 : average
+#   4 : good
+#   5 : excellent
+#
+# The 'bins' key means:
+#    0 ratings as a 1 (poor)
+#    3 ratings as a 2 (fair)
+#   12 ratings as a 3 (average)
+#   11 ratings as a 4 (good)
+#    5 ratings as a 5 (excellent)
 #
 # === url ===
 #
@@ -49,9 +62,9 @@ class DataSource
   field :facets,                :type => Hash
   field :granularity,           :type => String
   field :geographic_coverage,   :type => String
-  field :data_quality,          :type => Integer, :default => nil
-  field :documentation_quality, :type => Integer, :default => nil
-  field :interestingness,       :type => Integer, :default => nil
+  field :data_quality,          :type => Hash,    :default => {}
+  field :documentation_quality, :type => Hash,    :default => {}
+  field :interestingness,       :type => Hash,    :default => {}
   slug :title, :scoped => true
 
   # === Associations ===
@@ -88,6 +101,21 @@ class DataSource
     expect_kronos_hash(period_end,   :period_end)
   end
 
+  validate :validate_all_ratings
+  def validate_all_ratings
+    expect_ratings_hash(data_quality,          :data_quality)
+    expect_ratings_hash(documentation_quality, :documentation_quality)
+    expect_ratings_hash(interestingness,       :interestingness)
+  end
+
+  # === Callbacks ===
+  after_validation :process_all_ratings
+  def process_all_ratings
+    process_ratings!(data_quality)
+    process_ratings!(documentation_quality)
+    process_ratings!(interestingness)
+  end
+
   # === Scopes ===
   # These return DataSources that have one or more DataRepresentations:
   scope :apis,      :where => { 'data_representations.kind' => 'api' }
@@ -113,4 +141,44 @@ class DataSource
 
   # === Instance Methods ===
 
+  protected
+
+  # note: modifies value
+  def process_ratings!(value)
+    value = {} if value.blank?
+    value['bins'] = [0, 0, 0, 0, 0] if value['bins'].blank?
+    stats = calculate_statistics(value)
+    value['min'] = stats[:min]
+    value['max'] = stats[:max]
+    value['avg'] = stats[:avg]
+  end
+
+  def calculate_statistics(value)
+    min, max, avg = nil, nil, nil
+    weighted_sum, total_count = 0, 0
+    value['bins'].each_with_index do |count, i|
+      rating = i + 1
+      total_count += count
+      weighted_sum += count * rating
+      if count > 0
+        min = rating unless min
+        max = rating
+      end
+    end
+    {
+      :min => min,
+      :max => max,
+      :avg => total_count == 0 ? nil : weighted_sum / total_count.to_f
+    }
+  end
+
+  def weighted_average(bins)
+    sum, n = 0, 0
+    bins.each_with_index do |v, i|
+      n += v
+      sum += v * (i + 1)
+      puts "#{v} #{i + 1} | #{sum}"
+    end
+    sum / n.to_f
+  end
 end

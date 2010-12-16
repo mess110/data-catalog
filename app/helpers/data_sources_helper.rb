@@ -48,17 +48,18 @@ module DataSourcesHelper
   end
 
   def data_source_passive_rating(rating)
-    rating = 3.25
-    content_tag(:meter, :min => 1, :max => 5, :value => rating) do
+    average = rating['avg']
+    content_tag(:meter, :min => 1, :max => 5, :value => average) do
       "#{rating} out of 5"
     end
   end
 
   def data_source_active_rating(rating)
+    average = rating['avg']
     content_tag(:form) do
       content_tag(:div, :class => 'rating_read_only hidden') do
         (1 .. 5).map do |x|
-          radio_button_tag('the_name', x, x == rating.floor)
+          radio_button_tag('the_name', x, x == average.floor)
         end.join
       end
     end

@@ -15,7 +15,22 @@ Factory.define :data_source do |ds|
   ds.facets({})
   ds.granularity 'Full Address for most records, otherwise County'
   ds.geographic_coverage 'United States and Applicable Territories'
-  ds.interestingness 3
-  ds.documentation_quality 4
-  ds.data_quality 5
+  ds.data_quality({
+    'min'  => nil,
+    'max'  => nil,
+    'avg'  => nil,
+    'bins' => [4, 0, 0, 0, 6],
+  })
+  ds.documentation_quality({
+    'min'  => nil,
+    'max'  => nil,
+    'avg'  => nil,
+    'bins' => [4, 2, 2, 0, 0],
+  })
+  ds.interestingness({
+    'min'  => nil,
+    'max'  => nil,
+    'avg'  => nil,
+    'bins' => [0, 0, 4, 4, 4],
+  })
 end

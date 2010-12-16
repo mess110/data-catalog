@@ -22,6 +22,12 @@
   - url: "http://www.data.gov/semantic/data/alpha/329/dataset-329.rdf.gz"
     kind: "document"
     format: "RDF"
+  data_quality:
+    bins: [0, 3, 2, 0, 0]
+  documentation_quality:
+    bins: [3, 4, 1, 0, 0]
+  interestingness:
+    bins: [0, 0, 1, 3, 2]
 - uid: "toxics-release-inventory"
   title: "Toxics Release Inventory data"
   url: null
@@ -37,6 +43,12 @@
       uid: "environment"
   - :category:
       uid: "health"
+  data_quality:
+    bins: [0, 1, 0, 2, 1]
+  documentation_quality:
+    bins: [0, 0, 1, 3, 0]
+  interestingness:
+    bins: [0, 0, 1, 4, 1]
 - uid: "toxics-release-inventory-1990-california"
   title: "1990 Toxics Release Inventory data for the state of California"
   url: "http://www.data.gov/raw/2965"
@@ -176,6 +188,12 @@
   - url: "http://transparencydata.com/api"
     kind: "API"
     format: null
+  data_quality:
+    bins: [0, 0, 0, 0, 0]
+  documentation_quality:
+    bins: [0, 0, 0, 1, 0]
+  interestingness:
+    bins: [0, 0, 1, 2, 1]
 - uid: "beaches-and-bay-pollution-monitoring"
   title: "Beaches and Bay Pollution Monitoring"
   url: "http://www.datasf.org/story.php?title=beaches-and-bay-polution-monitoring"
@@ -196,3 +214,9 @@
   - url: "http://sfwater.org/tasks/beaches.csv"
     kind: "document"
     format: "CSV"
+  data_quality:
+    bins: [0, 1, 0, 0, 0]
+  documentation_quality:
+    bins: [0, 0, 0, 0, 0]
+  interestingness:
+    bins: [0, 0, 1, 0, 0]
