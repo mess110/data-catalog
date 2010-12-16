@@ -20,15 +20,21 @@ module GravatarHelper
   end
 
   def gravatar_cached_path(email)
-    "/images/gravatars/#{gravatar_id(email)}-#{DIMENSIONS}.png"
+    '/images/gravatars/' + gravatar_basename(email)
   end
 
   def gravatar_cached_filename(email)
-    Rails.root.join "public/images/gravatars/#{gravatar_id(email)}-#{DIMENSIONS}.png"
+    Rails.root.join('public/images/gravatars', gravatar_basename(email))
   end
 
   def gravatar_id(email)
     Digest::MD5.hexdigest(email.downcase)
+  end
+
+  protected
+
+  def gravatar_basename(email)
+    "#{gravatar_id(email)}-#{DIMENSIONS}.png"
   end
 
 end
