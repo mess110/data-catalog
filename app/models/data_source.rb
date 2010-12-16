@@ -146,17 +146,19 @@ class DataSource
   # note: modifies value
   def process_ratings!(value)
     value = {} if value.blank?
-    value['bins'] = [0, 0, 0, 0, 0] if value['bins'].blank?
-    stats = calculate_statistics(value)
+    bins = value['bins']
+    bins = [0, 0, 0, 0, 0] if bins.blank?
+    stats = calculate_statistics(bins)
     value['min'] = stats[:min]
     value['max'] = stats[:max]
     value['avg'] = stats[:avg]
+    value['bins'] = bins
   end
 
-  def calculate_statistics(value)
+  def calculate_statistics(bins)
     min, max, avg = nil, nil, nil
     weighted_sum, total_count = 0, 0
-    value['bins'].each_with_index do |count, i|
+    bins.each_with_index do |count, i|
       rating = i + 1
       total_count += count
       weighted_sum += count * rating
