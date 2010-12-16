@@ -35,12 +35,19 @@ module HistogramHelper
     end
     values = data_source[field_name]['bins']
     values_max = round_up(values.max, 2)
+    x_labels = if values_max == 0
+      "|0"
+    else
+      "|0|#{values_max / 2}|#{values_max}"
+    end
+    y_labels = "|poor|fair|average|good|excellent"
+    font_size = "10.5"
     BASE_URL +
-      "?chxl=0:|0|#{values_max / 2}|#{values_max}|1:|poor|fair|average|good|excellent" +
+      "?chxl=0:#{x_labels}|1:#{y_labels}" +
       "&chxr=0,0,#{values_max}|1,1,5" +
-      '&chxs=0,676767,10,0,l,676767|1,676767,10,0,l,676767' +
+      "&chxs=0,676767,#{font_size},0,l,676767|1,676767,#{font_size},0,l,676767" +
       '&chxt=x,y' +
-      '&chbh=13,1,1' +
+      '&chbh=12,2,2' +
       "&chs=#{DIMENSIONS}" +
       '&cht=bhs' +
       '&chco=0B6E8E' +
