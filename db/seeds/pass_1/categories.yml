@@ -48,21 +48,71 @@
 - uid: 'urban'
   name: 'Urban'
 ---
+- uid: 'abortion'
+  name: 'Abortion'
+  parent:
+    :category:
+      uid: 'social-policy'
+- uid: 'adoption'
+  name: 'Adoption'
+  parent:
+    :category:
+      uid: 'social-policy'
+- uid: 'accounting'
+  name: 'Accounting'
+  parent:
+    :category:
+      uid: 'transparency'
 - uid: 'accountability'
   name: 'Accountability'
   parent:
     :category:
       uid: 'transparency'
+- uid: 'advertising'
+  name: 'Advertising'
+  parent:
+    :category:
+      uid: 'business'
 - uid: 'agriculture'
   name: 'Agriculture'
   parent:
     :category:
       uid: 'rural'
+- uid: 'air'
+  name: 'Air'
+  parent:
+    :category:
+      uid: 'environment'
+- uid: 'antitrust'
+  name: 'Antitrust'
+  parent:
+    :category:
+      uid: 'business'
 - uid: 'arts'
   name: 'Arts'
   parent:
     :category:
       uid: 'culture'
+- uid: 'athletics'
+  name: 'Athletics'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'automotive'
+  name: 'Automotive'
+  parent:
+    :category:
+      uid: 'transportation'
+- uid: 'bankruptcy'
+  name: 'Bankruptcy'
+  parent:
+    :category:
+      uid: 'banking'
+- uid: 'broadcasting'
+  name: 'Broadcasting'
+  parent:
+    :category:
+      uid: 'technology'
 - uid: 'campaign-finance'
   name: 'Campaign Finance'
   parent:
@@ -108,11 +158,31 @@
   parent:
     :category:
       uid: 'urban'
+- uid: 'computers'
+  name: 'Computers'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'constitution'
+  name: 'Constitution'
+  parent:
+    :category:
+      uid: 'laws'
 - uid: 'construction'
   name: 'Construction'
   parent:
     :category:
       uid: 'business'
+- uid: 'consumers'
+  name: 'Consumers'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'copyright'
+  name: 'Copyright'
+  parent:
+    :category:
+      uid: 'laws'
 - uid: 'corrections'
   name: 'Corrections'
   parent:
@@ -128,6 +198,11 @@
   parent:
     :category:
       uid: 'public-safety'
+- uid: 'criminal-justice'
+  name: 'Criminal Justice'
+  parent:
+    :category:
+      uid: 'public-safety'
 - uid: 'defense'
   name: 'Defense'
   parent:
@@ -138,21 +213,46 @@
   parent:
     :category:
       uid: 'foreign-policy'
+- uid: 'disasters'
+  name: 'Disasters'
+  parent:
+    :category:
+      uid: 'national-security'
 - uid: 'disease'
   name: 'Disease'
   parent:
     :category:
       uid: 'health'
+- uid: 'drug-abuse'
+  name: 'Drug Abuse'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'economic-development'
+  name: 'Economic Development'
+  parent:
+    :category:
+      uid: 'economy'
 - uid: 'economics'
   name: 'Economics'
   parent:
     :category:
       uid: 'economy'
+- uid: 'emergencies'
+  name: 'Emergencies'
+  parent:
+    :category:
+      uid: 'national-security'
 - uid: 'employment'
   name: 'Employment'
   parent:
     :category:
       uid: 'economy'
+- uid: 'entertainment'
+  name: 'Entertainment'
+  parent:
+    :category:
+      uid: 'culture'
 - uid: 'expenditures'
   name: 'Expenditures'
   parent:
@@ -173,6 +273,11 @@
   parent:
     :category:
       uid: 'banking'
+- uid: 'firearms'
+  name: 'Firearms'
+  parent:
+    :category:
+      uid: 'public-safety'
 - uid: 'fiscal-policy'
   name: 'Fiscal Policy'
   parent:
@@ -188,11 +293,31 @@
   parent:
     :category:
       uid: 'rural'
+- uid: 'fuel'
+  name: 'Fuel'
+  parent:
+    :category:
+      uid: 'energy'
+- uid: 'gambling'
+  name: 'Gambling'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'gas'
+  name: 'Gas'
+  parent:
+    :category:
+      uid: 'energy'
 - uid: 'governance'
   name: 'Governance'
   parent:
     :category:
       uid: 'transparency'
+- uid: 'guns'
+  name: 'Guns'
+  parent:
+    :category:
+      uid: 'public-safety'
 - uid: 'healthcare'
   name: 'Healthcare'
   parent:
@@ -203,6 +328,11 @@
   parent:
     :category:
       uid: 'health'
+- uid: 'highways'
+  name: 'Highways'
+  parent:
+    :category:
+      uid: 'transportation'
 - uid: 'history'
   name: 'History'
   parent:
@@ -228,21 +358,6 @@
   parent:
     :category:
       uid: 'social-policy'
-- uid: 'immigration'
-  name: 'Immigration'
-  parent:
-    :category:
-      uid: 'demographics'
-- uid: 'internet'
-  name: 'Internet'
-  parent:
-    :category:
-      uid: 'technology'
-- uid: 'international-development'
-  name: 'International Development'
-  parent:
-    :category:
-      uid: 'foreign-policy'
 - uid: 'industry'
   name: 'Industry'
   parent:
@@ -253,6 +368,31 @@
   parent:
     :category:
       uid: 'technology'
+- uid: 'immigration'
+  name: 'Immigration'
+  parent:
+    :category:
+      uid: 'demographics'
+- uid: 'intelligence'
+  name: 'Intelligence'
+  parent:
+    :category:
+      uid: 'foreign-policy'
+- uid: 'internet'
+  name: 'Internet'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'international-development'
+  name: 'International Development'
+  parent:
+    :category:
+      uid: 'foreign-policy'
+- uid: 'investments'
+  name: 'Investments'
+  parent:
+    :category:
+      uid: 'banking'
 - uid: 'labor'
   name: 'Labor'
   parent:
@@ -273,6 +413,26 @@
   parent:
     :category:
       uid: 'culture'
+- uid: 'manufacturing'
+  name: 'Manufacturing'
+  parent:
+    :category:
+      uid: 'business'
+- uid: 'media'
+  name: 'Media'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'medicaid'
+  name: 'Medicaid'
+  parent:
+    :category:
+      uid: 'health'
+- uid: 'medicare'
+  name: 'Medicare'
+  parent:
+    :category:
+      uid: 'health'
 - uid: 'metropolitan'
   name: 'Metropolitan'
   parent:
@@ -298,8 +458,18 @@
   parent:
     :category:
       uid: 'urban'
+- uid: 'native-americans'
+  name: 'Native Americans'
+  parent:
+    :category:
+      uid: 'foreign-policy'
 - uid: 'natural-resources'
   name: 'Natural Resources'
+  parent:
+    :category:
+      uid: 'energy'
+- uid: 'nuclear'
+  name: 'Nuclear'
   parent:
     :category:
       uid: 'energy'
@@ -308,6 +478,16 @@
   parent:
     :category:
       uid: 'health'
+- uid: 'oil'
+  name: 'Oil'
+  parent:
+    :category:
+      uid: 'energy'
+- uid: 'patent'
+  name: 'Patent'
+  parent:
+    :category:
+      uid: 'laws'
 - uid: 'politics'
   name: 'Politics'
   parent:
@@ -318,6 +498,21 @@
   parent:
     :category:
       uid: 'environment'
+- uid: 'publishing'
+  name: 'Publishing'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'radio'
+  name: 'Radio'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'railroads'
+  name: 'Railroads'
+  parent:
+    :category:
+      uid: 'transportation'
 - uid: 'recreation'
   name: 'Recreation'
   parent:
@@ -333,6 +528,11 @@
   parent:
     :category:
       uid: 'budget'
+- uid: 'roads'
+  name: 'Roads'
+  parent:
+    :category:
+      uid: 'transportation'
 - uid: 'social-insurance'
   name: 'Social Insurance'
   parent:
@@ -354,6 +554,11 @@
   parent:
     :category:
       uid: 'education'
+- uid: 'securities'
+  name: 'Securities'
+  parent:
+    :category:
+      uid: 'banking'
 - uid: 'stimulus'
   name: 'Stimulus'
   parent:
@@ -364,6 +569,16 @@
   parent:
     :category:
       uid: 'budget'
+- uid: 'sports'
+  name: 'Sports'
+  parent:
+    :category:
+      uid: 'culture'
+- uid: 'superfund'
+  name: 'Superfund'
+  parent:
+    :category:
+      uid: 'environment'
 - uid: 'taxes'
   name: 'Taxes'
   parent:
@@ -371,6 +586,11 @@
       uid: 'budget'
 - uid: 'telecom'
   name: 'Telecom'
+  parent:
+    :category:
+      uid: 'technology'
+- uid: 'television'
+  name: 'Television'
   parent:
     :category:
       uid: 'technology'
@@ -384,11 +604,36 @@
   parent:
     :category:
       uid: 'business'
+- uid: 'trademark'
+  name: 'Trademark'
+  parent:
+    :category:
+      uid: 'laws'
 - uid: 'travel'
   name: 'Travel'
   parent:
     :category:
+      uid: 'culture'
+- uid: 'trucking'
+  name: 'Trucking'
+  parent:
+    :category:
       uid: 'transportation'
+- uid: 'shipping'
+  name: 'Shipping'
+  parent:
+    :category:
+      uid: 'transportation'
+- uid: 'unemployment'
+  name: 'Unemployment'
+  parent:
+    :category:
+      uid: 'poverty'
+- uid: 'unions'
+  name: 'Unions'
+  parent:
+    :category:
+      uid: 'economy'
 - uid: 'utilities'
   name: 'Utilities'
   parent:
@@ -398,12 +643,17 @@
   name: 'Veterans Affairs'
   parent:
     :category:
-      uid: 'national-security'
+      uid: 'social-policy'
 - uid: 'voting'
   name: 'Voting'
   parent:
     :category:
       uid: 'elections'
+- uid: 'water'
+  name: 'Water'
+  parent:
+    :category:
+      uid: 'environment'
 - uid: 'wealth'
   name: 'Wealth'
   parent:
@@ -414,3 +664,8 @@
   parent:
     :category:
       uid: 'poverty'
+- uid: 'workplace'
+  name: 'Workplace'
+  parent:
+    :category:
+      uid: 'business'
