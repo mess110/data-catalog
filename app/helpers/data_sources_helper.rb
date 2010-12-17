@@ -1,5 +1,16 @@
 module DataSourcesHelper
 
+  def data_source_active_rating(rating)
+    average = rating['avg']
+    content_tag(:form) do
+      content_tag(:div, :class => 'rating_read_only hidden') do
+        (1 .. 5).map do |x|
+          radio_button_tag('the_name', x, x == average.floor)
+        end.join
+      end
+    end
+  end
+
   def data_source_catalogs(data_source)
     catalogs = data_source.catalogs
     return 'none' if catalogs.empty?
@@ -28,6 +39,18 @@ module DataSourcesHelper
     out
   end
 
+  def data_source_column_visible?(columns, label)
+    columns.select { |c| c[:label] == label }.first[:visible]
+  end
+
+  # Hyperlink URLs in a data source description. Also inserts soft hyphens
+  # (&shy;) to help break long URLs.
+  def data_source_description(data_source)
+    auto_link_urls(data_source.description) do |url|
+      url.gsub(/[&\/-]/, '\0&shy;')
+    end
+  end
+
   def data_source_facets(data_source)
     return 'N/A' unless data_source.parent
     facets = data_source.facets
@@ -54,15 +77,9 @@ module DataSourcesHelper
     end
   end
 
-  def data_source_active_rating(rating)
-    average = rating['avg']
-    content_tag(:form) do
-      content_tag(:div, :class => 'rating_read_only hidden') do
-        (1 .. 5).map do |x|
-          radio_button_tag('the_name', x, x == average.floor)
-        end.join
-      end
-    end
+  # field_name should be a symbol
+  def data_source_rating_histogram(data_source, field_name)
+    histogram_image_tag(data_source.id, field_name, :class => :rating)
   end
 
   def data_source_representations(data_source)
@@ -87,29 +104,6 @@ module DataSourcesHelper
     tag_names.map do |name|
       link_to(name, tag_path(name))
     end.join(', ').html_safe
-  end
-
-  def data_source_column_visible?(columns, label)
-    columns.select { |c| c[:label] == label }.first[:visible]
-  end
-
-  def data_source_description(data_source)
-    auto_link_urls(data_source.description) do |url|
-      url.gsub('/', '/&shy;').html_safe
-    end
-  end
-
-  # Hyperlink URLs in a data source description. Also inserts soft hyphens
-  # (&shy;) to help break long URLs.
-  def data_source_description(data_source)
-    auto_link_urls(data_source.description) do |url|
-      url.gsub(/[&\/-]/, '\0&shy;')
-    end
-  end
-
-  # field should be a symbol
-  def data_source_rating_histogram(data_source, field_name)
-    histogram_image_tag(data_source.id, field_name, :class => :rating)
   end
 
 end

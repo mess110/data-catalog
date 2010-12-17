@@ -1,5 +1,23 @@
 module SitesHelper
 
+  def site_api_tag(site)
+    url = site.api_url
+    if !url
+      site_boolean(false)
+    elsif url == '?'
+      content_tag(:span, '?', :class => :unsure)
+    else
+      link_to(image_tag('api-icon-28x28.png', :size => '28x28',
+        :alt => 'API', :class => :api), url)
+    end
+  end
+
+  def site_boolean(bool)
+    entity = bool ? '&#x2713;' : '&#x2715;'
+    css_class = bool ? 'yes' : 'no'
+    content_tag(:span, entity.html_safe, :class => css_class)
+  end
+
   def site_platform_link(site)
     name, url = site.platform_name, site.platform_url
     if name == '?'
@@ -20,18 +38,6 @@ module SitesHelper
     end
   end
 
-  def site_api_tag(site)
-    url = site.api_url
-    if !url
-      site_boolean(false)
-    elsif url == '?'
-      content_tag(:span, '?', :class => :unsure)
-    else
-      link_to(image_tag('api-icon-28x28.png', :size => '28x28',
-        :alt => 'API', :class => :api), url)
-    end
-  end
-
   def site_rss_tag(site)
     url = site.rss_url
     if !url
@@ -44,10 +50,4 @@ module SitesHelper
     end
   end
 
-  def site_boolean(bool)
-    entity = bool ? '&#x2713;' : '&#x2715;'
-    css_class = bool ? 'yes' : 'no'
-    content_tag(:span, entity.html_safe, :class => css_class)
-  end
-  
 end

@@ -1,11 +1,11 @@
 module UsersHelper
 
-  def user_owned_catalogs(user)
-    user_catalogs(user.owned_catalogs)
-  end
-
   def user_curated_catalogs(user)
     user_catalogs(user.curated_catalogs)
+  end
+
+  def user_owned_catalogs(user)
+    user_catalogs(user.owned_catalogs)
   end
 
   protected

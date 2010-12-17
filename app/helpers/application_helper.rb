@@ -2,14 +2,20 @@ module ApplicationHelper
   include GravatarHelper
   include HistogramHelper
 
+  def data_sources_search_path(label)
+    case label
+    when :apis
+      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(API))
+    when :documents
+      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(document))
+    when :tools
+      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(tool))
+    end
+  end
+
   # 'shy;' is the HTML entity for a soft hyphen
   def hypenate(string)
     string.gsub('-', '&shy;').html_safe
-  end
-
-  def shorter_url(url, length)
-    s = url.gsub(%r(http[s]?://(www\.)?), '')
-    truncate(s, :length => length)
   end
 
   def kronos_to_s(kronos_hash)
@@ -21,6 +27,19 @@ module ApplicationHelper
   def kronos_range_to_s(k1, k2)
     s1, s2 = kronos_to_s(k1), kronos_to_s(k2)
     (s1 == '?' || s2 == '?') ? '?' : "#{s1} to #{s2}"
+  end
+
+  def shorter_url(url, length)
+    s = url.gsub(%r(http[s]?://(www\.)?), '')
+    truncate(s, :length => length)
+  end
+
+  def tab(css_class, text, path)
+    classes = [css_class]
+    classes << 'active' if current_page?(path)
+    content_tag(:li, :class => classes.join(' ')) do
+      link_to(text, path)
+    end
   end
 
   def try_link_to(text, url)
@@ -37,25 +56,6 @@ module ApplicationHelper
 
   def url_only(url, length)
     url.present? ? link_to(shorter_url(url, length), url) : '?'
-  end
-
-  def tab(css_class, text, path)
-    classes = [css_class]
-    classes << 'active' if current_page?(path)
-    content_tag(:li, :class => classes.join(' ')) do
-      link_to(text, path)
-    end
-  end
-
-  def data_sources_search_path(label)
-    case label
-    when :apis
-      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(API))
-    when :documents
-      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(document))
-    when :tools
-      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(tool))
-    end
   end
 
 end
