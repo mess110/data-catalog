@@ -174,13 +174,4 @@ class DataSource
     }
   end
 
-  def weighted_average(bins)
-    sum, n = 0, 0
-    bins.each_with_index do |v, i|
-      n += v
-      sum += v * (i + 1)
-      puts "#{v} #{i + 1} | #{sum}"
-    end
-    sum / n.to_f
-  end
 end
