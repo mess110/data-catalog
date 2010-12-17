@@ -75,7 +75,8 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
 
 Our directory structure follows the Rails conventions; however, we have a few differences that are worth highlighting:
 
-1. Importers are kept in `lib/importers`.
-2. Cached gravatars live in `public/images/gravatars`.
-3. Delayed processing logic (for Resque) lives in `lib/resque`.
-4. Some Mongoid models use map-reduce. The map and reduce functions live in javascript files located in `app/models/{model}/{method}`. Separating the javascript functions out of the ruby models is helpful to your text editor -- it allow for accurate syntax highlighting and [JSLint](http://www.jslint.com/) checking.
+1. [Sass](http://sass-lang.com) templates live in `app/sass` (which is different from the default location of `public/stylesheets/sass`). (Sass is extension of CSS3 that adds nested rules, variables, mixins, selector inheritance.)
+2. Importers (which import DataSources from external Sites) are kept in `lib/importers`.
+3. Cached [gravatars](http://gravatar.com) live in `public/images/gravatars`.
+4. Delayed processing logic (for [Resque](http://github.com/defunkt/resque)) lives in `lib/resque`.
+5. Some [Mongoid](http://mongoid.org) models take advantage of [MongoDB's](http://mongodb.org) [map/reduce](http://www.mongodb.org/display/DOCS/MapReduce). The map and reduce functions live in javascript files located in `app/models/{model}/{method}`. Separating the javascript functions out of the ruby models is helpful to your text editor -- it allow for accurate syntax highlighting and [JSLint](http://www.jslint.com/) checking.
