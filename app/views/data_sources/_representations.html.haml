@@ -1,0 +1,26 @@
+- ds = @data_source
+- representations = ds.data_representations
+- apis      = representations.select { |r| r.kind == 'API' }
+- documents = representations.select { |r| r.kind == 'document' }
+- tools     = representations.select { |r| r.kind == 'tool' }
+%h1 Get the Data
+- unless apis.empty?
+  %p This data source is available as an API:
+  %ul
+    - apis.each do |rep|
+      %li= link_to('API', rep.url)
+- unless documents.empty?
+  %p This data source can be downloaded in these formats:
+  %ul
+    - documents.each do |rep|
+      %li= link_to(rep.format, rep.url)
+- unless tools.empty?
+  %p This data source can be accessed as an interactive tool:
+  %ul
+    - tools.each do |rep|
+      %li= link_to('Tool', rep.url)
+- if !ds.children.empty?
+  %p This is a grouping of data sources. You can find data links by navigating to the child data sources.
+- elsif apis.empty? && documents.empty? && tools.empty?
+  %p Drat! We don't have the links to the data available!
+  %p Please let us know if you can help!

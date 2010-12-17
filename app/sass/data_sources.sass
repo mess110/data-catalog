@@ -127,9 +127,28 @@ section#data_sources_index
 // ===== data_sources#show ======
 
 section#data_sources_show
-  img.rating
-    display: block
-    margin-bottom: 10px
+  section.details
+    img.rating
+      display: block
+      margin-bottom: 10px
+  section.representations
+    +box(1)
+    h1
+      text-align: center
+    p
+      text-align: center
+    ul
+      li
+        a
+          +font_2
+          +round_bottom_corners(10px, 10px)
+          +round_top_corners(10px, 10px)
+          background-color: $blue_chill
+          color: $sugar_cane
+          display: block
+          margin-bottom: $baseline
+          text-align: center
+          width: 100%
 
 // ===== data_sources#new ======
 
