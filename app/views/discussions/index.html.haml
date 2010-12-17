@@ -1,0 +1,8 @@
+- @page_title = "Discussions"
+- discussions = []
+%section#discussions_index
+  %h1.page_title= @page_title
+  - discussions.each do |discussion|
+    %section.discussion
+      %h1 Title
+      %p Content

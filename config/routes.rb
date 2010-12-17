@@ -4,6 +4,7 @@ DataCatalog::Application.routes.draw do
   resources :data_sources do
     post 'custom_search', :on => :collection
   end
+  resources :discussions
   resources :locations
   resources :organizations
   resources :sites
