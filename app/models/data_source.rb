@@ -111,9 +111,9 @@ class DataSource
   # === Callbacks ===
   after_validation :process_all_ratings
   def process_all_ratings
-    process_ratings!(data_quality)
-    process_ratings!(documentation_quality)
-    process_ratings!(interestingness)
+    self.data_quality          = process_ratings(data_quality)
+    self.documentation_quality = process_ratings(documentation_quality)
+    self.interestingness       = process_ratings(interestingness)
   end
 
   # === Scopes ===
@@ -143,16 +143,11 @@ class DataSource
 
   protected
 
-  # note: modifies value
-  def process_ratings!(value)
+  def process_ratings(value)
     value = {} if value.blank?
     bins = value['bins']
     bins = [0, 0, 0, 0, 0] if bins.blank?
-    stats = calculate_statistics(bins)
-    value['min'] = stats[:min]
-    value['max'] = stats[:max]
-    value['avg'] = stats[:avg]
-    value['bins'] = bins
+    calculate_statistics(bins).merge('bins' => bins)
   end
 
   def calculate_statistics(bins)
@@ -168,9 +163,9 @@ class DataSource
       end
     end
     {
-      :min => min,
-      :max => max,
-      :avg => total_count == 0 ? nil : weighted_sum / total_count.to_f
+      'min' => min,
+      'max' => max,
+      'avg' => total_count == 0 ? nil : weighted_sum / total_count.to_f
     }
   end
 
