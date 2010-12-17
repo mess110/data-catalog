@@ -15,21 +15,17 @@
     = render :partial => 'aggregates'
   .highlights
     %section.find_data
-      :markdown
-        # Find Data
-        Find data sources (data sets, APIs, and tools)
+      %h1= link_to('Find Data', data_sources_path)
+      %p Find data sources (data sets, APIs, and tools)
     %section.discuss_data
-      :markdown
-        # Discuss Data
-        Discuss, question, document data sources
+      %h1= link_to('Discuss Data', discussions_path)
+      %p Discuss, question, document data sources
     %section.share_data
-      :markdown
-        # Share Data
-        Share your derivative work based on the data here
+      %h1= link_to('Share Data', data_sources_path)
+      %p Share your derivative work based on the data here
     %section.find_people
-      :markdown
-        # Find People
-        Find interesting people in the data community
+      %h1= link_to('Find People', users_path)
+      %p Find interesting people in the data community
     .clear
   .group_2
     %section.activity_stream
