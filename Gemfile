@@ -18,7 +18,8 @@ gem 'resque-scheduler', '~> 1.9'
 gem 'unicorn', '~> 3.1'
 
 group :test, :development do
+  gem 'autotest', '~> 4.4'
+  gem 'capistrano', '~> 2.5'
   gem 'metric_fu', '~> 2.0'
   gem 'rspec-rails', '~> 2.3'
-  gem 'autotest', '~> 4.4'
 end
