@@ -49,6 +49,7 @@ GEM
       ruby_parser (~> 2.0.4)
       sexp_processor (~> 3.0.3)
     colored (1.2)
+    curb (0.7.8)
     database_cleaner (0.6.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
@@ -197,6 +198,7 @@ DEPENDENCIES
   autotest (~> 4.4)
   bson_ext
   cancan (~> 1.4)
+  curb (~> 0.7)
   database_cleaner (~> 0.6)
   devise (~> 1.1)
   factory_girl (~> 1.3)

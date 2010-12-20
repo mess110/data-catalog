@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'bson_ext'
 gem 'cancan', '~> 1.4'
+gem 'curb', '~> 0.7'
 gem 'database_cleaner', '~> 0.6'
 gem 'devise', '~> 1.1'
 gem 'factory_girl', '~> 1.3'
