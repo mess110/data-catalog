@@ -13,7 +13,9 @@
   %body
     #page_wrapper_1
       #header_wrapper= render 'layouts/header'
-      #content_wrapper= yield
+      #content_wrapper
+        = render 'layouts/messages'
+        = yield
       .clear
       #footer_wrapper= render 'layouts/footer'
     = javascript_include_tag 'jquery', 'jquery.ui.core', 'jquery.ui.widget', 'jquery.dj.rating', 'application', :cache => true
