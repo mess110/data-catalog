@@ -65,7 +65,7 @@
   - :category:
       uid: "health"
   parent:
-    :data_source:
+    :data_set:
       uid: "toxics-release-inventory"
   facets:
     year: "1990"
@@ -90,7 +90,7 @@
   - :category:
       uid: "health"
   parent:
-    :data_source:
+    :data_set:
       uid: "toxics-release-inventory"
   facets:
     year: "1990"
@@ -115,7 +115,7 @@
   - :category:
       uid: "health"
   parent:
-    :data_source:
+    :data_set:
       uid: "toxics-release-inventory"
   facets:
     year: "1991"
@@ -140,7 +140,7 @@
   - :catalog:
       uid: "national-data-catalog"
   parent:
-    :data_source:
+    :data_set:
       uid: "toxics-release-inventory"
   facets:
     year: "1991"

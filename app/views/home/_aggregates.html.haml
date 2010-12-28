@@ -2,10 +2,10 @@
 - dr_counts = @data_representation_counts
 %p.summary
   We have
-  = link_to(pluralize(counts[:data_source], 'data sources'), data_sources_path)
+  = link_to(pluralize(counts[:data_set], 'data sources'), data_sets_path)
   from
   = link_to(pluralize(counts[:site], 'site'), sites_path) + '.'
 %p.detail
-  = '('.html_safe + link_to(pluralize(dr_counts['API'], 'APIs'), data_sources_search_path(:apis)) + ', '
-  = link_to(pluralize(dr_counts['document'], 'document'), data_sources_search_path(:documents)) + ', and'
-  = link_to(pluralize(dr_counts['tool'], 'tool'), data_sources_search_path(:tools)) + ')'
+  = '('.html_safe + link_to(pluralize(dr_counts['API'], 'APIs'), data_sets_search_path(:apis)) + ', '
+  = link_to(pluralize(dr_counts['document'], 'document'), data_sets_search_path(:documents)) + ', and'
+  = link_to(pluralize(dr_counts['tool'], 'tool'), data_sets_search_path(:tools)) + ')'

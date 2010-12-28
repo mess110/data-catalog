@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe DataSource do
+describe DataSet do
   describe "Fields" do
     it "should be valid" do
-      Factory.build(:data_source).should be_valid
+      Factory.build(:data_set).should be_valid
     end
 
     it "should calculate correct ratings" do
-      ds = Factory.build(:data_source)
+      ds = Factory.build(:data_set)
       ds.valid?
       ds.data_quality['min'].should == 1
       ds.data_quality['max'].should == 5
@@ -21,7 +21,7 @@ describe DataSource do
     end
 
     it "should be invalid when year is a string" do
-      factory = Factory.build(:data_source, {
+      factory = Factory.build(:data_set, {
         :released => { 'year' => '2010' }
       })
       factory.should_not be_valid
@@ -33,7 +33,7 @@ describe DataSource do
     end
 
     it "should be invalid when month is out of range" do
-      factory = Factory.build(:data_source, {
+      factory = Factory.build(:data_set, {
         :released => { 'month' => 13 }
       })
       factory.should_not be_valid
@@ -44,7 +44,7 @@ describe DataSource do
     end
 
     it "should be invalid when min is not an integer" do
-      factory = Factory.build(:data_source, {
+      factory = Factory.build(:data_set, {
         :data_quality => {
           'min'  => 1.3,
           'max'  => 1,
@@ -60,7 +60,7 @@ describe DataSource do
     end
 
     it "should be invalid when bins is not an array" do
-      factory = Factory.build(:data_source, {
+      factory = Factory.build(:data_set, {
         :documentation_quality => {
           'min'  => nil,
           'max'  => nil,
@@ -76,7 +76,7 @@ describe DataSource do
     end
 
     it "should be invalid when bin item is not an integer" do
-      factory = Factory.build(:data_source, {
+      factory = Factory.build(:data_set, {
         :interestingness => {
           'min'  => nil,
           'max'  => nil,

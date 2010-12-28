@@ -3,7 +3,7 @@
     %h1= link_to(image_tag('national-data-catalog-logo.png', :size => '278x47', :alt => 'National Data Catalog'), root_path)
     %h2 Open Government Data
   #search_and_session
-    %form.search{ :action => data_sources_path, :method => 'get' }
+    %form.search{ :action => data_sets_path, :method => 'get' }
       = search_field_tag(:query, @query, :placeholder => 'keywords', :id => nil, :class => :search)
       = submit_tag('Search', :class => :submit)
     %nav.session
@@ -21,6 +21,6 @@
   %nav.main
     %ul
       = tab('home', 'Home', root_path)
-      = tab('browse', 'Browse', data_sources_path)
-      = tab('add_data', 'Add Data', new_data_source_path)
+      = tab('browse', 'Browse', data_sets_path)
+      = tab('add_data', 'Add Data', new_data_set_path)
       = tab('users', 'Users', users_path)

@@ -1,9 +1,9 @@
 @import 'variables'
 @import 'mixins'
 
-// ===== data_sources#index ======
+// ===== data_sets#index ======
 
-section#data_sources_index
+section#data_sets_index
   section.advanced_search
     float: left
     margin-right: $h_space
@@ -61,7 +61,7 @@ section#data_sources_index
     section > h1
       +font_2
       text-align: center
-  table.data_sources
+  table.data_sets
     +multicolumn_width(3, 0px)
     float: left
     thead
@@ -124,9 +124,9 @@ section#data_sources_index
         td.representations
           text-align: center
 
-// ===== data_sources#show ======
+// ===== data_sets#show ======
 
-section#data_sources_show
+section#data_sets_show
   section.details
     img.rating
       display: block
@@ -150,9 +150,9 @@ section#data_sources_show
           text-align: center
           width: 100%
 
-// ===== data_sources#new ======
+// ===== data_sets#new ======
 
-section#data_sources_new
+section#data_sets_new
   section.metadata
     +box(4)
     margin-right: $h_space
@@ -165,10 +165,10 @@ section#data_sources_new
     input
       +multicolumn_width(2, 0px)
       background-color: $coconut_cream
-    input#data_source_period_start,
-    input#data_source_period_end
+    input#data_set_period_start,
+    input#data_set_period_end
       width: inherit
-  input#data_source_submit
+  input#data_set_submit
     padding: 0 2em
     margin-left: $inside_column_width + $h_space
     margin-top: $baseline

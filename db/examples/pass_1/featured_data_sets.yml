@@ -1,18 +1,18 @@
 - start_at: "2010-12-01 13:00:00 Z"
   stop_at: "2010-12-08 12:59:59 Z"
   note: ""
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "job-openings-and-labor-turnover-survey"
 - start_at: "2010-12-08 13:00:00 Z"
   stop_at: "2010-12-15 12:59:59 Z"
   note: ""
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "toxics-release-inventory"
 - start_at: "2010-12-08 13:00:00 Z"
   stop_at: "2010-12-15 12:59:59 Z"
   note: ""
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "transparency-data"

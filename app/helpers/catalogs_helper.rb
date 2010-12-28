@@ -4,10 +4,10 @@ module CatalogsHelper
     catalog_users(catalog.curators)
   end
 
-  def catalog_data_sources(catalog)
-    count = catalog.data_sources.count
-    text = pluralize(count, 'data source')
-    count > 0 ? link_to(text, data_sources_path) : text
+  def catalog_data_sets(catalog)
+    count = catalog.data_sets.count
+    text = pluralize(count, 'data set')
+    count > 0 ? link_to(text, data_sets_path) : text
   end
 
   def catalog_owners(catalog)

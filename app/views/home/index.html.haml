@@ -15,13 +15,13 @@
     = render :partial => 'aggregates'
   .highlights
     %section.find_data
-      %h1= link_to('Find Data', data_sources_path)
-      %p Find data sources (data sets, APIs, and tools)
+      %h1= link_to('Find Data', data_sets_path)
+      %p Find data sets (data sets, APIs, and tools)
     %section.discuss_data
       %h1= link_to('Discuss Data', discussions_path)
-      %p Discuss, question, document data sources
+      %p Discuss, question, document data sets
     %section.share_data
-      %h1= link_to('Share Data', data_sources_path)
+      %h1= link_to('Share Data', data_sets_path)
       %p Share your derivative work based on the data here
     %section.find_people
       %h1= link_to('Find People', users_path)
@@ -30,6 +30,6 @@
   .group_2
     %section.activity_stream
       = render :partial => 'activity_stream'
-    %section.featured_data_source
-      = render :partial => 'featured_data_source'
+    %section.featured_data_set
+      = render :partial => 'featured_data_set'
     .clear

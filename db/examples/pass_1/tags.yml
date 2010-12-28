@@ -2,27 +2,27 @@
   user:
     :user:
       uid: "david-james"
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "job-openings-and-labor-turnover-survey"
 - name: "unemployment"
   user:
     :user:
       uid: "luigi-montanez"
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "job-openings-and-labor-turnover-survey"
 - name: "pollution"
   user:
     :user:
       uid: "david-james"
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "toxics-release-inventory"
 - name: "pollution"
   user:
     :user:
       uid: "luigi-montanez"
-  data_source:
-    :data_source:
+  data_set:
+    :data_set:
       uid: "toxics-release-inventory"

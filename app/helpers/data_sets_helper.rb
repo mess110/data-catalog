@@ -1,6 +1,6 @@
-module DataSourcesHelper
+module DataSetsHelper
 
-  def data_source_active_rating(rating)
+  def data_set_active_rating(rating)
     average = rating['avg']
     content_tag(:form) do
       content_tag(:div, :class => 'rating_read_only hidden') do
@@ -11,8 +11,8 @@ module DataSourcesHelper
     end
   end
 
-  def data_source_catalogs(data_source)
-    catalogs = data_source.catalogs
+  def data_set_catalogs(data_set)
+    catalogs = data_set.catalogs
     return 'none' if catalogs.empty?
     out = content_tag(:ul)
     catalogs.each do |catalog|
@@ -21,56 +21,56 @@ module DataSourcesHelper
     out
   end
 
-  def data_source_categories(data_source)
-    categories = data_source.categories
+  def data_set_categories(data_set)
+    categories = data_set.categories
     return 'none' if categories.empty?
     categories.map do |category|
       link_to(category.name, category_path(category))
     end.join(', ').html_safe
   end
 
-  def data_source_children(data_source)
-    children = data_source.children
+  def data_set_children(data_set)
+    children = data_set.children
     return 'none' if children.empty?
     out = content_tag(:ul)
     children.sort_by { |ds| ds.title }.each do |ds|
-      out << content_tag(:li, link_to(ds.title, data_source_path(ds)))
+      out << content_tag(:li, link_to(ds.title, data_set_path(ds)))
     end
     out
   end
 
-  def data_source_column_visible?(columns, label)
+  def data_set_column_visible?(columns, label)
     columns.select { |c| c[:label] == label }.first[:visible]
   end
 
-  # Hyperlink URLs in a data source description. Also inserts soft hyphens
+  # Hyperlink URLs in a data set description. Also inserts soft hyphens
   # (&shy;) to help break long URLs.
-  def data_source_description(data_source)
-    auto_link_urls(data_source.description) do |url|
+  def data_set_description(data_set)
+    auto_link_urls(data_set.description) do |url|
       url.gsub(/[&\/-]/, '\0&shy;')
     end
   end
 
-  def data_source_facets(data_source)
-    return 'N/A' unless data_source.parent
-    facets = data_source.facets
+  def data_set_facets(data_set)
+    return 'N/A' unless data_set.parent
+    facets = data_set.facets
     return '?' unless facets
     facets.map { |k, v| "#{k}:#{v}" }.join(', ')
   end
 
-  def data_source_organization(data_source)
-    organization = data_source.organization
+  def data_set_organization(data_set)
+    organization = data_set.organization
     return '?' unless organization
     link_to(organization.name, organization_path(organization))
   end
 
-  def data_source_parent(data_source)
-    parent = data_source.parent
+  def data_set_parent(data_set)
+    parent = data_set.parent
     return 'N/A' unless parent
-    link_to(parent.title, data_source_path(parent))
+    link_to(parent.title, data_set_path(parent))
   end
 
-  def data_source_passive_rating(rating)
+  def data_set_passive_rating(rating)
     average = rating['avg']
     content_tag(:meter, :min => 1, :max => 5, :value => average) do
       "#{rating} out of 5"
@@ -78,12 +78,12 @@ module DataSourcesHelper
   end
 
   # field_name should be a symbol
-  def data_source_rating_histogram(data_source, field_name)
-    histogram_image_tag(data_source.id, field_name, :class => :rating)
+  def data_set_rating_histogram(data_set, field_name)
+    histogram_image_tag(data_set.id, field_name, :class => :rating)
   end
 
-  def data_source_representations(data_source)
-    representations = data_source.data_representations
+  def data_set_representations(data_set)
+    representations = data_set.data_representations
     return nil unless representations
     out = content_tag(:ul)
     representations.each do |rep|
@@ -97,8 +97,8 @@ module DataSourcesHelper
     out
   end
 
-  def data_source_tags(data_source)
-    tags = data_source.tags
+  def data_set_tags(data_set)
+    tags = data_set.tags
     return 'none' if tags.empty?
     tag_names = tags.map { |t| t.name }.uniq
     tag_names.map do |name|

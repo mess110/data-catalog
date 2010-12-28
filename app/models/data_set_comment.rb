@@ -1,4 +1,4 @@
-class DataSourceComment
+class DataSetComment
   include Mongoid::Document
   include Mongoid::Timestamps
 

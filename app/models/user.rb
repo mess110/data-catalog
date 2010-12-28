@@ -13,13 +13,13 @@ class User
   # field :email, :type => String (created by devise)
 
   # === Associations ===
-  references_many :data_source_notes
+  references_many :data_set_notes
   references_many :tags
   references_many :curated_catalogs, :class_name => 'Catalog',
     :inverse_of => :curators, :stored_as => :array, :index => true
   references_many :owned_catalogs, :class_name => 'Catalog',
     :inverse_of => :owners, :stored_as => :array, :index => true
-  references_many :watched_data_sources, :class_name => 'DataSource',
+  references_many :watched_data_sets, :class_name => 'DataSet',
     :inverse_of => :watchers, :stored_as => :array, :index => true
   references_many :activities_as_subject, :class_name => 'Activity',
     :foreign_key => :subject_user_id, :inverse_of => :subject_user

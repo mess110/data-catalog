@@ -6,10 +6,10 @@
       %tr
         %th.name Name
         %th.similar Similar Categories
-        %th.data_sources Data Sources
+        %th.data_sets Data Sets
     %tbody
     - @categories.each do |category|
       %tr
         %td.name= link_to(category.name, category_path(category))
         %td.similar= category_children(category)
-        %td.data_sources= category_data_sources(category)
+        %td.data_sets= category_data_sets(category)

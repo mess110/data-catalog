@@ -1,8 +1,8 @@
-class CountDataSourcesByLocation
+class CountDataSetsByCategory
   @queue = :queries
 
   FILENAME = Rails.root.join(
-    "tmp/query-cache/data_sources_counted_by_location.yml")
+    "tmp/query-cache/data_sets_counted_by_category.yml")
   URL_HELPERS = Rails.application.routes.url_helpers
 
   def self.perform(limit = 10)
@@ -17,17 +17,11 @@ class CountDataSourcesByLocation
   end
 
   def self.calculate_counts(limit)
-    counts = {}
-    DataSource.all.each do |data_source|
-      location = data_source.organization.location
-      counts[location] ||= 0
-      counts[location] += 1
-    end
-    counts.map do |location, count|
+    Category.all.map do |category|
       {
-        :path  => URL_HELPERS.location_path(location),
-        :name  => location.name,
-        :count => count
+        :path  => URL_HELPERS.category_path(category),
+        :name  => category.name,
+        :count => category.data_sets.count
       }
     end.select { |h| h[:count] > 0 }.sort_by { |h| [-h[:count], h[:name]] }.
       take(limit)

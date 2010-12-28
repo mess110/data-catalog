@@ -19,7 +19,7 @@ class Category
   slug :name, :scoped => true
 
   # === Associations ===
-  references_many :data_sources, :inverse_of => :categories,
+  references_many :data_sets, :inverse_of => :categories,
     :stored_as => :array, :index => true
   referenced_in :parent, :class_name => 'Category',
     :inverse_of => :children, :index => true

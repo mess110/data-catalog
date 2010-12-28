@@ -1,5 +1,5 @@
 %section.advanced_search
-  = form_tag custom_search_data_sources_path, :class => 'filter' do
+  = form_tag custom_search_data_sets_path, :class => 'filter' do
     %section.filters
       %h1 Search for
       %p Add additional fields to refine your search.
@@ -11,7 +11,7 @@
           %h1
             = image_submit_tag('disc-minus-20x20.png', :name => :remove_filter, :value => f[:code], :alt => "-")
             = f[:text]
-          = render :partial => "data_sources/filters/#{f[:label]}"
+          = render :partial => "data_sets/filters/#{f[:label]}"
           .clear
       - unless @active_filters.empty?
         = submit_tag('Search', :name => nil, :value => nil, :class => :search, :id => nil)

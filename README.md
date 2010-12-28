@@ -14,7 +14,7 @@ This version (v2) is instead one combined Rails 3 application. This will make it
 
 * Each User has a dedicated page.
 * Each User page has an activity stream.
-* Users can watch DataSources.
+* Users can watch DataSets.
 * Users can follow other Users.
 
 ### Sites
@@ -24,7 +24,7 @@ This version (v2) is instead one combined Rails 3 application. This will make it
 
 ### Catalogs
 
-* A Catalog is a grouping of DataSources.
+* A Catalog is a grouping of DataSets.
 * The application can contain multiple Catalogs.
 * Each Catalog can be administered by its owners and curators.
 
@@ -32,14 +32,14 @@ This version (v2) is instead one combined Rails 3 application. This will make it
 
 * An Organization can group other Organizations when needed. Two examples are the "U.S. District Courts" and the "U.S. Executive Departments".
 
-### DataSources
+### DataSets
 
-* DataSources can aggregate other DataSources. (This is a useful way to bundle up very similar DataSources, such as the Toxic Release Inventory data sets on Data.gov.)
-* DataSources can be rated along three dimensions: Interestingness, Documentation Quality, and Data Quality.
-* Users can suggest DataSources and provide as much metadata as they like.
-* Users can suggest 'missing' DataSources.
-* Added DataSource activity stream.
-* DataSources can belong to more than one Catalog.
+* DataSets can aggregate other DataSets. (This is a useful way to bundle up very similar DataSets, such as the Toxic Release Inventory data sets on Data.gov.)
+* DataSets can be rated along three dimensions: Interestingness, Documentation Quality, and Data Quality.
+* Users can suggest DataSets and provide as much metadata as they like.
+* Users can suggest 'missing' DataSets.
+* Added DataSet activity stream.
+* DataSets can belong to more than one Catalog.
 
 ### Locations
 
@@ -47,7 +47,7 @@ This version (v2) is instead one combined Rails 3 application. This will make it
 * Locations are hierarchical.
 * Locations are a better way to convey the ideas of:
     * jurisdiction of an Organization
-    * geographic coverage of a DataSource
+    * geographic coverage of a DataSet
 
 ## Installation / Setup
 
@@ -76,7 +76,7 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
 Our directory structure follows the Rails conventions; however, we have a few differences that are worth highlighting:
 
 1. [Sass](http://sass-lang.com) templates live in `app/sass` (which is different from the default location of `public/stylesheets/sass`). (Sass is extension of CSS3 that adds nested rules, variables, mixins, selector inheritance.)
-2. Importers (which import DataSources from external Sites) are kept in `lib/importers`.
+2. Importers (which import DataSets from external Sites) are kept in `lib/importers`.
 3. Cached [gravatars](http://gravatar.com) live in `public/images/gravatars`.
 4. Delayed processing logic (for [Resque](http://github.com/defunkt/resque)) lives in `lib/resque`.
 5. Some [Mongoid](http://mongoid.org) models take advantage of [MongoDB's](http://mongodb.org) [map/reduce](http://www.mongodb.org/display/DOCS/MapReduce). The map and reduce functions live in javascript files located in `app/models/{model}/{method}`. Separating the javascript functions out of the ruby models is helpful to your text editor -- it allow for accurate syntax highlighting and [JSLint](http://www.jslint.com/) checking.

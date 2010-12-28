@@ -5,7 +5,7 @@
 - uid: 'sunlight-foundation-data-catalog'
   name: 'Sunlight Foundation Data'
   path: '/sunlight/'
-  description: 'Data sources released by the Sunlight Foundation.'
+  description: 'Data sets released by the Sunlight Foundation.'
 - uid: 'sunlight-reporting-group-data-catalog'
   name: 'Sunlight Foundation Reporting Group Data'
   path: '/sunlight/reporting/'

@@ -1,4 +1,4 @@
-# A DataRepresentation is embedded in a DataSource.
+# A DataRepresentation is embedded in a DataSet.
 #
 # It may be one of these kinds:
 #   * Document
@@ -21,7 +21,7 @@ class DataRepresentation
   field :format, :type => String
 
   # === Associations ===
-  embedded_in :data_source, :inverse_of => :data_source
+  embedded_in :data_set, :inverse_of => :data_set
 
   # === Indexes ===
 

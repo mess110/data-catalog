@@ -18,20 +18,20 @@ end
 Factory.define :watch_activity, :parent => :activity do |a|
   a.verb 'watch'
   a.object_label 'FEMA Public Assistance Funded Projects Detail'
-  a.object_path 'data_sources/fema-public-assistance-funded-projects-detail'
-  a.association :object_data_source, :factory => :data_source
+  a.object_path 'data_sets/fema-public-assistance-funded-projects-detail'
+  a.association :object_data_set, :factory => :data_set
 end
 
 Factory.define :comment_activity, :parent => :activity do |a|
   a.verb 'comment'
   a.object_label 'FEMA Public Assistance Funded Projects Detail'
-  a.object_path 'data_sources/fema-public-assistance-funded-projects-detail'
-  a.association :object_data_source, :factory => :data_source
+  a.object_path 'data_sets/fema-public-assistance-funded-projects-detail'
+  a.association :object_data_set, :factory => :data_set
 end
 
 Factory.define :suggest_activity, :parent => :activity do |a|
   a.verb 'suggest'
   a.object_label 'FEMA Public Assistance Funded Projects Detail'
-  a.object_path 'data_sources/fema-public-assistance-funded-projects-detail'
-  a.association :object_data_source, :factory => :data_source
+  a.object_path 'data_sets/fema-public-assistance-funded-projects-detail'
+  a.association :object_data_set, :factory => :data_set
 end

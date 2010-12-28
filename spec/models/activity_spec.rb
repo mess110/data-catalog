@@ -44,8 +44,8 @@ describe Activity do
     subject_user = @activity.subject_user
     subject_user.activities_as_subject.to_a.should == [@activity]
     subject_user.activities_as_object.to_a.should == []
-    object_data_source = @activity.object_data_source
-    object_data_source.activities_as_object.to_a.should == [@activity]
+    object_data_set = @activity.object_data_set
+    object_data_set.activities_as_object.to_a.should == [@activity]
   end
 
 end

@@ -1,13 +1,13 @@
-class DataSourcesController < ApplicationController
+class DataSetsController < ApplicationController
 
   def index
-    @data_sources = DataSource.top_level
+    @data_sets = DataSet.top_level
     advanced_search_setup
   end
 
   def show
-    @data_source = DataSource.where(:slug => params[:id]).first
-    render_404 && return unless @data_source
+    @data_set = DataSet.where(:slug => params[:id]).first
+    render_404 && return unless @data_set
   end
 
   def new

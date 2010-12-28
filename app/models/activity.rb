@@ -7,15 +7,15 @@
 #   "#{subject_label} started following #{object_label}."
 #   "#{subject_label} started watching #{object_label}."
 #   "#{subject_label} commented on #{object_label}."
-#   "#{subject_label} suggested a data source called #{object_label}."
+#   "#{subject_label} suggested a data set called #{object_label}."
 #
 # This model (e.g. collection in the database) is designed to be quick to
 # read without joins. So it is denormalized. This is why I have these fields:
 #
 #     * subject_label : a User name
 #     * subject_path  : a User path
-#     * object_label  : either a User name or a DataSource title
-#     * object_path   : either a User path or a DataSource path
+#     * object_label  : either a User name or a DataSet title
+#     * object_path   : either a User path or a DataSet path
 #
 # Associations are prefixed with `subject_` or `object_` to make things extra
 # clear. Who knows, we may add more activity types and associations, so I
@@ -26,7 +26,7 @@
 #
 #    * There is an application-wide activity stream
 #    * Each User has an activity stream
-#    * Each DataSource has an activity stream
+#    * Each DataSet has an activity stream
 #
 class Activity
   include Mongoid::Document
@@ -42,7 +42,7 @@ class Activity
   # === Associations ===
   referenced_in :subject_user, :class_name => 'User', :index => true
   referenced_in :object_user, :class_name => 'User', :index => true
-  referenced_in :object_data_source, :class_name => 'DataSource',
+  referenced_in :object_data_set, :class_name => 'DataSet',
     :index => true
 
   # === Indexes ===
@@ -62,17 +62,17 @@ class Activity
       expect(:object_label,       :nil)
       expect(:object_path,        :nil)
       expect(:object_user,        :nil)
-      expect(:object_data_source, :nil)
+      expect(:object_data_set, :nil)
     when 'follow'
       expect(:object_label,       :truthy)
       expect(:object_path,        :truthy)
       expect(:object_user,        :truthy)
-      expect(:object_data_source, :nil)
+      expect(:object_data_set, :nil)
     when 'comment', 'suggest', 'watch'
       expect(:object_label,       :truthy)
       expect(:object_path,        :truthy)
       expect(:object_user,        :nil)
-      expect(:object_data_source, :truthy)
+      expect(:object_data_set, :truthy)
     end
   end
 

@@ -1,4 +1,4 @@
-Factory.define :data_source do |ds|
+Factory.define :data_set do |ds|
   ds.uid 'fema-public-assistance-funded-projects-detail'
   ds.title 'FEMA Public Assistance Funded Projects Detail'
   ds.url 'http://www.data.gov/raw/2539'

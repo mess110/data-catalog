@@ -1,11 +1,11 @@
-# A DataSource that is featured on the home page.
+# A DataSet that is featured on the home page.
 #
 # Fields:
-#     * start_at: time to start featuring the DataSource
-#     * stop_at: time to stop featuring the DataSource
-#     * note: an optional blurb. may be used to explain why the DataSource is
+#     * start_at: time to start featuring the DataSet
+#     * stop_at: time to stop featuring the DataSet
+#     * note: an optional blurb. may be used to explain why the DataSet is
 #       being featured
-class FeaturedDataSource
+class FeaturedDataSet
   include Mongoid::Document
   include Mongoid::Timestamps
   include Validators
@@ -16,7 +16,7 @@ class FeaturedDataSource
   field :note,     :type => String
 
   # === Associations ===
-  referenced_in :data_source, :index => true
+  referenced_in :data_set, :index => true
 
   # === Indexes ===
   index :start_at
@@ -24,7 +24,7 @@ class FeaturedDataSource
 
   # === Validations ===
   validates_presence_of :start_at
-  validates_presence_of :data_source
+  validates_presence_of :data_set
 
   validate :validate_times
   def validate_times
@@ -52,7 +52,7 @@ class FeaturedDataSource
 
   # === Instance Methods ===
 
-  # Returns the currently featured data source or nil.
+  # Returns the currently featured data set or nil.
   def self.current(t = Time.now)
     matches = self.where(:start_at.lt => t).where(:stop_at.gt => t)
     case matches.count
@@ -61,7 +61,7 @@ class FeaturedDataSource
     when 0
       self.where(:start_at.lt => t).descending(:start_at).first
     else
-      raise "Expected to find 0 or 1 matches for FeaturedDataSource"
+      raise "Expected to find 0 or 1 matches for FeaturedDataSet"
     end
   end
 

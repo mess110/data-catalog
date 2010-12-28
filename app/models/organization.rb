@@ -32,7 +32,7 @@ class Organization
 
   # === Associations ===
   referenced_in :location, :index => true
-  references_many :data_sources
+  references_many :data_sets
   references_many :sites
   referenced_in :parent, :class_name => 'Organization',
     :inverse_of => :children, :index => true

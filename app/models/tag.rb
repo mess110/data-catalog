@@ -9,7 +9,7 @@ class Tag
   field :name, :type => String
 
   # === Associations ===
-  referenced_in :data_source, :index => true
+  referenced_in :data_set, :index => true
   referenced_in :user, :index => true
 
   # === Indexes ===

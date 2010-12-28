@@ -1,19 +1,19 @@
-- ds = @data_source
+- ds = @data_set
 - @page_title = ds.title
-%section#data_sources_show
+%section#data_sets_show
   %h1.page_title= @page_title
   %section.details
-    %p= data_source_description(ds)
+    %p= data_set_description(ds)
     %dl
       %dt Organization
-      %dd= data_source_organization(ds)
+      %dd= data_set_organization(ds)
       %dt Time Period
       %dd= kronos_range_to_s(ds.period_start, ds.period_end)
       %dt Released
       %dd= kronos_to_s(ds.released)
       %dt Updated
       %dd= kronos_to_s(ds.updated)
-      %dt Source URL
+      %dt URL
       %dd= url_only(ds.url, 60)
       %dt Documentation URL
       %dd= url_only(ds.documentation_url, 60)
@@ -22,30 +22,30 @@
       .clear
     %dl
       %dt Categories
-      %dd= data_source_categories(ds)
+      %dd= data_set_categories(ds)
       %dt Tags
-      %dd= data_source_tags(ds)
+      %dd= data_set_tags(ds)
       %dt Catalogs
-      %dd= data_source_catalogs(ds)
+      %dd= data_set_catalogs(ds)
       .clear
     - if ds.parent
       %dl
         %dt Parent
-        %dd= data_source_parent(ds)
+        %dd= data_set_parent(ds)
         %dt Facets
-        %dd= data_source_facets(ds)
+        %dd= data_set_facets(ds)
         .clear
     - unless ds.children.empty?
       %dl
         %dt Children
-        %dd= data_source_children(ds)
+        %dd= data_set_children(ds)
         .clear
     %dl
       %dt Data Quality Ratings
-      %dd= data_source_rating_histogram(ds, :data_quality)
+      %dd= data_set_rating_histogram(ds, :data_quality)
       %dt Documentation Quality Ratings
-      %dd= data_source_rating_histogram(ds, :documentation_quality)
+      %dd= data_set_rating_histogram(ds, :documentation_quality)
       %dt Interestingness Ratings
-      %dd= data_source_rating_histogram(ds, :interestingness)
+      %dd= data_set_rating_histogram(ds, :interestingness)
   %section.representations
     = render :partial => 'representations'

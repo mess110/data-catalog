@@ -1,7 +1,7 @@
 class DiscussionsController < ApplicationController
 
   def index
-    @discussions = DataSourceComment.descending(:created_at)
+    @discussions = DataSetComment.descending(:created_at)
   end
 
   def show

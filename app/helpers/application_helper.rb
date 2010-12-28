@@ -2,14 +2,14 @@ module ApplicationHelper
   include GravatarHelper
   include HistogramHelper
 
-  def data_sources_search_path(label)
+  def data_sets_search_path(label)
     case label
     when :apis
-      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(API))
+      data_sets_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(API))
     when :documents
-      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(document))
+      data_sets_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(document))
     when :tools
-      data_sources_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(tool))
+      data_sets_path(:columns => 'ti,o,da,rp', :filters => 'rk', :rk => %w(tool))
     end
   end
 

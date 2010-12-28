@@ -14,7 +14,7 @@ class Catalog
   field :description, :type => String
 
   # === Associations ===
-  references_many :data_sources, :inverse_of => :catalogs,
+  references_many :data_sets, :inverse_of => :catalogs,
     :stored_as => :array, :index => true
   references_many :curators, :class_name => 'User',
     :inverse_of => :curated_catalogs, :stored_as => :array, :index => true

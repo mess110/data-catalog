@@ -7,11 +7,11 @@
         %th.name Name
         %th.acronym Acronym
         %th.other_names Other Names
-        %th.data_sources Data Sources
+        %th.data_sets Data Sets
     %tbody
       - @organizations.each do |o|
         %tr
           %td.name= link_to(o.name, organization_path(o))
           %td.acronym= o.acronym
           %td.other_names= o.other_names
-          %td.data_sources= o.data_sources.length
+          %td.data_sets= o.data_sets.length

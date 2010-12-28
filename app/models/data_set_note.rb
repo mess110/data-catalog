@@ -1,5 +1,5 @@
-# A private note by a particular user about a particular data source.
-class DataSourceNote
+# A private note by a particular user about a particular data set.
+class DataSetNote
   include Mongoid::Document
   include Mongoid::Timestamps
 
@@ -7,7 +7,7 @@ class DataSourceNote
   field :content, :type => String
 
   # === Associations ===
-  referenced_in :data_source, :index => true
+  referenced_in :data_set, :index => true
   referenced_in :user, :index => true
 
   # === Validations ===

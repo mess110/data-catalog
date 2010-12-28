@@ -9,8 +9,8 @@
       - if category.children.present?
         %dt Similar Categories
         %dd= category_children(category)
-      %dt Data Sources
-      %dd= category_data_sources(category)
+      %dt Data Sets
+      %dd= category_data_sets(category)
       .clear
     - if category.parent
       - parent = category.parent
@@ -19,6 +19,6 @@
         %dd= category_parent(category)
         %dt Similar Categories
         %dd= category_children(parent)
-        %dt Similar Data Sources
-        %dd= category_data_sources(parent)
+        %dt Similar Data Sets
+        %dd= category_data_sets(parent)
         .clear

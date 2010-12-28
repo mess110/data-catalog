@@ -80,11 +80,11 @@
   subject_label: "David James"
   subject_path: "/users/david-james"
   verb: "watch"
-  object_data_source:
-    :data_source:
+  object_data_set:
+    :data_set:
       uid: "toxics-release-inventory"
   object_label: "Toxics Release Inventory data"
-  object_path: "/data_sources/toxics-release-inventory"
+  object_path: "/data_sets/toxics-release-inventory"
   created_at: "2010-12-11 15:12 Z"
 - subject_user:
     :user:
@@ -111,9 +111,9 @@
   subject_label: "Jeremy Carbaugh"
   subject_path: "/users/jeremy-carbaugh"
   verb: "watch"
-  object_data_source:
-    :data_source:
+  object_data_set:
+    :data_set:
       uid: "beaches-and-bay-pollution-monitoring"
   object_label: "Beaches and Bay Pollution Monitoring"
-  object_path: "/data_sources/beaches-and-bay-pollution-monitoring"
+  object_path: "/data_sets/beaches-and-bay-pollution-monitoring"
   created_at: "2010-12-11 18:03 Z"

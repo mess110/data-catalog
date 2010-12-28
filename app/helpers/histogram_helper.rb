@@ -3,13 +3,13 @@ module HistogramHelper
   BASE_URL = 'http://chart.apis.google.com/chart'
   DIMENSIONS = '135x90'
 
-  def histogram_image_tag(data_source_id, field_name, image_options = {})
-    filename = histogram_cached_filename(data_source_id, field_name)
+  def histogram_image_tag(data_set_id, field_name, image_options = {})
+    filename = histogram_cached_filename(data_set_id, field_name)
     path = if File.exist?(filename) && CacheHistogram.fresh?(filename)
-      histogram_cached_path(data_source_id, field_name)
+      histogram_cached_path(data_set_id, field_name)
     else
-      Resque.enqueue(CacheHistogram, data_source_id, field_name)
-      histogram_url(data_source_id, field_name)
+      Resque.enqueue(CacheHistogram, data_set_id, field_name)
+      histogram_url(data_set_id, field_name)
     end
     image_tag(path, { :alt => field_name, :size => DIMENSIONS }.
       merge(image_options))
@@ -28,12 +28,12 @@ module HistogramHelper
   #    &chco=0B6E8E
   #    &chds=0,16
   #    &chd=t:4,12,15,9,3
-  def histogram_url(data_source_id, field_name)
-    data_source = DataSource.criteria.id(data_source_id).first
-    unless data_source
-      raise "Could not find DataSource with id: #{data_source_id}"
+  def histogram_url(data_set_id, field_name)
+    data_set = DataSet.criteria.id(data_set_id).first
+    unless data_set
+      raise "Could not find DataSet with id: #{data_set_id}"
     end
-    values = data_source[field_name]['bins']
+    values = data_set[field_name]['bins']
     values_max = round_up(values.max, 2)
     x_labels = values_max > 0 ? "|0|#{values_max / 2}|#{values_max}" : "|0"
     y_labels = "|poor|fair|average|good|excellent"
@@ -51,14 +51,14 @@ module HistogramHelper
       "&chd=t:#{values.join(',')}"
   end
 
-  def histogram_cached_path(data_source_id, field_name)
-    '/images/data_source_ratings/' +
-      histogram_basename(data_source_id, field_name)
+  def histogram_cached_path(data_set_id, field_name)
+    '/images/data_set_ratings/' +
+      histogram_basename(data_set_id, field_name)
   end
 
-  def histogram_cached_filename(data_source_id, field_name)
-    Rails.root.join('public/images/data_source_ratings',
-      histogram_basename(data_source_id, field_name))
+  def histogram_cached_filename(data_set_id, field_name)
+    Rails.root.join('public/images/data_set_ratings',
+      histogram_basename(data_set_id, field_name))
   end
 
   protected
@@ -67,8 +67,8 @@ module HistogramHelper
     (value / multiple.to_f).ceil * multiple
   end
 
-  def histogram_basename(data_source_id, field_name)
-    "#{data_source_id}-#{field_name}-#{DIMENSIONS}.png"
+  def histogram_basename(data_set_id, field_name)
+    "#{data_set_id}-#{field_name}-#{DIMENSIONS}.png"
   end
 
 end

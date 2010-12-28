@@ -1,4 +1,4 @@
-# A DataSource:
+# A DataSet:
 #   * belongs to one or more Catalogs
 #   * may be published or shared in one or more "ways"
 #     - formats such as CSV, XML, XLS
@@ -34,11 +34,11 @@
 #
 # === url ===
 #
-# May be left blank: it often makes sense for a DataSource with children to
-# leave the `url` field blank. This is because such a DataSource acts like
+# May be left blank: it often makes sense for a DataSet with children to
+# leave the `url` field blank. This is because such a DataSet acts like
 # an aggregate. Such children will often have their own download urls.
 #
-class DataSource
+class DataSet
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Versioning
@@ -69,22 +69,22 @@ class DataSource
 
   # === Associations ===
   embeds_many :data_representations
-  references_many :data_source_notes
+  references_many :data_set_notes
   references_many :tags
   referenced_in :organization, :index => true
-  references_many :catalogs, :inverse_of => :data_sources,
+  references_many :catalogs, :inverse_of => :data_sets,
     :stored_as => :array, :index => true
-  references_many :categories, :inverse_of => :data_sources,
+  references_many :categories, :inverse_of => :data_sets,
     :stored_as => :array, :index => true
-  referenced_in :parent, :class_name => 'DataSource',
+  referenced_in :parent, :class_name => 'DataSet',
     :inverse_of => :children, :index => true
-  references_many :children, :class_name => 'DataSource',
+  references_many :children, :class_name => 'DataSet',
     :foreign_key => :parent_id, :inverse_of => :parent
   references_many :watchers, :class_name => 'User',
-    :inverse_of => :watched_data_sources, :stored_as => :array,
+    :inverse_of => :watched_data_sets, :stored_as => :array,
     :index => true
   references_many :activities_as_object, :class_name => 'Activity',
-    :foreign_key => :object_data_source_id, :inverse_of => :object_data_source
+    :foreign_key => :object_data_set_id, :inverse_of => :object_data_set
 
   # === Indexes ===
   index :uid, :unique => true
@@ -117,7 +117,7 @@ class DataSource
   end
 
   # === Scopes ===
-  # These return DataSources that have one or more DataRepresentations:
+  # These return DataSets that have one or more DataRepresentations:
   scope :apis,      :where => { 'data_representations.kind' => 'api' }
   scope :documents, :where => { 'data_representations.kind' => 'document' }
   scope :tools,     :where => { 'data_representations.kind' => 'tool' }
