@@ -65,7 +65,7 @@ class DataSet
   field :data_quality,          :type => Hash,    :default => {}
   field :documentation_quality, :type => Hash,    :default => {}
   field :interestingness,       :type => Hash,    :default => {}
-  slug :title, :scoped => true
+  slug :title
 
   # === Associations ===
   embeds_many :data_representations

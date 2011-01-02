@@ -15,8 +15,7 @@ class Category
   field :uid,         :type => String
   field :name,        :type => String
   field :description, :type => String
-
-  slug :name, :scoped => true
+  slug :name
 
   # === Associations ===
   references_many :data_sets, :inverse_of => :categories,

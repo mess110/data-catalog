@@ -28,7 +28,7 @@ class Organization
   field :acronym,     :type => String
   field :description, :type => String
   field :abstract,    :type => Boolean, :default => false
-  slug :name, :scoped => true
+  slug :name
 
   # === Associations ===
   referenced_in :location, :index => true
