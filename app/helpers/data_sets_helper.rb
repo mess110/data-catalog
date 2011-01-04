@@ -86,13 +86,13 @@ module DataSetsHelper
     distributions = data_set.distributions
     return nil unless distributions
     out = content_tag(:ul)
-    distributions.each do |rep|
-      text = if rep.kind == 'document'
-        "#{rep.format}"
+    distributions.each do |distribution|
+      text = if distribution.kind == 'document'
+        "#{distribution.format}"
       else
-        rep.kind
+        distribution.kind
       end
-      out << content_tag(:li, link_to(text, rep.url))
+      out << content_tag(:li, link_to(text, distribution.url))
     end
     out
   end
