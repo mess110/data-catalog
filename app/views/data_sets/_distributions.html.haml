@@ -1,24 +1,24 @@
 - ds = @data_set
-- representations = ds.data_representations
-- apis      = representations.select { |r| r.kind == 'API' }
-- documents = representations.select { |r| r.kind == 'document' }
-- tools     = representations.select { |r| r.kind == 'tool' }
+- distributions = ds.distributions
+- apis      = distributions.select { |r| r.kind == 'API' }
+- documents = distributions.select { |r| r.kind == 'document' }
+- tools     = distributions.select { |r| r.kind == 'tool' }
 %h1 Get the Data
 - unless apis.empty?
   %p This data set is available as an API:
   %ul
-    - apis.each do |rep|
-      %li= link_to('API', rep.url)
+    - apis.each do |distribution|
+      %li= link_to('API', distribution.url)
 - unless documents.empty?
   %p This data set can be downloaded in these formats:
   %ul
-    - documents.each do |rep|
-      %li= link_to(rep.format, rep.url)
+    - documents.each do |distribution|
+      %li= link_to(distribution.format, distribution.url)
 - unless tools.empty?
   %p This data set can be accessed as an interactive tool:
   %ul
-    - tools.each do |rep|
-      %li= link_to('Tool', rep.url)
+    - tools.each do |distribution|
+      %li= link_to('Tool', distribution.url)
 - if !ds.children.empty?
   %p This is a grouping of data sets. You can find data links by navigating to the child data sets.
 - elsif apis.empty? && documents.empty? && tools.empty?

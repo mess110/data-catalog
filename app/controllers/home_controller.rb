@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       :data_set => DataSet.all.length,
       :site        => Site.all.length
     }
-    @data_representation_counts = DataSet.data_representation_counts
+    @distribution_counts = DataSet.distribution_counts
     @featured_data_set = FeaturedDataSet.current
     @activities = Activity.recent(15)
   end

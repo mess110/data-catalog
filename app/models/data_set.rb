@@ -68,7 +68,7 @@ class DataSet
   slug :title
 
   # === Associations ===
-  embeds_many :data_representations
+  embeds_many :distributions
   references_many :data_set_notes
   references_many :tags
   referenced_in :organization, :index => true
@@ -92,7 +92,7 @@ class DataSet
   # === Validations ===
   validates_uniqueness_of :uid
   validates_presence_of :title
-  validates_associated :data_representations
+  validates_associated :distributions
 
   validate :validate_kronos_hashes
   def validate_kronos_hashes
@@ -117,15 +117,15 @@ class DataSet
   end
 
   # === Scopes ===
-  # These return DataSets that have one or more DataRepresentations:
-  scope :apis,      :where => { 'data_representations.kind' => 'api' }
-  scope :documents, :where => { 'data_representations.kind' => 'document' }
-  scope :tools,     :where => { 'data_representations.kind' => 'tool' }
+  # These return DataSets that have one or more Distributions:
+  scope :apis,      :where => { 'distributions.kind' => 'api' }
+  scope :documents, :where => { 'distributions.kind' => 'document' }
+  scope :tools,     :where => { 'distributions.kind' => 'tool' }
   scope :top_level, :where => { :parent_id => nil }
 
   # === Map/Reduce ===
-  MR = MapReduce.load_files(self, 'data_representation_counts')
-  def self.data_representation_counts
+  MR = MapReduce.load_files(self, 'distribution_counts')
+  def self.distribution_counts
     result = self.collection.map_reduce(*MR).find
     result.reduce({}) { |h, x| h.merge({ x['_id'] => x['value'].to_i }) }
   end

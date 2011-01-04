@@ -28,8 +28,8 @@
           %th.updated= hypenate 'Up-da-ted'
         - if data_set_column_visible?(columns, :period)
           %th.period= hypenate 'Pe-ri-od'
-        - if data_set_column_visible?(columns, :representations)
-          %th.representations= hypenate 'Rep-re-sen-ta-tions'
+        - if data_set_column_visible?(columns, :distributions)
+          %th.distributions= hypenate 'Rep-re-sen-ta-tions'
     %tbody
       - @data_sets.each do |ds|
         %tr
@@ -55,5 +55,5 @@
             %td.updated= kronos_to_s(ds.updated)
           - if data_set_column_visible?(columns, :period)
             %td.period= kronos_range_to_s(ds.period_start, ds.period_end)
-          - if data_set_column_visible?(columns, :representations)
-            %td.representations= data_set_representations(ds)
+          - if data_set_column_visible?(columns, :distributions)
+            %td.distributions= data_set_distributions(ds)

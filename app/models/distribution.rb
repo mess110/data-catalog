@@ -1,4 +1,4 @@
-# A DataRepresentation is embedded in a DataSet.
+# A Distribution is embedded in a DataSet.
 #
 # It may be one of these kinds:
 #   * Document
@@ -12,7 +12,7 @@
 #   * XML
 #
 # Note: the "API" and "Tool" kinds must not supply the format.
-class DataRepresentation
+class Distribution
   include Mongoid::Document
 
   # === Fields ===

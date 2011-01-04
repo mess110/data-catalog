@@ -82,11 +82,11 @@ module DataSetsHelper
     histogram_image_tag(data_set.id, field_name, :class => :rating)
   end
 
-  def data_set_representations(data_set)
-    representations = data_set.data_representations
-    return nil unless representations
+  def data_set_distributions(data_set)
+    distributions = data_set.distributions
+    return nil unless distributions
     out = content_tag(:ul)
-    representations.each do |rep|
+    distributions.each do |rep|
       text = if rep.kind == 'document'
         "#{rep.format}"
       else

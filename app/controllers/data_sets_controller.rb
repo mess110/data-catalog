@@ -111,8 +111,8 @@ class DataSetsController < ApplicationController
       ['available', '0']
     ]
     @catalogs = Catalog.ascending(:name).map { |x| [x.name, x.uid] }
-    @representation_kinds = %w(API document tool).map { |f| [f, f] }
-    @representation_formats = %w(CSV JSON RDF XLS XML).map { |f| [f, f] }
+    @distribution_kinds = %w(API document tool).map { |f| [f, f] }
+    @distribution_formats = %w(CSV JSON RDF XLS XML).map { |f| [f, f] }
   end
 
   FILTERS = [
@@ -131,8 +131,8 @@ class DataSetsController < ApplicationController
     { :text => 'Released'              , :label => :released              , :code => 're' , :codes => %w(re0 re1) },
     { :text => 'Updated'               , :label => :updated               , :code => 'u'  , :codes => %w(u0 u1) },
     { :text => 'Missing'               , :label => :missing               , :code => 'm'  , :codes => %w(m) },
-    { :text => 'Representation Format' , :label => :representation_format , :code => 'rf' , :codes => %w(rf) },
-    { :text => 'Representation Kind'   , :label => :representation_kind   , :code => 'rk' , :codes => %w(rk) },
+    { :text => 'Distribution Format'   , :label => :distribution_format   , :code => 'df' , :codes => %w(df) },
+    { :text => 'Distribution Kind'     , :label => :distribution_kind     , :code => 'dk' , :codes => %w(dk) },
   ]
 
   COLUMNS = [
@@ -148,7 +148,7 @@ class DataSetsController < ApplicationController
     { :text => 'Released'              , :label => :released              , :code => 're' , :default => false },
     { :text => 'Updated'               , :label => :updated               , :code => 'u'  , :default => false },
     { :text => 'Missing'               , :label => :missing               , :code => 'm'  , :default => false },
-    { :text => 'Representations'       , :label => :representations       , :code => 'rp' , :default => true  },
+    { :text => 'Distributions'         , :label => :distributions         , :code => 'di' , :default => true  },
   ]
 
 end

@@ -15,7 +15,7 @@
       uid: "economy"
   - :category:
       uid: "business"
-  data_representations:
+  distributions:
   - url: "http://www.data.gov/download/329/csv"
     kind: "document"
     format: "CSV"
@@ -70,7 +70,7 @@
   facets:
     year: "1990"
     state: "California"
-  data_representations:
+  distributions:
   - url: "http://www.data.gov/download/2965/csv"
     kind: "document"
     format: "CSV"
@@ -95,7 +95,7 @@
   facets:
     year: "1990"
     state: "Colorado"
-  data_representations:
+  distributions:
   - url: "http://www.data.gov/download/2966/csv"
     kind: "document"
     format: "CSV"
@@ -120,7 +120,7 @@
   facets:
     year: "1991"
     state: "California"
-  data_representations:
+  distributions:
   - url: "http://www.data.gov/download/2907/csv"
     kind: "document"
     format: "CSV"
@@ -145,7 +145,7 @@
   facets:
     year: "1991"
     state: "Colorado"
-  data_representations:
+  distributions:
   - url: "http://www.data.gov/download/2908/csv"
     kind: "document"
     format: "CSV"
@@ -162,7 +162,7 @@
   categories:
   - :category:
       uid: "environment"
-  data_representations:
+  distributions:
   - url: "http://www.epa.gov/enviro/widgets/airs.html"
     kind: "tool"
     format: null
@@ -181,7 +181,7 @@
   categories:
   - :category:
       uid: "campaigns"
-  data_representations:
+  distributions:
   - url: "http://transparencydata.com"
     kind: "tool"
     format: null
@@ -210,7 +210,7 @@
       uid: "environment"
   - :category:
       uid: "pollution"
-  data_representations:
+  distributions:
   - url: "http://sfwater.org/tasks/beaches.csv"
     kind: "document"
     format: "CSV"

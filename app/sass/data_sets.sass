@@ -47,11 +47,11 @@ section#data_sets_index
             width: 100%
           select.rating
             width: 60%
-          select#representation_kinds
+          select#distribution_kinds
             height: 3 * $baseline
-          select#representation_formats
+          select#distribution_formats
             height: 5 * $baseline
-          select#representation_formats
+          select#distribution_formats
       section.columns
         input.update
           margin-top: $baseline
@@ -99,7 +99,7 @@ section#data_sets_index
         th.period
           width: 10%
           text-align: center
-        th.representations
+        th.distributions
           width: 10%
           text-align: center
     tbody
@@ -121,7 +121,7 @@ section#data_sets_index
           text-align: center
         td.period
           text-align: center
-        td.representations
+        td.distributions
           text-align: center
 
 // ===== data_sets#show ======
@@ -131,7 +131,7 @@ section#data_sets_show
     img.rating
       display: block
       margin-bottom: 10px
-  section.representations
+  section.distributions
     +box(1)
     h1
       text-align: center
