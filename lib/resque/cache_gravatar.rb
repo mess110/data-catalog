@@ -10,7 +10,7 @@ class CacheGravatar
     system %(curl "#{url}" -o #{filename} --create-dirs)
   end
 
-  def self.fresh?(filename, threshold = 1.hour)
+  def self.fresh?(filename, threshold = 3.days)
     Time.now - File.mtime(filename) < threshold
   end
 
