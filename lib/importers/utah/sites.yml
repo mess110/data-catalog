@@ -2,7 +2,7 @@
   name: 'Utah.gov'
   url: 'http://www.utah.gov/data'
   org_type: 'government'
-  description: 'Data files and data sources from the State of Utah its local governments.'
+  description: 'Data files and data sets from the State of Utah its local governments.'
   launched_on: '2009-06-08'
   launch_urls:
   - 'http://fcw.com/articles/2009/06/08/utah-new-web-site.aspx'
