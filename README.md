@@ -53,22 +53,24 @@ This version (v2) is instead one combined Rails 3 application. This will make it
 
 Just install the National Data Catalog like a typical Rails 3 application. Here are a few notes about parts that are less common:
 
-1. Download and run [MongoDB](http://mongodb.org)
-2. Configure [Mongoid](http://mongoid.org)
-    * Adjust `config/mongoid.yml` as necessary
-3. Install and run [Redis](http://code.google.com/p/redis/)
+1. We highly recommend that you use the [latest stable version of Ruby](http://www.ruby-lang.org/en/downloads/). As of this writing we are using 1.9.2p136. While the app may run on Ruby 1.8.7, we will not be developing or testing it for that environment.
+    * We recommend installing a current version of the Ruby interpreter using [RVM, the Ruby Version Manager](http://rvm.beginrescueend.com/).
+2. Download and run [MongoDB](http://mongodb.org).
+3. Configure [Mongoid](http://mongoid.org).
+    * Adjust `config/mongoid.yml` as necessary.
+4. Install and run [Redis](http://code.google.com/p/redis/).
     * On Mac OS X, we recommend [homebrew](http://http://mxcl.github.com/homebrew/):
         * `brew install redis`
-4. Load data into the database
+5. Load data into the database:
     * For quicker testing:
         * `rake db:reset db:seed db:seed_examples`
     * For a full setup:
         * `rake db:reset db:seed db:seed_examples import:*`
-5. Start the background processing system
+6. Start the background processing system:
     * `QUEUE=* rake resque:work`
     * `rake resque:scheduler`
     * Optionally: `resque-web`
-6. Start the Rails server:
+7. Start the Rails server:
     * `rails s`
 
 ## Notable Directories
