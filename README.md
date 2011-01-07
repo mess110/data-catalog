@@ -72,6 +72,8 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
     * Optionally: `resque-web`
 7. Start the Rails server:
     * `rails s`
+8. Optional: if you are customizing or modifying the source code, fire up autotest:
+    * `autotest`
 
 ## Notable Directories
 
