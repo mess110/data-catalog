@@ -2,22 +2,42 @@
 
 // ===== fonts =====
 
-$baseline: 20px
+// The font_ mixins only change the font-size. This makes them more useful
+// for elements that have weird line-height behavior across browsers, such
+// as form fields (particularly input buttons).
 
 =font_0
   font-size: 13px
-  line-height: $baseline
 
 =font_1
   font-size: 15px
-  line-height: $baseline
 
 =font_2
   font-size: 18px
-  line-height: $baseline * 2
 
 =font_3
   font-size: 22px
+
+$baseline: 20px
+
+// The text_ mixins change the font-size and the line-height, which helps
+// preserve a constant vertical grid. Please try using these by default;
+// if they do not work, then fall back to using the font_ mixins.
+
+=text_0
+  +font_0
+  line-height: $baseline
+
+=text_1
+  +font_1
+  line-height: $baseline
+
+=text_2
+  +font_2
+  line-height: $baseline * 2
+
+=text_3
+  +font_3
   line-height: $baseline * 2
 
 // ===== gradients =====
