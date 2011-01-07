@@ -16,7 +16,8 @@ class DataSetsController < ApplicationController
   def create
   end
 
-  def custom_search
+  # (This is a custom verb, not your usual REST CRUD.)
+  def search
     filters = get_active_filters
     columns = get_columns_array
     new_params = make_new_params(params, filters, columns)

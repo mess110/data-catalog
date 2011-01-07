@@ -2,7 +2,7 @@ DataCatalog::Application.routes.draw do
   resources :catalogs
   resources :categories
   resources :data_sets do
-    post 'custom_search', :on => :collection
+    post 'search', :on => :collection
   end
   resources :discussions
   resources :locations
