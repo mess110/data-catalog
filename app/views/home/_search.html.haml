@@ -1,0 +1,3 @@
+%form.search{ :action => data_sets_path, :method => 'get' }
+  = search_field_tag(:query, @query, :placeholder => 'keywords', :id => nil, :class => :search)
+  = submit_tag('Search', :class => :submit)
