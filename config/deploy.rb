@@ -25,6 +25,10 @@ role :db,  domain, :primary => true
 require 'bundler/capistrano'
 
 namespace :deploy do
+  task :migrate do
+    # Do nothing (Mongo does not need to migrate)
+  end
+
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "killall -HUP unicorn_rails"
   end
