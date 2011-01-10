@@ -22,7 +22,7 @@ role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
 
-require 'bundler/deployment'
+require 'bundler/capistrano'
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
