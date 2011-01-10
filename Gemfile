@@ -15,7 +15,7 @@ gem 'rails', '~> 3.0'
 gem 'rdiscount', '~> 1.6'
 gem 'resque', '~> 1.10'
 gem 'resque-scheduler', '~> 1.9'
-gem 'unicorn', '~> 3.1'
+gem 'unicorn', '~> 3.3'
 
 group :test, :development do
   gem 'autotest', '~> 4.4'
