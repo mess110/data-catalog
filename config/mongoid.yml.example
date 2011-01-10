@@ -1,0 +1,16 @@
+defaults: &defaults
+  host: localhost
+  allow_dynamic_fields: false
+
+development:
+  <<: *defaults
+  database: data_catalog_development
+  # autocreate_indexes: true
+
+test:
+  <<: *defaults
+  database: data_catalog_test
+
+production:
+  <<: *defaults
+  database: data_catalog_production

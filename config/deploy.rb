@@ -1,22 +1,64 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :environment, (ENV['target'] || 'staging')
+set :application, 'data-catalog'
+set :repository,  'git@github.com:sunlightlabs/data-catalog.git'
+set :user,        'datcat2'
+set :use_sudo,    false
+set :scm,         :git
+set :deploy_via,  :remote_cache
+set :deploy_to,   "/projects/#{user}/src/#{application}"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+case environment
+when 'production'
+  set :domain, 'v2.nationaldatacatalog.com'
+  set :branch, 'production'
+when 'staging'
+  set :domain, 'staging.v2.nationaldatacatalog.com'
+  set :branch, 'staging'
+else
+  raise "Invalid environment: #{environment}"
+end
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+role :web, domain
+role :app, domain
+role :db,  domain, :primary => true
 
-# If you are using Passenger mod_rails uncomment this:
-# if you're still using the script/reapear helper you will need
-# these http://github.com/rails/irs_process_scripts
+require 'bundler/deployment'
 
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :deploy do
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "killall -HUP unicorn_rails"
+  end
+
+  task :symlink_config do
+    shared_config = File.join(shared_path, 'config')
+    release_config = "#{release_path}/config"
+    %w{analytics mongoid}.each do |file|
+      run "ln -s #{shared_config}/#{file}.yml #{release_config}/#{file}.yml"
+    end
+  end
+
+  task :symlink_query_cache do
+    shared = File.join(shared_path, 'tmp/query_cache')
+    release = "#{release_path}/tmp/query_cache"
+    run "ln -s #{shared} #{release}"
+  end
+
+  # background processing
+  task :restart_resque do
+    # TODO: clear queue?
+    run "cd #{current_path}; RAILS_ENV=production QUEUE=* rake resque:work"
+  end
+
+  # TODO
+  # rake resque:scheduler
+
+end
+
+after 'deploy:update_code' do
+  deploy.symlink_config
+  deploy.symlink_query_cache
+end
+
+before 'deploy:restart' do
+  deploy.restart_resque
+end
