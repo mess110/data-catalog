@@ -59,8 +59,10 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
 3. Configure [Mongoid](http://mongoid.org).
     * Adjust `config/mongoid.yml` as necessary.
 4. Install and run [Redis](http://code.google.com/p/redis/).
-    * On Mac OS X, we recommend [homebrew](http://http://mxcl.github.com/homebrew/):
+    * On Mac OS X, we recommend [homebrew](http://mxcl.github.com/homebrew/):
         * `brew install redis`
+    * On Ubuntu 10.10, we recommend:
+        * `sudo apt-get install redis-server`
 5. Load data into the database:
     * For quicker testing:
         * `rake db:reset db:seed db:seed_examples`
