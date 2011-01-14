@@ -93,7 +93,7 @@ namespace :deploy do
 
   task :start_resque do
     # TODO: clear queue?
-    run "cd #{current_path} && RAILS_ENV=#{rails_env} QUEUE=* rake resque:work"
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} QUEUE=* rake resque:work &> log/resque_work.log"
   end
 
   # == resque scheduler tasks ==
