@@ -108,7 +108,7 @@ namespace :deploy do
   end
 
   task :start_resque_scheduler do
-    run "cd #{current_path} && RAILS_ENV=#{rails_env} QUEUE=* rake resque:work"
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} QUEUE=* rake resque:scheduler &> log/resque_scheduler.log"
   end
 
 end
