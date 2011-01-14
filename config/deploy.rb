@@ -69,7 +69,7 @@ namespace :deploy do
   task :symlink_config do
     shared_config = File.join(shared_path, 'config')
     release_config = "#{release_path}/config"
-    %w{analytics.yml mongoid.yml unicorn.rb}.each do |file|
+    %w{analytics.yml mail.yml mongoid.yml unicorn.rb}.each do |file|
       run "ln -s #{shared_config}/#{file} #{release_config}/#{file}"
     end
   end
