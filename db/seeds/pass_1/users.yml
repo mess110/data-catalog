@@ -3,6 +3,7 @@
   bio: "David is a software developer at the Sunlight Foundation."
   email: "djames@sunlightfoundation.com"
   password: "123456"
+  confirmed_at: "2010-12-03 13:47 Z"
   owned_catalogs:
   - :catalog:
       uid: "national-data-catalog"
@@ -11,6 +12,7 @@
   bio: "Luigi is a software developer at the Sunlight Foundation."
   email: "luigi@sunlightfoundation.com"
   password: "123456"
+  confirmed_at: "2010-12-04 13:55 Z"
   owned_catalogs:
   - :catalog:
       uid: "national-data-catalog"
@@ -19,6 +21,7 @@
   bio: "Eric is a software developer at the Sunlight Foundation."
   email: "emill@sunlightfoundation.com"
   password: "123456"
+  confirmed_at: "2010-12-05 14:04 Z"
   curated_catalogs:
   - :catalog:
       uid: "national-data-catalog"
@@ -27,6 +30,7 @@
   bio: "Bill is an investigative reporter at the Sunlight Foundation."
   email: "ballison@sunlightfoundation.com"
   password: "123456"
+  confirmed_at: "2010-12-10 14:20 Z"
   owned_catalogs:
   - :catalog:
       uid: "sunlight-reporting-group-data-catalog"
@@ -38,6 +42,7 @@
   bio: "Jeremy is a software developer at the Sunlight Foundation."
   email: "jcarbaugh@sunlightfoundation.com"
   password: "123456"
+  confirmed_at: "2010-12-11 17:48 Z"
   owned_catalogs:
   - :catalog:
       uid: "sunlight-foundation-data-catalog"
@@ -46,6 +51,7 @@
   bio: "David is the founder of Open Missouri."
   email: "herzogd@missouri.edu"
   password: "123456"
+  confirmed_at: "2010-12-14 10:18 Z"
   owned_catalogs:
   - :catalog:
       uid: "open-missouri-data-catalog"
