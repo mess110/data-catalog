@@ -121,10 +121,10 @@ after 'deploy:update' do
   deploy.create_mongo_indexes
 end
 
-before 'deploy:restart' do
-  deploy.restart_resque
-  # deploy.restart_resque_scheduler
-end
+# before 'deploy:restart' do
+#   deploy.restart_resque
+#   deploy.restart_resque_scheduler
+# end
 
 after 'deploy:setup' do
   run 'mkdir -p ' + File.join(shared_path, 'config')
