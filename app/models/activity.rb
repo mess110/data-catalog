@@ -59,19 +59,19 @@ class Activity
   def fields_for_verb
     case verb
     when 'sign-up'
-      expect(:object_label,       :nil)
-      expect(:object_path,        :nil)
-      expect(:object_user,        :nil)
+      expect(:object_label,    :nil)
+      expect(:object_path,     :nil)
+      expect(:object_user,     :nil)
       expect(:object_data_set, :nil)
     when 'follow'
-      expect(:object_label,       :truthy)
-      expect(:object_path,        :truthy)
-      expect(:object_user,        :truthy)
+      expect(:object_label,    :truthy)
+      expect(:object_path,     :truthy)
+      expect(:object_user,     :truthy)
       expect(:object_data_set, :nil)
     when 'comment', 'suggest', 'watch'
-      expect(:object_label,       :truthy)
-      expect(:object_path,        :truthy)
-      expect(:object_user,        :nil)
+      expect(:object_label,    :truthy)
+      expect(:object_path,     :truthy)
+      expect(:object_user,     :nil)
       expect(:object_data_set, :truthy)
     end
   end
