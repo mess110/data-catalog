@@ -100,7 +100,7 @@ class Activity
   def expect(field, expected)
     actual = self.send(field)
     return if expected == :nil && actual.nil?
-    return if expected == :empty && actual == []
+    return if expected == :empty && actual.empty?
     return if expected == :truthy && actual
     errors.add(field, "must be #{expected} for #{verb}")
   end
