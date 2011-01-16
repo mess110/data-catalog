@@ -91,7 +91,6 @@ class DataSet
   # === Validations ===
   validates_uniqueness_of :uid
   validates_presence_of :title
-  validates_associated :distributions
 
   validate :validate_kronos_hashes
   def validate_kronos_hashes
