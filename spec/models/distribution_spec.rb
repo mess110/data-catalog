@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Distribution do
-  it "should be saveable because it must be embedded" do
+  it "should not be saveable because it must be embedded" do
     lambda {
       Factory.create(:distribution)
     }.should raise_error(Mongoid::Errors::InvalidCollection)
