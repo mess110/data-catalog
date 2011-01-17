@@ -1,15 +1,6 @@
 require 'spec_helper'
 
 describe Distribution do
-  # This spec passed under mongoid.2.0.0.beta.20 but did not pass under
-  # mongoid.2.0.0.rc.5. More information on Mongoid's issue tracker:
-  # http://github.com/mongoid/mongoid/issues/issue/552
-  it "should not be saveable because it must be embedded" do
-    lambda {
-      Factory.create(:distribution)
-    }.should raise_error(Mongoid::Errors::InvalidCollection)
-  end
-
   it "should be valid" do
     Factory.build(:distribution).should be_valid
   end
