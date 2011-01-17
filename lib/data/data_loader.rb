@@ -10,8 +10,8 @@ class DataLoader
     { :constant => Label,              :name => :labels },
     { :constant => User,               :name => :users },
     { :constant => Category,           :name => :categories },
-    { :constant => DataSet,         :name => :data_sets },
-    { :constant => FeaturedDataSet, :name => :featured_data_sets },
+    { :constant => DataSet,            :name => :data_sets },
+    { :constant => FeaturedDataSet,    :name => :featured_data_sets },
     { :constant => Tag,                :name => :tags },
     { :constant => Activity,           :name => :activities },
   ]
