@@ -32,7 +32,7 @@ describe Activity do
       before do
         @activity = Factory.create(:follow_activity)
         @subject_user = @activity.subject_user
-        @object_user = @activity.object_user
+        @object_user = @activity.object_user.reload
       end
 
       it "subject_user.activities_as_subject" do
