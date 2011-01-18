@@ -1,7 +1,6 @@
 # Explained: http://unicorn.bogomips.org/Unicorn/Configurator.html
 
 worker_processes 2
-# listen      8080, :tcp_nopush => true
 listen      "/projects/datcat2/data/data-catalog.socket"
 pid         "/projects/datcat2/src/data-catalog/shared/tmp/pids/unicorn.pid"
 stderr_path "/projects/datcat2/src/data-catalog/shared/log/unicorn.log"
