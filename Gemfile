@@ -21,5 +21,5 @@ group :test, :development do
   gem 'autotest', '~> 4.4'
   gem 'capistrano', '~> 2.5'
   gem 'metric_fu', '~> 2.0'
-  gem 'rspec-rails', '~> 2.3'
+  gem 'rspec-rails', '~> 2.4'
 end

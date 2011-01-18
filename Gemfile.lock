@@ -198,7 +198,7 @@ GEM
     tilt (1.2.1)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.23)
+    tzinfo (0.3.24)
     unicorn (3.3.1)
       kgio (~> 2.1)
       rack
@@ -230,5 +230,5 @@ DEPENDENCIES
   rdiscount (~> 1.6)
   resque (~> 1.10)
   resque-scheduler (~> 1.9)
-  rspec-rails (~> 2.3)
+  rspec-rails (~> 2.4)
   unicorn (~> 3.3)
