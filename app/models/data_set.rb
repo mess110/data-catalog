@@ -72,17 +72,16 @@ class DataSet
   references_many :data_set_notes
   references_many :tags
   referenced_in :organization, :index => true
-  references_many :catalogs, :inverse_of => :data_sets,
-    :stored_as => :array, :index => true
-  references_many :categories, :inverse_of => :data_sets,
-    :stored_as => :array, :index => true
+  references_and_referenced_in_many :catalogs, :inverse_of => :data_sets,
+    :index => true
+  references_and_referenced_in_many :categories, :inverse_of => :data_sets,
+    :index => true
   referenced_in :parent, :class_name => 'DataSet',
     :inverse_of => :children, :index => true
   references_many :children, :class_name => 'DataSet',
     :foreign_key => :parent_id, :inverse_of => :parent
-  references_many :watchers, :class_name => 'User',
-    :inverse_of => :watched_data_sets, :stored_as => :array,
-    :index => true
+  references_and_referenced_in_many :watchers, :class_name => 'User',
+    :inverse_of => :watched_data_sets, :index => true
   references_many :activities_as_object, :class_name => 'Activity',
     :foreign_key => :object_data_set_id, :inverse_of => :object_data_set
 

@@ -18,8 +18,8 @@ class Category
   slug :name
 
   # === Associations ===
-  references_many :data_sets, :inverse_of => :categories,
-    :stored_as => :array, :index => true
+  references_and_referenced_in_many :data_sets, :inverse_of => :categories,
+    :index => true
   referenced_in :parent, :class_name => 'Category',
     :inverse_of => :children, :index => true
   references_many :children, :class_name => 'Category',

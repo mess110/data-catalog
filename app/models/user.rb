@@ -15,12 +15,12 @@ class User
   # === Associations ===
   references_many :data_set_notes
   references_many :tags
-  references_many :curated_catalogs, :class_name => 'Catalog',
-    :inverse_of => :curators, :stored_as => :array, :index => true
-  references_many :owned_catalogs, :class_name => 'Catalog',
-    :inverse_of => :owners, :stored_as => :array, :index => true
-  references_many :watched_data_sets, :class_name => 'DataSet',
-    :inverse_of => :watchers, :stored_as => :array, :index => true
+  references_and_referenced_in_many :curated_catalogs,
+    :class_name => 'Catalog', :inverse_of => :curators, :index => true
+  references_and_referenced_in_many :owned_catalogs,
+    :class_name => 'Catalog', :inverse_of => :owners, :index => true
+  references_and_referenced_in_many :watched_data_sets,
+    :class_name => 'DataSet', :inverse_of => :watchers, :index => true
   references_many :activities_as_subject, :class_name => 'Activity',
     :foreign_key => :subject_user_id, :inverse_of => :subject_user
   references_many :activities_as_object, :class_name => 'Activity',

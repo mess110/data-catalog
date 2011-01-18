@@ -14,12 +14,12 @@ class Catalog
   field :description, :type => String
 
   # === Associations ===
-  references_many :data_sets, :inverse_of => :catalogs,
-    :stored_as => :array, :index => true
-  references_many :curators, :class_name => 'User',
-    :inverse_of => :curated_catalogs, :stored_as => :array, :index => true
-  references_many :owners, :class_name => 'User',
-    :inverse_of => :owned_catalogs, :stored_as => :array, :index => true
+  references_and_referenced_in_many :data_sets,
+    :inverse_of => :catalogs, :index => true
+  references_and_referenced_in_many :curators, :class_name => 'User',
+    :inverse_of => :curated_catalogs, :index => true
+  references_and_referenced_in_many :owners, :class_name => 'User',
+    :inverse_of => :owned_catalogs, :index => true
 
   # === Indexes ===
   index :uid, :unique => true
