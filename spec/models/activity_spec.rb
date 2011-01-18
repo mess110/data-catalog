@@ -2,50 +2,93 @@ require 'spec_helper'
 
 describe Activity do
 
-  it "sign-up" do
-    Factory.build(:sign_up_activity).should be_valid
+  describe "sign-up" do
+    it "build" do
+      Factory.build(:sign_up_activity).should be_valid
+    end
+
+    describe "create" do
+      before do
+        @activity = Factory.create(:sign_up_activity)
+        @subject_user = @activity.subject_user
+      end
+
+      it "subject_user.activities_as_subject" do
+        @subject_user.activities_as_subject.to_a.should == [@activity]
+      end
+
+      it "subject_user.activities_as_object" do
+        @subject_user.activities_as_object.to_a.should == []
+      end
+    end
   end
 
-  it "follow" do
-    Factory.build(:follow_activity).should be_valid
+  describe "follow" do
+    it "build" do
+      Factory.build(:follow_activity).should be_valid
+    end
+
+    describe "create" do
+      before do
+        @activity = Factory.create(:follow_activity)
+        @subject_user = @activity.subject_user
+        @object_user = @activity.object_user
+      end
+
+      it "subject_user.activities_as_subject" do
+        @subject_user.activities_as_subject.to_a.should == [@activity]
+      end
+
+      it "subject_user.activities_as_object" do
+        @subject_user.activities_as_object.to_a.should == []
+      end
+
+      it "object_user.activities_as_subject" do
+        @object_user.activities_as_subject.to_a.should == []
+      end
+
+      it "object_user.activities_as_object" do
+        @object_user.activities_as_object.to_a.should == [@activity]
+      end
+    end
   end
 
-  it "watch" do
-    Factory.build(:watch_activity).should be_valid
+  describe "comment" do
+    it "build" do
+      Factory.build(:comment_activity).should be_valid
+    end
+
+    describe "create" do
+      before do
+        @activity = Factory.create(:comment_activity)
+        @subject_user = @activity.subject_user
+        @object_data_set = @activity.object_data_set
+      end
+
+      it "subject_user activities_as_subject" do
+        @subject_user.activities_as_subject.to_a.should == [@activity]
+      end
+
+      it "subject_user activities_as_object" do
+        @subject_user.activities_as_object.to_a.should == []
+      end
+
+      it "object_data_set activities_as_object" do
+        @object_data_set.activities_as_object.to_a.should == [@activity]
+      end
+    end
   end
 
-  it "comment" do
-    Factory.build(:comment_activity).should be_valid
+  describe "watch" do
+    it "build" do
+      Factory.build(:watch_activity).should be_valid
+    end
   end
 
-  it "suggest" do
-    Factory.build(:suggest_activity).should be_valid
-  end
-
-  it "related object associations with a sign-up activity" do
-    @activity = Factory.create(:sign_up_activity)
-    subject_user = @activity.subject_user
-    subject_user.activities_as_subject.to_a.should == [@activity]
-    subject_user.activities_as_object.to_a.should == []
-  end
-
-  it "related object associations with a follow activity" do
-    @activity = Factory.create(:follow_activity)
-    subject_user = @activity.subject_user
-    subject_user.activities_as_subject.to_a.should == [@activity]
-    subject_user.activities_as_object.to_a.should == []
-    object_user = @activity.object_user
-    object_user.activities_as_subject.to_a.should == []
-    object_user.activities_as_object.to_a.should == [@activity]
-  end
-
-  it "related object associations with a comment activity" do
-    @activity = Factory.create(:comment_activity)
-    subject_user = @activity.subject_user
-    subject_user.activities_as_subject.to_a.should == [@activity]
-    subject_user.activities_as_object.to_a.should == []
-    object_data_set = @activity.object_data_set
-    object_data_set.activities_as_object.to_a.should == [@activity]
+  describe "suggest" do
+    it "build" do
+      Factory.build(:suggest_activity).should be_valid
+    end
   end
 
 end
