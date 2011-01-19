@@ -9,15 +9,10 @@ describe DataSet do
     it "should calculate correct ratings" do
       ds = Factory.build(:data_set)
       ds.valid?
-      ds.data_quality['min'].should == 1
-      ds.data_quality['max'].should == 5
-      ds.data_quality['avg'].should == 3.4
-      ds.documentation_quality['min'].should == 1
-      ds.documentation_quality['max'].should == 3
-      ds.documentation_quality['avg'].should == 1.75
-      ds.interestingness['min'].should == 3
-      ds.interestingness['max'].should == 5
-      ds.interestingness['avg'].should == 4.0
+      dat, doc, int = ds.data_quality, ds.documentation_quality, ds.interestingness
+      [dat['min'], dat['max'], dat['avg']].should == [1, 5, 3.4]
+      [doc['min'], doc['max'], doc['avg']].should == [1, 3, 1.75]
+      [int['min'], int['max'], int['avg']].should == [3, 5, 4.0]
     end
 
     it "should be invalid when year is a string" do
