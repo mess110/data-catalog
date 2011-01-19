@@ -21,11 +21,11 @@ describe DataSet do
     end
 
     it "should be invalid when year is a string" do
-      factory = Factory.build(:data_set, {
+      ds = Factory.build(:data_set, {
         :released => { 'year' => '2010' }
       })
-      factory.should_not be_valid
-      errors = factory.errors
+      ds.should_not be_valid
+      errors = ds.errors
       errors.length.should == 1
       errors[:released].length == 2
       errors[:released].should include("year (2010) must be between 1970 and 2069")
@@ -33,18 +33,18 @@ describe DataSet do
     end
 
     it "should be invalid when month is out of range" do
-      factory = Factory.build(:data_set, {
+      ds = Factory.build(:data_set, {
         :released => { 'month' => 13 }
       })
-      factory.should_not be_valid
-      errors = factory.errors
+      ds.should_not be_valid
+      errors = ds.errors
       errors.length.should == 1
       errors[:released].length == 1
       errors[:released].should include("if month is given, then year must also be given")
     end
 
     it "should be invalid when min is not an integer" do
-      factory = Factory.build(:data_set, {
+      ds = Factory.build(:data_set, {
         :data_quality => {
           'min'  => 1.3,
           'max'  => 1,
@@ -52,15 +52,15 @@ describe DataSet do
           'bins' => [1, 0, 0, 0, 0],
         }
       })
-      factory.should_not be_valid
-      errors = factory.errors
+      ds.should_not be_valid
+      errors = ds.errors
       errors.length.should == 1
       errors[:data_quality].length == 1
       errors[:data_quality].should include("min must be an integer if present")
     end
 
     it "should be invalid when bins is not an array" do
-      factory = Factory.build(:data_set, {
+      ds = Factory.build(:data_set, {
         :documentation_quality => {
           'min'  => nil,
           'max'  => nil,
@@ -68,15 +68,15 @@ describe DataSet do
           'bins' => 5,
         }
       })
-      factory.should_not be_valid
-      errors = factory.errors
+      ds.should_not be_valid
+      errors = ds.errors
       errors.length.should == 1
       errors[:documentation_quality].length == 1
       errors[:documentation_quality].should include("bins must be an array")
     end
 
     it "should be invalid when bin item is not an integer" do
-      factory = Factory.build(:data_set, {
+      ds = Factory.build(:data_set, {
         :interestingness => {
           'min'  => nil,
           'max'  => nil,
@@ -84,8 +84,8 @@ describe DataSet do
           'bins' => [0, 1, 3.3, 2, 1.6],
         }
       })
-      factory.should_not be_valid
-      errors = factory.errors
+      ds.should_not be_valid
+      errors = ds.errors
       errors.length.should == 1
       errors[:interestingness].length == 2
       errors[:interestingness].should include("bins[2] must be an integer if present")
