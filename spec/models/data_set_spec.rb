@@ -86,6 +86,43 @@ describe DataSet do
       errors[:interestingness].should include("bins[2] must be an integer if present")
       errors[:interestingness].should include("bins[4] must be an integer if present")
     end
+  end
 
+  describe "with embedded Distribution" do
+    before do
+      @data_set = Factory.build(:data_set)
+      @distributions_params = [
+        {
+          "url"    => "http://www.data.gov/download/329/csv",
+          "kind"   => "document",
+          "format" => "CSV"
+        },
+        {
+          "url"    => "http://www.data.gov/download/330/csv",
+          "kind"   => "document",
+          "format" => "CSV"
+        },
+        {
+          "url"    => "http://www.data.gov/download/331/csv",
+          "kind"   => "document",
+          "format" => "CSV"
+        }
+      ]
+    end
+
+    it "=" do
+      distributions = @distributions_params.map do |params|
+        Distribution.new(params)
+      end
+      @data_set.distributions = distributions
+      @data_set.distributions.length.should == 3
+    end
+
+    it "<<" do
+      @distributions_params.each do |params|
+        @data_set.distributions << Distribution.new(params)
+      end
+      @data_set.distributions.length.should == 3
+    end
   end
 end
