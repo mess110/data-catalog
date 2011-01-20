@@ -109,6 +109,7 @@ class DataSet
   # === Callbacks ===
   after_validation :process_all_ratings
   def process_all_ratings
+    return unless errors.empty?
     self.data_quality          = process_ratings(data_quality)
     self.documentation_quality = process_ratings(documentation_quality)
     self.interestingness       = process_ratings(interestingness)
