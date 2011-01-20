@@ -22,8 +22,7 @@ describe DataSet do
       ds.should_not be_valid
       errors = ds.errors
       errors.length.should == 1
-      errors[:released].length == 2
-      errors[:released].should include("year (2010) must be between 1970 and 2069")
+      errors[:released].length == 1
       errors[:released].should include("year must be an integer if present")
     end
 
