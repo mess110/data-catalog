@@ -38,7 +38,7 @@ GEM
     bson (1.2.0)
     bson_ext (1.2.0)
     builder (2.1.2)
-    cancan (1.5.0)
+    cancan (1.5.1)
     capistrano (2.5.19)
       highline
       net-scp (>= 1.0.0)
@@ -55,7 +55,7 @@ GEM
       ruby_parser (~> 2.0.4)
       sexp_processor (~> 3.0.3)
     colored (1.2)
-    curb (0.7.9)
+    curb (0.7.10)
     database_cleaner (0.6.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
@@ -78,7 +78,7 @@ GEM
       rake (>= 0.8.7)
     i18n (0.5.0)
     json (1.4.6)
-    json_pure (1.4.6)
+    json_pure (1.5.0)
     kgio (2.1.1)
     kronos (0.3.0)
       kronos
@@ -116,7 +116,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.0.24)
+    net-ssh (2.1.0)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
@@ -214,7 +214,7 @@ PLATFORMS
 DEPENDENCIES
   autotest (~> 4.4)
   bson_ext
-  cancan (~> 1.4)
+  cancan (~> 1.5)
   capistrano (~> 2.5)
   curb (~> 0.7)
   database_cleaner (~> 0.6)
