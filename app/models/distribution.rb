@@ -21,7 +21,7 @@ class Distribution
   field :format, :type => String
 
   # === Associations ===
-  embedded_in :data_set, :inverse_of => :distribution
+  embedded_in :data_set
 
   # === Indexes ===
 
