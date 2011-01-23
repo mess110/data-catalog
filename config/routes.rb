@@ -11,6 +11,8 @@ DataCatalog::Application.routes.draw do
   resources :tags
   resources :users
 
+  resource :dashboard, :controller => 'dashboard', :only => :show
+
   # devise_for :users, :class_name => 'Account'
   devise_for :users, :path => 'account'
 
