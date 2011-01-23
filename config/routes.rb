@@ -14,5 +14,5 @@ DataCatalog::Application.routes.draw do
   # devise_for :users, :class_name => 'Account'
   devise_for :users, :path => 'account'
 
-  root :to => "home#index"
+  root :to => "home#show"
 end

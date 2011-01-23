@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  def index
+  def show
     @location_counts = CountDataSetsByLocation.perform(9)
     @category_counts = CountDataSetsByCategory.perform(9)
     @counts = {
