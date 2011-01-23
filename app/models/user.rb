@@ -7,9 +7,10 @@ class User
     :registerable, :rememberable, :trackable, :validatable
 
   # === Fields ===
-  field :uid,  :type => String
-  field :name, :type => String
-  field :bio,  :type => String
+  field :uid,   :type => String
+  field :name,  :type => String
+  field :bio,   :type => String
+  field :admin, :type => Boolean
   # field :email, :type => String (created by devise)
 
   # === Associations ===
