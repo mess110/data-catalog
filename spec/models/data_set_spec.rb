@@ -6,13 +6,37 @@ describe DataSet do
       Factory.build(:data_set).should be_valid
     end
 
-    it "should calculate correct ratings" do
+    it "should calculate correct data_quality ratings" do
       ds = Factory.build(:data_set)
       ds.valid?
-      dat, doc, int = ds.data_quality, ds.documentation_quality, ds.interestingness
-      [dat['min'], dat['max'], dat['avg']].should == [1, 5, 3.4]
-      [doc['min'], doc['max'], doc['avg']].should == [1, 3, 1.75]
-      [int['min'], int['max'], int['avg']].should == [3, 5, 4.0]
+      ds.data_quality.should == {
+        'min'  => 1,
+        'max'  => 5,
+        'avg'  => 3.4,
+        'bins' => [4, 0, 0, 0, 6]
+      }
+    end
+
+    it "should calculate correct documentation quality ratings" do
+      ds = Factory.build(:data_set)
+      ds.valid?
+      ds.documentation_quality.should == {
+        'min'  => 1,
+        'max'  => 3,
+        'avg'  => 1.75,
+        'bins' => [4, 2, 2, 0, 0]
+      }
+    end
+
+    it "should calculate correct interestingness ratings" do
+      ds = Factory.build(:data_set)
+      ds.valid?
+      ds.interestingness.should == {
+        'min'  => 3,
+        'max'  => 5,
+        'avg'  => 4.0,
+        'bins' => [0, 0, 4, 4, 4]
+      }
     end
 
     it "should be invalid when year is a string" do
@@ -21,8 +45,8 @@ describe DataSet do
       })
       ds.should_not be_valid
       errors = ds.errors
-      errors.length.should == 1
-      errors[:released].length == 1
+      errors.length.should == 1 &&
+        errors[:released].length == 1
       errors[:released].should include("year must be an integer if present")
     end
 
@@ -32,8 +56,8 @@ describe DataSet do
       })
       ds.should_not be_valid
       errors = ds.errors
-      errors.length.should == 1
-      errors[:released].length == 1
+      errors.length.should == 1 &&
+        errors[:released].length == 1
       errors[:released].should include("if month is given, then year must also be given")
     end
 
@@ -48,8 +72,8 @@ describe DataSet do
       })
       ds.should_not be_valid
       errors = ds.errors
-      errors.length.should == 1
-      errors[:data_quality].length == 1
+      errors.length.should == 1 &&
+        errors[:data_quality].length == 1
       errors[:data_quality].should include("min must be an integer if present")
     end
 
@@ -64,8 +88,8 @@ describe DataSet do
       })
       ds.should_not be_valid
       errors = ds.errors
-      errors.length.should == 1
-      errors[:documentation_quality].length == 1
+      errors.length.should == 1 &&
+        errors[:documentation_quality].length == 1
       errors[:documentation_quality].should include("bins must be an array")
     end
 
@@ -80,14 +104,14 @@ describe DataSet do
       })
       ds.should_not be_valid
       errors = ds.errors
-      errors.length.should == 1
-      errors[:interestingness].length == 2
+      errors.length.should == 1 &&
+        errors[:interestingness].length == 2
       errors[:interestingness].should include("bins[2] must be an integer if present")
       errors[:interestingness].should include("bins[4] must be an integer if present")
     end
   end
 
-  describe "with embedded Distribution" do
+  describe "unsaved with embedded Distribution" do
     before do
       @data_set = Factory.build(:data_set)
       @distributions_params = [
