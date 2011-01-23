@@ -97,20 +97,28 @@ class DataLoader
     end
     puts "- #{field} : #{value.inspect}" if @verbosity == 3
     if embedded?(object, field)
-      object.send(field).build(value)
+      build_it(object, field, value)
     else
       object.send("#{field}=", value)
     end
   end
 
-  EMBEDDED_CLASSES = [
-    Mongoid::Associations::EmbedsMany,
-    Mongoid::Associations::EmbedsOne,
-  ]
   def embedded?(object, field)
-    metadata = object.associations[field]
-    return unless metadata && metadata.association
-    EMBEDDED_CLASSES.include?(metadata.association.class)
+    metadata = object.relations[field]
+    metadata && metadata.embedded?
+  end
+
+  def build_it(object, field, value_or_values)
+    if value_or_values.is_a?(Array)
+      # From http://mongoid.org/docs/associations/
+      # person.phone_numbers = [ Phone.new(:number => "415-555-1212") ]
+      klass = object.relations[field].klass
+      object.send("#{field}=", value_or_values.map { |v| klass.new(v) })
+    else
+      # From http://mongoid.org/docs/associations/
+      # person.phone_numbers.build(:number => "415-555-1212")
+      object.send(field).build(value_or_values)
+    end
   end
 
   # Recursively search for symbols and convert them to the objects that
