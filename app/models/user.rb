@@ -36,6 +36,13 @@ class User
   validates_presence_of :name
   validates_uniqueness_of :email, :case_sensitive => false
 
+  # === Callbacks ===
+  before_validation :ensure_uid
+  def ensure_uid
+    return true if uid.present?
+    self.uid = make_uid(name)
+  end
+
   # === Class Methods ===
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
@@ -46,6 +53,13 @@ class User
   end
 
   # === Instance Methods ===
+
+  protected
+
   def to_param; uid end
+
+  def make_uid(string)
+    (string.downcase.squish + ' ').gsub(/\s/, '-') + '%04i' % rand(10000)
+  end
 
 end

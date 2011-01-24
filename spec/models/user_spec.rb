@@ -10,8 +10,15 @@ describe User do
       Factory.build(:user, { :name => nil }).should_not be_valid
     end
 
-    it "should be invalid when missing uid" do
-      Factory.build(:user, { :uid => nil }).should_not be_valid
+    it "should create a uid if not specified" do
+      factory = Factory.build(:user, { :uid => nil })
+      factory.should be_valid
+      factory.uid.should match(/^david-james-[\d]{4}$/)
+    end
+
+    it "#make_uid should be correct" do
+      uid = User.new.send(:make_uid, 'David James')
+      uid.should match(/^david-james-[\d]{4}$/)
     end
   end
   
