@@ -224,7 +224,7 @@ DEPENDENCIES
   kronos (~> 0.3)
   metric_fu (~> 2.0)
   mongoid (~> 2.0.0.rc.6)
-  mongoid_slug (~> 0.4)
+  mongoid_slug (~> 0.6)
   nokogiri (~> 1.4)
   rails (~> 3.0)
   rdiscount (~> 1.6)
