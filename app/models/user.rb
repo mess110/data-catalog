@@ -54,9 +54,9 @@ class User
 
   # === Instance Methods ===
 
-  protected
-
   def to_param; uid end
+
+  protected
 
   def make_uid(string)
     (string.downcase.squish + ' ').gsub(/\s/, '-') + '%04i' % rand(10000)
