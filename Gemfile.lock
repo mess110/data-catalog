@@ -134,7 +134,7 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
-    rails_best_practices (0.6.5)
+    rails_best_practices (0.6.6)
       activesupport
       colored (~> 1.2)
       erubis (~> 2.6.6)
@@ -149,7 +149,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rcov (0.9.9)
-    rdiscount (1.6.5)
+    rdiscount (1.6.8)
     redis (2.1.1)
     redis-namespace (0.8.0)
       redis (< 3.0.0)
