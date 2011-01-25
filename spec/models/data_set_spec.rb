@@ -111,6 +111,24 @@ describe DataSet do
     end
   end
 
+  describe "saved" do
+    before do
+      @factory = Factory.create(:data_set)
+    end
+
+    it "should populate keywords" do
+      @factory.keywords.should == %w(fema public assistance funded projects
+        detail through pa program cdfa number 97.036 provides supplemental
+        federal disaster grant debris removal emergency protective measures
+        repair replacement restoration disaster-damaged publicly owned
+        facilities certain private non-profit pnp organizations also
+        encourages protection these damaged future events providing hazard
+        mitigation during recovery process dataset lists all recipients
+        designated applicants features list every individual project called
+        worksheets)
+    end
+  end
+
   describe "with embedded Distribution" do
     before do
       @distributions_params = [

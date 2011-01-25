@@ -48,6 +48,7 @@ class DataSet
   # === Fields ===
   field :uid,                   :type => String
   field :title,                 :type => String
+  field :keywords,              :type => Array
   field :url,                   :type => String
   field :description,           :type => String
   field :documentation_url,     :type => String
@@ -113,6 +114,17 @@ class DataSet
     self.data_quality          = process_ratings(data_quality)
     self.documentation_quality = process_ratings(documentation_quality)
     self.interestingness       = process_ratings(interestingness)
+  end
+
+  before_save :update_keywords
+  def update_keywords
+    words = [title, description]
+    if organization
+      words << organization.name if organization.name
+      words.concat(organization.other_names) if organization.other_names
+      words << organization.acronym if organization.acronym
+    end
+    self.keywords = Analyzer.process(words)
   end
 
   # === Scopes ===
