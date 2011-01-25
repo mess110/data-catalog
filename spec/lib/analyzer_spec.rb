@@ -18,6 +18,10 @@ describe Analyzer do
       Analyzer.tokens("Flood plain data.").should == %w(flood plain data)
     end
 
+    it "parentheses" do
+      Analyzer.tokens("(CDFA Number 99)").should == %w(cdfa number 99)
+    end
+
     it "integers" do
       Analyzer.tokens("99 barrels of beer").should == %w(99 barrels of beer)
     end

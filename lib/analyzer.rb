@@ -22,7 +22,7 @@ class Analyzer
     end.flatten.uniq
   end
 
-  REMOVE = %r([!,;])
+  REMOVE = %r([!,;\(\)])
 
   # Tokenize a string, removing extra characters too.
   #
