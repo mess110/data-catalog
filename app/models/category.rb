@@ -17,6 +17,7 @@ class Category
   field :name,        :type => String
   field :description, :type => String
   slug :name
+  field :primary,     :type => Boolean, :default => true
 
   # === Associations ===
 
@@ -34,14 +35,23 @@ class Category
 
   # === Validations ===
 
+  validates_presence_of :uid
   validates_uniqueness_of :uid
   validates_presence_of :name
 
   # === Callbacks ===
 
+  before_save :update_primary
+  def update_primary
+    self.primary = parent.nil?
+    true
+  end
+  protected :update_primary
+
   # === Scopes ===
 
-  scope :primary, :where => { :parent_id => nil }
+  scope :primary, :where => { :primary => true }
+  scope :secondary, :where => { :primary => false }
 
   # === Class Methods ===
 
@@ -55,9 +65,10 @@ class Category
 
   # === Instance Methods ===
 
-  def primary?
-    parent_id.nil?
-  end
+  def primary; parent.nil? end
+  def primary?; primary end
+  def secondary; !primary end
+  def secondary?; !primary end
 
   protected
 
