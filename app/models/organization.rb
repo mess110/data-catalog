@@ -21,6 +21,7 @@ class Organization
   include Mongoid::Slug
 
   # === Fields ===
+
   field :uid,         :type => String
   field :name,        :type => String
   field :other_names, :type => Array
@@ -31,6 +32,7 @@ class Organization
   slug :name
 
   # === Associations ===
+
   referenced_in :location, :index => true
   references_many :data_sets
   references_many :sites
@@ -40,14 +42,21 @@ class Organization
     :foreign_key => :parent_id, :inverse_of => :parent
 
   # === Indexes ===
+
   index :uid, :unique => true
   index :name, :unique => true
 
   # === Validations ===
+
   validates_uniqueness_of :uid
   validates_presence_of :name
 
+  # === Callbacks ===
+
+  # === Scopes ===
+
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
   end
@@ -57,5 +66,7 @@ class Organization
   end
 
   # === Instance Methods ===
+
+  protected
 
 end

@@ -15,6 +15,7 @@ class Site
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :uid,             :type => String  #
   field :name,            :type => String  #
   field :url,             :type => String  #
@@ -31,14 +32,17 @@ class Site
   field :api_url,         :type => String  # API URL, if present
 
   # === Associations ===
+
   referenced_in :organization, :index => true
   referenced_in :location, :index => true
 
   # === Indexes ===
+
   index :uid, :unique => true
   index :name, :unique => true
 
   # === Validations ===
+
   validates_presence_of :uid
   validates_uniqueness_of :uid
   validates_presence_of :url
@@ -50,7 +54,12 @@ class Site
     :in => %w(? government not-for-profit other)
   validates_inclusion_of :platform_source, :in => %w(? open closed other)
 
+  # === Callbacks ===
+
+  # === Scopes ===
+
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
   end
@@ -60,6 +69,9 @@ class Site
   end
 
   # === Instance Methods ===
+
   def to_param; uid end
+
+  protected
 
 end

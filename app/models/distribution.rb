@@ -16,16 +16,19 @@ class Distribution
   include Mongoid::Document
 
   # === Fields ===
+
   field :url,    :type => String
   field :kind,   :type => String
   field :format, :type => String
 
   # === Associations ===
+
   embedded_in :data_set
 
   # === Indexes ===
 
   # === Validations ===
+
   validates_presence_of :url
   validates_presence_of :kind
   validates_inclusion_of :kind, :in => %w(API document tool)
@@ -38,9 +41,16 @@ class Distribution
       errors.add :format, "must be nil for kind #{kind}."
     end
   end
+  protected :format_for_apis_and_tools
+
+  # === Callbacks ===
+
+  # === Scopes ===
 
   # === Class Methods ===
 
   # === Instance Methods ===
+
+  protected
 
 end

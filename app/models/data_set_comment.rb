@@ -3,6 +3,7 @@ class DataSetComment
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :content, :type => String
 
   # === Associations ===
@@ -10,11 +11,15 @@ class DataSetComment
   # === Indexes ===
 
   # === Validations ===
+
   validates_presence_of :text
+
+  # === Callbacks ===
 
   # === Scopes ===
 
   # === Class Methods ===
+
   def self.find_duplicate(params)
     raise "Not implemented"
     ModelHelper.find_duplicate(self, params, [:id])
@@ -25,5 +30,7 @@ class DataSetComment
   end
 
   # === Instance Methods ===
+
+  protected
 
 end

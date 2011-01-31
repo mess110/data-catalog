@@ -8,12 +8,14 @@ class Catalog
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :uid,         :type => String
   field :name,        :type => String
   field :path,        :type => String # internal URL path
   field :description, :type => String
 
   # === Associations ===
+
   references_and_referenced_in_many :data_sets,
     :inverse_of => :catalogs, :index => true
   references_and_referenced_in_many :curators, :class_name => 'User',
@@ -22,17 +24,24 @@ class Catalog
     :inverse_of => :owned_catalogs, :index => true
 
   # === Indexes ===
+
   index :uid, :unique => true
   index :name, :unique => true
 
   # === Validations ===
+
   validates_uniqueness_of :uid
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_presence_of :path
   validates_uniqueness_of :path
 
+  # === Callbacks ===
+
+  # === Scopes ===
+
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
   end
@@ -42,6 +51,9 @@ class Catalog
   end
 
   # === Instance Methods ===
+
   def to_param; uid end
+
+  protected
 
 end

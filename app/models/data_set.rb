@@ -46,6 +46,7 @@ class DataSet
   include Validators
 
   # === Fields ===
+
   field :uid,                   :type => String
   field :title,                 :type => String
   field :keywords,              :type => Array
@@ -69,6 +70,7 @@ class DataSet
   slug :title
 
   # === Associations ===
+
   embeds_many :distributions
   references_many :data_set_notes
   references_many :tags
@@ -87,9 +89,11 @@ class DataSet
     :foreign_key => :object_data_set_id, :inverse_of => :object_data_set
 
   # === Indexes ===
+
   index :uid, :unique => true
 
   # === Validations ===
+
   validates_uniqueness_of :uid
   validates_presence_of :title
 
@@ -99,6 +103,7 @@ class DataSet
     expect_kronos_hash(period_start, :period_start)
     expect_kronos_hash(period_end,   :period_end)
   end
+  protected :validate_kronos_hashes
 
   validate :validate_all_ratings
   def validate_all_ratings
@@ -106,8 +111,10 @@ class DataSet
     expect_ratings_hash(documentation_quality, :documentation_quality)
     expect_ratings_hash(interestingness,       :interestingness)
   end
+  protected :validate_all_ratings
 
   # === Callbacks ===
+
   after_validation :process_all_ratings
   def process_all_ratings
     return unless errors.empty?
@@ -115,6 +122,7 @@ class DataSet
     self.documentation_quality = process_ratings(documentation_quality)
     self.interestingness       = process_ratings(interestingness)
   end
+  protected :process_all_ratings
 
   before_save :update_keywords
   def update_keywords
@@ -125,9 +133,12 @@ class DataSet
       words << organization.acronym if organization.acronym
     end
     self.keywords = Analyzer.process(words)
+    true
   end
+  protected :update_keywords
 
   # === Scopes ===
+
   # These return DataSets that have one or more Distributions:
   scope :apis,      :where => { 'distributions.kind' => 'api' }
   scope :documents, :where => { 'distributions.kind' => 'document' }
@@ -135,6 +146,7 @@ class DataSet
   scope :top_level, :where => { :parent_id => nil }
 
   # === Map/Reduce ===
+
   MR = MapReduce.load_files(self, 'distribution_counts')
   def self.distribution_counts
     result = self.collection.map_reduce(*MR).find
@@ -142,6 +154,7 @@ class DataSet
   end
 
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
   end

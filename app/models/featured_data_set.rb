@@ -11,18 +11,22 @@ class FeaturedDataSet
   include Validators
 
   # === Fields ===
+
   field :start_at, :type => Time
   field :stop_at,  :type => Time
   field :note,     :type => String
 
   # === Associations ===
+
   referenced_in :data_set, :index => true
 
   # === Indexes ===
+
   index :start_at
   index :stop_at
 
   # === Validations ===
+
   validates_presence_of :start_at
   validates_presence_of :data_set
 
@@ -36,21 +40,15 @@ class FeaturedDataSet
       errors.add(:stop_at, "must be later than start_at")
     end
   end
+  protected :validate_times
+
+  # === Callbacks ===
 
   # === Scopes ===
 
   # === Map/Reduce ===
 
   # === Class Methods ===
-  def self.find_duplicate(params)
-    ModelHelper.find_duplicate(self, params, [:start_at, :stop_at])
-  end
-
-  def self.ensure(params)
-    ModelHelper.ensure(self, params)
-  end
-
-  # === Instance Methods ===
 
   # Returns the currently featured data set or nil.
   def self.current(t = Time.now)
@@ -64,5 +62,17 @@ class FeaturedDataSet
       raise "Expected to find 0 or 1 matches for FeaturedDataSet"
     end
   end
+
+  def self.find_duplicate(params)
+    ModelHelper.find_duplicate(self, params, [:start_at, :stop_at])
+  end
+
+  def self.ensure(params)
+    ModelHelper.ensure(self, params)
+  end
+
+  # === Instance Methods ===
+
+  protected
 
 end

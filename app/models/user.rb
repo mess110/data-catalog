@@ -7,13 +7,15 @@ class User
     :registerable, :rememberable, :trackable, :validatable
 
   # === Fields ===
+
   field :uid,   :type => String
   field :name,  :type => String
   field :bio,   :type => String
   field :admin, :type => Boolean
-  # field :email, :type => String (created by devise)
+  # Note: devise creates field :email, :type => String
 
   # === Associations ===
+
   references_many :data_set_notes
   references_many :tags
   references_and_referenced_in_many :curated_catalogs,
@@ -28,22 +30,29 @@ class User
     :foreign_key => :object_user_id, :inverse_of => :object_user
 
   # === Indexes ===
+
   index :uid, :unique => true
 
   # === Validations ===
+
   validates_presence_of :uid
   validates_uniqueness_of :uid
   validates_presence_of :name
   validates_uniqueness_of :email, :case_sensitive => false
 
   # === Callbacks ===
+
   before_validation :ensure_uid
   def ensure_uid
     return true if uid.present?
     self.uid = make_uid(name)
   end
+  protected :ensure_uid
+
+  # === Scopes ===
 
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
   end

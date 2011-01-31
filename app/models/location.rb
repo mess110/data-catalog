@@ -4,11 +4,13 @@ class Location
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :uid,           :type => String  #
   field :name,          :type => String  #
   field :abbreviation,  :type => String  #
 
   # === Associations ===
+
   references_many :organizations
   references_many :sites
   referenced_in :parent, :class_name => 'Location', :inverse_of => :children,
@@ -17,17 +19,24 @@ class Location
     :foreign_key => :parent_id, :inverse_of => :parent
 
   # === Indexes ===
+
   index :uid, :unique => true
   index :name, :unique => true
 
   # === Validations ===
+
   validates_presence_of :uid
   validates_uniqueness_of :uid
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_uniqueness_of :abbreviation, :allow_nil => true
 
+  # === Callbacks ===
+
+  # === Scopes ===
+
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:uid])
   end
@@ -37,6 +46,9 @@ class Location
   end
 
   # === Instance Methods ===
+
   def to_param; uid end
+
+  protected
 
 end

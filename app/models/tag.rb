@@ -6,18 +6,26 @@ class Tag
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :name, :type => String
 
   # === Associations ===
+
   referenced_in :data_set, :index => true
   referenced_in :user, :index => true
 
   # === Indexes ===
 
   # === Validations ===
+
   validates_presence_of :name
 
+  # === Callbacks ===
+
+  # === Scopes ===
+
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params, [:name])
   end
@@ -27,5 +35,7 @@ class Tag
   end
 
   # === Instance Methods ===
+
+  protected
 
 end

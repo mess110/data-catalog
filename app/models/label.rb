@@ -5,17 +5,25 @@ class Label
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :name, :type => String
   field :url,  :type => String
 
   # === Associations ===
+
   referenced_in :site
 
   # === Validations ===
+
   validates_presence_of :name
   validates_presence_of :site
 
+  # === Callbacks ===
+
+  # === Scopes ===
+
   # === Class Methods ===
+
   def self.find_duplicate(params)
     raise "Probably implemented wrong"
     # Note: I have very little confidence that this is correct, because :site
@@ -36,5 +44,7 @@ class Label
   end
 
   # === Instance Methods ===
+
+  protected
 
 end

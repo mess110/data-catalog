@@ -33,6 +33,7 @@ class Activity
   include Mongoid::Timestamps
 
   # === Fields ===
+
   field :subject_label, :type => String
   field :subject_path,  :type => String
   field :verb,          :type => String
@@ -40,6 +41,7 @@ class Activity
   field :object_path,   :type => String
 
   # === Associations ===
+
   referenced_in :subject_user, :class_name => 'User', :index => true
   referenced_in :object_user, :class_name => 'User', :index => true
   referenced_in :object_data_set, :class_name => 'DataSet',
@@ -48,6 +50,7 @@ class Activity
   # === Indexes ===
 
   # === Validations ===
+
   validates_presence_of :subject_user
   validates_presence_of :subject_label
   validates_presence_of :subject_path
@@ -55,8 +58,8 @@ class Activity
   validates_inclusion_of :verb, :in =>
     %w(sign-up follow watch comment suggest)
 
-  validate :fields_for_verb
-  def fields_for_verb
+  validate :validate_fields_for_verb
+  def validate_fields_for_verb
     case verb
     when 'sign-up'
       expect(:object_label,    :nil)
@@ -75,15 +78,18 @@ class Activity
       expect(:object_data_set, :truthy)
     end
   end
+  protected :validate_fields_for_verb
 
   # === Callbacks ===
 
   # === Scopes ===
+
   scope :recent, lambda { |count| descending(:created_at).limit(count) }
 
   # === Map/Reduce ===
 
   # === Class Methods ===
+
   def self.find_duplicate(params)
     ModelHelper.find_duplicate(self, params,
       [:subject_path, :verb, :object_path])
