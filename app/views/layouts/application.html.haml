@@ -6,7 +6,7 @@
     %title= "#{@page_title} | National Data Catalog"
     /[if lt IE 9]
       = javascript_include_tag 'html5shiv'
-    = stylesheet_link_tag 'yui/reset', 'application', :cache => true
+    = stylesheet_link_tag 'yui/reset', 'jquery-ui-1.8.9.custom', 'application', :cache => true
     %link{ :rel => "shortcut icon", :href => "/favicon.ico" }
     = csrf_meta_tag
     = content_for :head
@@ -18,7 +18,7 @@
         = yield
       .clear
       #footer_wrapper= render 'layouts/footer'
-    = javascript_include_tag 'jquery-1.4.4.min', 'rails', 'application', :cache => true
+      = javascript_include_tag 'jquery-1.4.4.min','jquery-ui-1.8.9.custom.min', 'rails', 'application', :cache => true
     - if Rails.env == 'production'
       %script{ :src => "http://services.sunlightlabs.com/brandingbar/hat_js/natdatcat/", :type => "text/javascript" }
       = render 'layouts/analytics'
