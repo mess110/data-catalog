@@ -1,8 +1,11 @@
 development:
   host: localhost:3000
+  openssl_verify_mode: null
 
 test:
   host: localhost:3000
+  openssl_verify_mode: null
 
 production:
   host: localhost:3000
+  openssl_verify_mode: null
