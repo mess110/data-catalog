@@ -9,3 +9,8 @@ test:
 production:
   host: localhost:3000
   openssl_verify_mode: null
+  address: smtp.yourdomain.com
+  port: 25
+  domain: nationaldatacatalog.com
+  user_name: smtp_user_name
+  password: a_very_good_password
