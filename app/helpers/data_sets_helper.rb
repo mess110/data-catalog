@@ -68,7 +68,7 @@ module DataSetsHelper
 
   # field_name should be a symbol
   def data_set_rating_histogram(data_set, field_name)
-    histogram_image_tag(data_set.id, field_name, :class => :rating)
+    rating_histogram_image_tag(data_set.id, field_name, :class => :rating)
   end
 
   def data_set_distributions(data_set)
