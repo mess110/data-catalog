@@ -3,6 +3,7 @@ module GravatarHelper
   BASE_URL = 'http://www.gravatar.com/avatar/'
   SIZE = 60
   DIMENSIONS = "#{SIZE}x#{SIZE}"
+  SUBFOLDER = 'gravatars'
 
   def gravatar_image_tag(email, name)
     filename = gravatar_cached_filename(email)
@@ -20,11 +21,11 @@ module GravatarHelper
   end
 
   def gravatar_cached_path(email)
-    '/images/gravatars/' + gravatar_basename(email)
+    "/images/#{SUBFOLDER}/" + gravatar_basename(email)
   end
 
   def gravatar_cached_filename(email)
-    Rails.root.join('public/images/gravatars', gravatar_basename(email))
+    Rails.root.join("public/images/#{SUBFOLDER}", gravatar_basename(email))
   end
 
   def gravatar_id(email)
