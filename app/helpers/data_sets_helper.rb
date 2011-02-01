@@ -1,16 +1,5 @@
 module DataSetsHelper
 
-  def data_set_active_rating(rating)
-    average = rating['avg']
-    content_tag(:form) do
-      content_tag(:div, :class => 'rating_read_only hidden') do
-        (1 .. 5).map do |x|
-          radio_button_tag('the_name', x, x == average.floor)
-        end.join
-      end
-    end
-  end
-
   def data_set_catalogs(data_set)
     catalogs = data_set.catalogs
     return 'none' if catalogs.empty?
