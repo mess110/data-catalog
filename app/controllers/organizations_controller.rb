@@ -1,5 +1,7 @@
 class OrganizationsController < ApplicationController
 
+  autocomplete :organization, :name, :full => true
+
   def index
     @organizations = Organization.all
   end

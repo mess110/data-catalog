@@ -134,6 +134,8 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails3-jquery-autocomplete (0.6.1)
+      rails (~> 3.0.0)
     rails_best_practices (0.6.6)
       activesupport
       colored (~> 1.2)
@@ -227,6 +229,7 @@ DEPENDENCIES
   mongoid_slug (~> 0.6)
   nokogiri (~> 1.4)
   rails (~> 3.0)
+  rails3-jquery-autocomplete (~> 0.6)
   rdiscount (~> 1.6)
   resque (~> 1.10)
   resque-scheduler (~> 1.9)
