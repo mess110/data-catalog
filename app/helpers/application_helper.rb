@@ -1,6 +1,7 @@
 module ApplicationHelper
   include GravatarHelper
   include RatingHistogramHelper
+  include RatingMeterHelper
 
   def data_sets_search_path(label)
     case label

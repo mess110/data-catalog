@@ -59,10 +59,12 @@ module DataSetsHelper
     link_to(parent.title, data_set_path(parent))
   end
 
-  def data_set_passive_rating(rating)
+  def data_set_rating_meter(rating)
     average = rating['avg']
-    content_tag(:meter, :min => 1, :max => 5, :value => average) do
-      "#{rating} out of 5"
+    if average
+      rating_meter_image_tag(average)
+    else
+      "?"
     end
   end
 
