@@ -38,7 +38,6 @@ section#data_sets_index
           label.rating
             float: left
             width: 25%
-          input[type=text]
           input#keyword_search
             width: 100%
           input.date
@@ -51,7 +50,6 @@ section#data_sets_index
             height: 3 * $baseline
           select#distribution_formats
             height: 5 * $baseline
-          select#distribution_formats
       section.columns
         input.update
           margin-top: $baseline
@@ -105,10 +103,15 @@ section#data_sets_index
     tbody
       tr
         td.title
+          text-align: left
         td.organization
+          text-align: left
         td.catalogs
+          text-align: left
         td.categories
+          text-align: left
         th.tags
+          text-align: left
         td.data_quality
           text-align: center
         td.documentation_quality
