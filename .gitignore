@@ -19,3 +19,6 @@ public/stylesheets/*.css
 
 # ignore combined JS file (production mode)
 public/javascripts/all.js
+
+# ignore cached index files from importers
+lib/importers/**/index.html
