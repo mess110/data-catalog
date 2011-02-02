@@ -64,16 +64,17 @@ module Validators
   # if not blank, expect a ratings hash
   def expect_ratings_hash(value, field)
     return true if value.blank?
-    if (value.keys - %w(avg min max bins)).length > 0
-      errors.add(field, "only 'min', 'max', 'avg', and 'bins' keys are allowed")
+    if (value.keys - %w(avg min max bins n)).length > 0
+      errors.add(field, "only 'min', 'max', 'avg', 'bins', and 'n' keys are allowed")
       return false
     end
-    min, max, avg, bins = value['min'], value['max'], value['avg'], value['bins']
+    min, max, avg, bins, n = value['min'], value['max'], value['avg'], value['bins'], value['n']
     error_count = 0
     error_count += 1 unless expect_integer(min, field, :min)
     error_count += 1 unless expect_integer(max, field, :max)
     error_count += 1 unless expect_integer_or_float(avg, field, :avg)
     error_count += 1 unless expect_array_of_integers(bins, field, :bins)
+    error_count += 1 unless expect_integer(n, field, :n)
     error_count == 0
   end
 

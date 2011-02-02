@@ -13,7 +13,8 @@ describe DataSet do
         'min'  => 1,
         'max'  => 5,
         'avg'  => 3.4,
-        'bins' => [4, 0, 0, 0, 6]
+        'bins' => [4, 0, 0, 0, 6],
+        'n'    => 10,
       }
     end
 
@@ -24,7 +25,8 @@ describe DataSet do
         'min'  => 1,
         'max'  => 3,
         'avg'  => 1.75,
-        'bins' => [4, 2, 2, 0, 0]
+        'bins' => [4, 2, 2, 0, 0],
+        'n'    => 8,
       }
     end
 
@@ -35,7 +37,8 @@ describe DataSet do
         'min'  => 3,
         'max'  => 5,
         'avg'  => 4.0,
-        'bins' => [0, 0, 4, 4, 4]
+        'bins' => [0, 0, 4, 4, 4],
+        'n'    => 12,
       }
     end
 
@@ -108,6 +111,38 @@ describe DataSet do
         errors[:interestingness].length == 2
       errors[:interestingness].should include("bins[2] must be an integer if present")
       errors[:interestingness].should include("bins[4] must be an integer if present")
+    end
+
+    it "should allow n item to be passed in but recalculate it" do
+      ds = Factory.build(:data_set, {
+        :interestingness => {
+          'min'  => nil,
+          'max'  => nil,
+          'avg'  => nil,
+          'bins' => [0, 1, 3, 2, 1],
+          'n'    => 1823
+        }
+      })
+      ds.should be_valid
+      ds.valid?
+      ds.interestingness['n'].should == 7
+    end
+
+    it "should be invalid when n item is not an integer" do
+      ds = Factory.build(:data_set, {
+        :interestingness => {
+          'min'  => nil,
+          'max'  => nil,
+          'avg'  => nil,
+          'bins' => [0, 1, 3, 2, 1],
+          'n'    => "4"
+        }
+      })
+      ds.should_not be_valid
+      errors = ds.errors
+      errors.length.should == 1 &&
+        errors[:interestingness].length == 1
+      errors[:interestingness].should include("n must be an integer if present")
     end
   end
 

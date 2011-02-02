@@ -16,6 +16,7 @@
 #   'min'  => 2,
 #   'max'  => 5
 #   'bins' => [0, 3, 12, 11, 5],
+#   'n'    => 31,
 # }
 #
 # Rating explanation:
@@ -31,6 +32,8 @@
 #   12 ratings as a 3 (average)
 #   11 ratings as a 4 (good)
 #    5 ratings as a 5 (excellent)
+#
+# The 'n' key means 'count'. In the example above, there were 31 ratings.
 #
 # === url ===
 #
@@ -189,7 +192,8 @@ class DataSet
     {
       'min' => min,
       'max' => max,
-      'avg' => total_count == 0 ? nil : weighted_sum / total_count.to_f
+      'avg' => total_count == 0 ? nil : weighted_sum / total_count.to_f,
+      'n'   => total_count
     }
   end
 
