@@ -3,10 +3,10 @@ class CacheRatingMeter
 
   @queue = :rating_meter
 
-  def self.perform(value)
-    filename = rating_meter_cached_filename(value)
+  def self.perform(value, confidence)
+    filename = rating_meter_cached_filename(value, confidence)
     return if File.exist?(filename) && fresh?(filename)
-    url = rating_meter_url(value)
+    url = rating_meter_url(value, confidence)
     system %(curl "#{url}" -o #{filename} --create-dirs)
   end
 

@@ -60,9 +60,9 @@ module DataSetsHelper
   end
 
   def data_set_rating_meter(rating)
-    average = rating['avg']
-    if average
-      rating_meter_image_tag(average)
+    average, count = rating['avg'], rating['n']
+    if count > 0
+      rating_meter_image_tag(average, count)
     else
       'not rated yet'
     end
