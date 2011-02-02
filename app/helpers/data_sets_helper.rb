@@ -64,7 +64,7 @@ module DataSetsHelper
     if average
       rating_meter_image_tag(average)
     else
-      "?"
+      'not rated yet'
     end
   end
 
