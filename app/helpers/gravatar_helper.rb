@@ -1,9 +1,9 @@
 module GravatarHelper
 
-  BASE_URL = 'http://www.gravatar.com/avatar/'
-  SIZE = 60
+  BASE_URL   = 'http://www.gravatar.com/avatar/'
+  SIZE       = 60
   DIMENSIONS = "#{SIZE}x#{SIZE}"
-  SUBFOLDER = 'gravatars'
+  SUBFOLDER  = 'gravatars'
 
   def gravatar_image_tag(email, name)
     filename = gravatar_cached_filename(email)

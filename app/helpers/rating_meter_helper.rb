@@ -1,9 +1,9 @@
 module RatingMeterHelper
 
-  BASE_URL = 'http://chart.apis.google.com/chart'
+  BASE_URL   = 'http://chart.apis.google.com/chart'
   DIMENSIONS = '80x16'
-  SUBFOLDER = 'data_set_average_ratings'
-  COLOR = '0B6E8E'
+  SUBFOLDER  = 'data_set_average_ratings'
+  COLOR      = '0B6E8E'
 
   def rating_meter_image_tag(value, image_options = {})
     filename = rating_meter_cached_filename(value)
