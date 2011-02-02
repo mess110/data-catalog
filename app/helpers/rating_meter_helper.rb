@@ -35,7 +35,8 @@ module RatingMeterHelper
       "&chco=%s" % COLOR +
       "&chds=0,5" +
       "&chd=t:%.1f" % average +
-      "&chg=20,100,1,0"
+      "&chg=20,100,1,0" +
+      "&chf=bg,s,FFFFFF00|c,s,FFFFFF"
   end
 
   def rating_meter_cached_path(average, confidence)
