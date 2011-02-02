@@ -1,7 +1,7 @@
 module RatingMeterHelper
 
   BASE_URL = 'http://chart.apis.google.com/chart'
-  DIMENSIONS = '100x20'
+  DIMENSIONS = '80x16'
   SUBFOLDER = 'data_set_average_ratings'
   COLOR = '0B6E8E'
 
@@ -18,15 +18,14 @@ module RatingMeterHelper
   end
 
   # Horizontal Bar Chart:
-  
   # http://chart.apis.google.com/chart
   #   ?chxr=0,0,5
   #   &chxs=0,,0,0,_|1,,0,0,_
   #   &chxt=x,y
-  #   &chbh=19,0,0
-  #   &chs=100x20
+  #   &chbh=15,0,0
+  #   &chs=80x16
   #   &cht=bhs
-  #   &chco=4D89F9
+  #   &chco=0B6E8E
   #   &chds=0,5
   #   &chd=t:2.8
   #   &chg=20,100,1,0
@@ -35,7 +34,7 @@ module RatingMeterHelper
       "?chxr=0,0,5" +
       "&chxs=0,,0,0,_|1,,0,0,_" +
       "&chxt=x,y" +
-      "&chbh=19,0,0" +
+      "&chbh=15,0,0" +
       "&chs=#{DIMENSIONS}" +
       "&cht=bhs" +
       "&chco=#{COLOR}" +
