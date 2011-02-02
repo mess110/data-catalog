@@ -1,12 +1,12 @@
 module RatingHistogramHelper
 
-  BASE_URL = 'http://chart.apis.google.com/chart'
-  DIMENSIONS = '165x110'
-  SUBFOLDER = 'data_set_rating_histograms'
-  COLOR = '0B6E8E'
-  X_LABELS = "|1*|2*|3*|4*|5*" # "|poor|fair|average|good|excellent"
-  FONT_SIZE = 12
-  LABEL_COLOR = '202020'
+  BASE_URL    = 'http://chart.apis.google.com/chart'
+  DIMENSIONS  = '165x110'
+  SUBFOLDER   = 'data_set_rating_histograms'
+  COLOR       = '0B6E8E'
+  X_LABELS    = "|1|2|3|4|5" # "|poor|fair|average|good|excellent"
+  FONT_SIZE   = 12
+  LABEL_COLOR = '361C17'
 
   def rating_histogram_image_tag(data_set_id, field_name, image_options = {})
     filename = rating_histogram_cached_filename(data_set_id, field_name)
@@ -27,12 +27,20 @@ module RatingHistogramHelper
     values = data_set[field_name]['bins']
     max_value = round_up(values.max, 2)
     y_labels = max_value > 0 ? "|0|#{max_value / 2}|#{max_value}" : "|0"
-    label_color = ""
     BASE_URL +
-      "?chxl=0:#{X_LABELS}|1:#{y_labels}" +
+      "?chxl=" +
+        "0:#{X_LABELS}|" +
+        "1:#{y_labels}|" +
+        "2:|Stars|" +
+        "3:|Count" +
       "&chxr=0,1,5|1,#{max_value}" +
-      "&chxs=0,#{LABEL_COLOR},#{FONT_SIZE},0,l|1,#{LABEL_COLOR},#{FONT_SIZE},0,l" +
-      "&chxt=x,y" +
+      "&chxs=" +
+        "0,#{LABEL_COLOR},#{FONT_SIZE},0,l|" +
+        "1,#{LABEL_COLOR},#{FONT_SIZE},0,l|" +
+        "2,#{LABEL_COLOR},#{FONT_SIZE},0,_|" +
+        "3,#{LABEL_COLOR},#{FONT_SIZE},0,_" +
+      "&chxp=2,50|3,50" +
+      "&chxt=x,y,x,y" +
       "&chbh=a" +
       "&chs=#{DIMENSIONS}" +
       "&cht=bvs" +
