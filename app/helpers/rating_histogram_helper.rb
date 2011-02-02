@@ -20,19 +20,7 @@ module RatingHistogramHelper
       merge(image_options))
   end
 
-  # Horizontal Bar Chart:
-  # http://chart.apis.google.com/chart
-  #    ?chxl=0:|0|8|16|1:|poor|fair|average|good|excellent
-  #    ?chxl=1:|poor|fair|average|good|excellent
-  #    &chxr=0,0,16|1,1,5
-  #    &chxs=0,676767,10,0,l,676767|1,676767,10,0,l,676767
-  #    &chxt=x,y
-  #    &chbh=13,1,1
-  #    &chs=135x90
-  #    &cht=bvs
-  #    &chco=0B6E8E
-  #    &chds=0,16
-  #    &chd=t:4,12,15,9,3
+  # Horizontal Bar Chart
   def rating_histogram_url(data_set_id, field_name)
     data_set = DataSet.criteria.id(data_set_id).first
     raise "Could not find DataSet with id: #{data_set_id}" unless data_set

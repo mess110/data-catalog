@@ -17,18 +17,7 @@ module RatingMeterHelper
       merge(image_options))
   end
 
-  # Horizontal Bar Chart:
-  # http://chart.apis.google.com/chart
-  #   ?chxr=0,0,5
-  #   &chxs=0,,0,0,_|1,,0,0,_
-  #   &chxt=x,y
-  #   &chbh=15,0,0
-  #   &chs=80x16
-  #   &cht=bhs
-  #   &chco=0B6E8E
-  #   &chds=0,5
-  #   &chd=t:2.8
-  #   &chg=20,100,1,0
+  # Horizontal Bar Chart
   def rating_meter_url(value)
     BASE_URL +
       "?chxr=0,0,5" +
