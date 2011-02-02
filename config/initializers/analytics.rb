@@ -1,2 +1,3 @@
-DataCatalog::Application.config.analytics_key = YAML::load_file(
-  Rails.root.join('config', 'analytics.yml'))['key']
+ConfigFile.load('analytics.yml') do |config|
+  DataCatalog::Application.config.analytics_key = config['key']
+end

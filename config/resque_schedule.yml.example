@@ -1,0 +1,22 @@
+defaults: &defaults
+  count_data_sets_by_category:
+    cron: "*/1 * * * *"
+    class: CountDataSetsByCategory
+    args:
+    - 10
+    description: Calculate the number of data sets by categories
+  count_data_sets_by_location:
+    cron: "*/1 * * * *"
+    class: CountDataSetsByLocation
+    args:
+    - 10
+    description: Calculate the number of data sets by categories
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

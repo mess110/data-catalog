@@ -1,22 +1,22 @@
-mail_config = YAML::load_file(Rails.root.join('config', 'mail.yml'))[Rails.env]
-DataCatalog::Application.config.action_mailer.default_url_options = {
-  :host => mail_config['host']
-}
-
-smtp_settings = if Rails.env == 'production'
-  {
-    :address        => mail_config["address"],
-    :port           => mail_config["port"],
-    :domain         => mail_config["domain"],
-    :authentication => :login,
-    :user_name      => mail_config["user_name"],
-    :password       => mail_config["password"]
-  }
-else
-  {}
+ConfigFile.load('mail.yml') do |config|
+  mailer_config = DataCatalog::Application.config.action_mailer
+  mailer_config.default_url_options = { :host => config['host'] }
+  smtp_settings = if Rails.env == 'production'
+    {
+      :address        => config["address"],
+      :port           => config["port"],
+      :domain         => config["domain"],
+      :authentication => :login,
+      :user_name      => config["user_name"],
+      :password       => config["password"]
+    }
+  else
+    {}
+  end
+  mailer_config.smtp_settings = smtp_settings.merge({
+    :openssl_verify_mode => config['openssl_verify_mode']
+  })
 end
-DataCatalog::Application.config.action_mailer.smtp_settings = smtp_settings.
-  merge({ :openssl_verify_mode => mail_config['openssl_verify_mode'] })
 
 # Having SSL problems when sending mail? You don't have to disable TLS.
 # Instead you can change the OpenSSL verification mode. See:

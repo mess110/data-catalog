@@ -1,1 +1,11 @@
-key: UA-12345678
+defaults: &defaults
+  key: UA-12345678
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
