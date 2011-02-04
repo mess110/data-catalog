@@ -1,0 +1,5 @@
+- ds = @data_set
+- @page_title = ds.title
+%section#data_sets_edit
+  %h1.page_title= @page_title
+  = render :partial => 'form'

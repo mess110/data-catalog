@@ -6,7 +6,9 @@ DataCatalog::Application.routes.draw do
   end
   resources :discussions
   resources :locations
-  resources :organizations
+  resources :organizations do
+    get :autocomplete_organization_name, :on => :collection
+  end
   resources :sites
   resources :tags
   resources :users

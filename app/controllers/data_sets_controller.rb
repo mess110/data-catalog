@@ -1,19 +1,45 @@
 class DataSetsController < ApplicationController
 
+  respond_to :html, :json
+
   def index
     @data_sets = DataSet.top_level
     advanced_search_setup
+    respond_with(@data_sets)
   end
 
   def show
     @data_set = DataSet.where(:slug => params[:id]).first
-    render_404 && return unless @data_set
+    @data_set ? respond_with(@data_set) : render_status(404)
   end
 
   def new
+    @data_set = DataSet.new
+    edit_setup
+    respond_with(@data_set)
   end
 
   def create
+  end
+
+  def update
+    data_set = DataSet.where(:slug => params[:id])
+    case params[:commit]
+    when "Save"
+      redirect_to @data_set
+    when "Save and continue editing"
+      redirect_to [:edit, @data_set]
+    else
+      flash[:alert] = "ERROR"
+      render :action => :new
+    end
+  end
+
+  def edit
+    @data_set = DataSet.where(:slug => params[:id]).first
+    render_status(404) && return unless @data_set
+    edit_setup
+    respond_with(@data_set)
   end
 
   # (This is a custom verb, not your usual REST CRUD.)
@@ -25,6 +51,24 @@ class DataSetsController < ApplicationController
   end
 
   protected
+
+  def edit_setup
+    @organizations      = Organization.ascending(:name)
+    @categories         = Category.ascending(:name)
+    @primary_categories = Category.primary.ascending(:name)
+    @catalogs           = Catalog.ascending(:name)
+    @data_sets          = DataSet.ascending(:title)
+    @lists = {
+      :data_sets => @data_sets.map { |x| [x.title, x.uid] },
+    }
+    @selected = {
+      :organization => @data_set.organization.try(:uid),
+      :categories   => @data_set.categories.map { |x| x.uid },
+      :catalogs     => @data_set.catalogs.map { |x| x.uid },
+      :parent       => @data_set.parent.try(:uid),
+      :children     => @data_set.children.map { |x| x.uid },
+    }
+  end
 
   def get_active_filters
     filters = get_filters_array

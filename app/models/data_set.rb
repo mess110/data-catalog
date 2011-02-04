@@ -168,6 +168,10 @@ class DataSet
 
   # === Instance Methods ===
 
+  def organization_name
+    organization.try(:name)
+  end
+
   protected
 
   def process_ratings(value)

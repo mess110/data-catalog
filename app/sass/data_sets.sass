@@ -46,9 +46,11 @@ section#data_sets_index
             width: 100%
           select.rating
             width: 60%
-          select#distribution_kinds
+          select.catalogs
+            height: 4 * $baseline
+          select.distribution_kinds
             height: 3 * $baseline
-          select#distribution_formats
+          select.distribution_formats
             height: 5 * $baseline
       section.columns
         input.update
@@ -154,24 +156,42 @@ section#data_sets_show
           width: 100%
 
 // ===== data_sets#new ======
+// ===== data_sets#edit =====
 
-section#data_sets_new
-  section.metadata
-    +box(4)
-    margin-right: $h_space
+section#data_sets_new, section#data_sets_edit
+  section.details
     dl
+      dd
+        textarea,
+        input[type=url],
+        input[type=text],
+        select
+          +multicolumn_width(2, 2 * $h_space)
+        input[type=checkbox]
+      dd.period
+        input
+          width: 10em
+      dd.released
+        input
+          width: 10em
       dd.description
-        height: $baseline * 3
+        height: $baseline * 6
         textarea
-          height: $baseline * 3
-    textarea,
-    input
-      +multicolumn_width(2, 0px)
-      background-color: $coconut_cream
-    input#data_set_period_start,
-    input#data_set_period_end
-      width: inherit
-  input#data_set_submit
-    padding: 0 2em
+          height: $baseline * 6
+      dd.organization
+      dd.categories
+        input[type=checkbox]
+          margin-right: 0.5em
+        span.toggle_secondary
+          color: $link_color
+          cursor: pointer
+        ul.secondary
+          margin-left: 1.5em
+      dd.catalogs
+  div.save_buttons
     margin-left: $inside_column_width + $h_space
     margin-top: $baseline
+    input[type=submit]
+      height: 2 * $baseline
+      margin-right: $h_space
+      +font_2

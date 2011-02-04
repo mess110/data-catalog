@@ -1,0 +1,62 @@
+%section.details
+  = form_for(@data_set) do |f|
+    %dl
+      %dt Title
+      %dd.title= f.text_field(:title)
+      %dt Description
+      %dd.description= f.text_area(:description, :rows => 6, :cols => 50)
+      .clear
+    %dl
+      %dt Organization
+      %dd.organization
+        = f.autocomplete_field :organization_name, autocomplete_organization_name_organizations_path, :id_element => '#organization_uid'
+        = hidden_field_tag(:organization_uid, @data_set.organization.try(:name), :read_only => true)
+      %dt Time Period
+      %dd.period
+        = text_field_tag('data_set[period_start_to_s]', kronos_to_s(@data_set.period_start), :size => 12)
+        %span= " to "
+        = text_field_tag('data_set[period_end_to_s]', kronos_to_s(@data_set.period_end), :size => 12)
+      %dt Released
+      %dd.released= text_field_tag('data_set[released_to_s]', kronos_to_s(@data_set.released), :size => 12)
+      %dt URL
+      %dd= f.url_field(:url, :size => 50)
+      %dt Documentation URL
+      %dd= f.url_field(:documentation_url, :size => 50)
+      %dt License
+      %dd= f.text_field(:license, :size => 50)
+      %dt License URL
+      %dd= f.url_field(:license_url, :size => 50)
+      .clear
+    %dl
+      %dt Categories
+      %dd.categories
+        %ul
+          - @primary_categories.each do |primary_category|
+            - primary_category_uid = primary_category.uid
+            %li{ :class => primary_category_uid }
+              %label<
+                = check_box_tag('data_set[categories]', primary_category_uid, @selected[:categories].include?(primary_category_uid))
+                = primary_category.name
+              %span.toggle_secondary= "(more)"
+              %ul.secondary
+                - primary_category.children.ascending(:name).each do |secondary_category|
+                  - secondary_category_uid = secondary_category.uid
+                  %li
+                    %label<
+                      = check_box_tag('data_set[categories]', secondary_category_uid, @selected[:categories].include?(secondary_category_uid))
+                      = secondary_category.name
+      .clear
+    %dl
+      %dt Catalogs
+      %dd.catalogs
+        - @catalogs.each do |catalog|
+          - catalog_uid = catalog.uid
+          %label<
+            = check_box_tag('data_set[catalogs]', catalog_uid, @selected[:catalogs].include?(catalog_uid))
+            = catalog.name
+            %br
+      .clear
+    .save_buttons
+      = f.submit "Save"
+      = f.submit "Save and continue editing"
+      .clear

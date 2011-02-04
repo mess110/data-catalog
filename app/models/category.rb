@@ -16,6 +16,7 @@ class Category
   field :uid,         :type => String
   field :name,        :type => String
   field :description, :type => String
+  field :primary,     :type => Boolean, :default => false
   slug :name
   field :primary,     :type => Boolean, :default => true
 
