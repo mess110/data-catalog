@@ -4,7 +4,7 @@ class DataSetsController < ApplicationController
 
   def index
     @data_sets = DataSet.top_level
-    advanced_search_setup
+    setup_for_advanced_search
     respond_with(@data_sets)
   end
 
@@ -15,59 +15,80 @@ class DataSetsController < ApplicationController
 
   def new
     @data_set = DataSet.new
-    edit_setup
+    setup_for_editing
+    respond_with(@data_set)
+  end
+
+  def edit
+    @data_set = DataSet.where(:slug => params[:id]).first
+    render_status(404) && return unless @data_set
+    setup_for_editing
     respond_with(@data_set)
   end
 
   def create
+    @data_set = DataSet.new(params[:data_set])
+    respond_with(@data_set)
   end
 
   def update
-    data_set = DataSet.where(:slug => params[:id])
+    @data_set = DataSet.where(:slug => params[:id]).first
+    update_data_set(@data_set)
     case params[:commit]
     when "Save"
       redirect_to @data_set
     when "Save and continue editing"
       redirect_to [:edit, @data_set]
     else
-      flash[:alert] = "ERROR"
-      render :action => :new
+      raise "Unexpected submit action: #{params[:commit]}"
     end
-  end
-
-  def edit
-    @data_set = DataSet.where(:slug => params[:id]).first
-    render_status(404) && return unless @data_set
-    edit_setup
-    respond_with(@data_set)
   end
 
   # (This is a custom verb, not your usual REST CRUD.)
   def search
     filters = get_active_filters
     columns = get_columns_array
-    new_params = make_new_params(params, filters, columns)
+    new_params = make_new_search_params(params, filters, columns)
     redirect_to({ :action => :index }.merge(new_params))
   end
 
   protected
 
-  def edit_setup
+  def update_data_set(data_set)
+    data_set_params = params[:data_set]
+    data_set.update_attributes!(data_set_params.slice(
+      :title,
+      :keywords,
+      :url,
+      :description,
+      :documentation_url,
+      :license, 
+      :license_url,
+      :period_start,
+      :period_end,
+      :released,
+      :updated,
+      :frequency,
+      :missing,
+      :facets,
+      :granularity,
+      :geographic_coverage,
+    ))
+    data_set.category_ids = data_set_params[:category_ids]
+    data_set.catalog_ids = data_set_params[:catalog_ids]
+    data_set.save!
+  end
+
+  def basic_fields
+    params[:data_set]
+  end
+
+  def setup_for_editing
     @organizations      = Organization.ascending(:name)
     @categories         = Category.ascending(:name)
     @primary_categories = Category.primary.ascending(:name)
     @catalogs           = Catalog.ascending(:name)
     @data_sets          = DataSet.ascending(:title)
-    @lists = {
-      :data_sets => @data_sets.map { |x| [x.title, x.uid] },
-    }
-    @selected = {
-      :organization => @data_set.organization.try(:uid),
-      :categories   => @data_set.categories.map { |x| x.uid },
-      :catalogs     => @data_set.catalogs.map { |x| x.uid },
-      :parent       => @data_set.parent.try(:uid),
-      :children     => @data_set.children.map { |x| x.uid },
-    }
   end
 
   def get_active_filters
@@ -106,7 +127,7 @@ class DataSetsController < ApplicationController
   end
 
   # Removing a filter also removes associated form fields.
-  def make_new_params(params, filters, columns)
+  def make_new_search_params(params, filters, columns)
     h = {
        :filters => filters.join(','),
        :columns => columns.join(','),
@@ -118,7 +139,7 @@ class DataSetsController < ApplicationController
     h.delete_if { |k, v| v.blank? }
   end
 
-  def advanced_search_setup
+  def setup_for_advanced_search
     filter_setup
     column_setup
     other_setup

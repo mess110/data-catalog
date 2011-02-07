@@ -32,27 +32,27 @@
       %dd.categories
         %ul
           - @primary_categories.each do |primary_category|
-            - primary_category_uid = primary_category.uid
-            %li{ :class => primary_category_uid }
+            - primary_category_id = primary_category.id
+            %li
               %label<
-                = check_box_tag('data_set[categories]', primary_category_uid, @selected[:categories].include?(primary_category_uid))
+                = check_box_tag('data_set[category_ids][]', primary_category_id, @data_set.category_ids.include?(primary_category_id))
                 = primary_category.name
               %span.toggle_secondary= "(more)"
               %ul.secondary
                 - primary_category.children.ascending(:name).each do |secondary_category|
-                  - secondary_category_uid = secondary_category.uid
+                  - secondary_category_id = secondary_category.id
                   %li
                     %label<
-                      = check_box_tag('data_set[categories]', secondary_category_uid, @selected[:categories].include?(secondary_category_uid))
+                      = check_box_tag('data_set[category_ids][]', secondary_category_id, @data_set.category_ids.include?(secondary_category_id))
                       = secondary_category.name
       .clear
     %dl
       %dt Catalogs
       %dd.catalogs
         - @catalogs.each do |catalog|
-          - catalog_uid = catalog.uid
+          - catalog_id = catalog.id
           %label<
-            = check_box_tag('data_set[catalogs]', catalog_uid, @selected[:catalogs].include?(catalog_uid))
+            = check_box_tag('data_set[catalog_ids][]', catalog_id, @data_set.catalog_ids.include?(catalog_id))
             = catalog.name
             %br
       .clear
