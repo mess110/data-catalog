@@ -23,4 +23,5 @@ group :test, :development do
   gem 'capistrano', '~> 2.5'
   gem 'metric_fu', '~> 2.0'
   gem 'rspec-rails', '~> 2.4'
+  gem 'spork'
 end

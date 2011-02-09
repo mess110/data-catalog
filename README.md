@@ -76,6 +76,11 @@ Just install the National Data Catalog like a typical Rails 3 application. Here 
     * `rails s`
 8. Optional: if you are customizing or modifying the source code, fire up autotest:
     * `autotest`
+9. Optional: if you want to use [spork](http://spork.rubyforge.org/) drb to speed up your tests:
+    * Start spork:
+        * `spork`
+     * Run a spec:
+        * `rspec --drb spec/models/organization_spec.rb`
 
 ## Notable Directories
 
