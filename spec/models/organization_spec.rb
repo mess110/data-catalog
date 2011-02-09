@@ -1,5 +1,11 @@
 require 'spec_helper'
 
-# describe Organization do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+describe Organization do
+  describe "unsaved" do
+    subject { Factory.build(:organization) }
+    
+    it "should be valid" do
+      subject.should be_valid
+    end
+  end
+end
